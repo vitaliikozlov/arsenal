@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="dCodes Framework">
+<meta name="description" content="Multimedia Gallery Slides" />
+
+<title>Multimedia Gallery Slides (Responsive)</title>
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link href="css/skeleton.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+
+
+<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/index_autoSlide_horizontal_full.css" />
+<link rel="stylesheet" type="text/css" href="css/autoSlideMenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery.apPlaylistManager.min.js"></script>
+<script type="text/javascript" src="js/soundmanager2-nodebug-jsmin.js" ></script>
+<script type="text/javascript" src="js/jquery.slide.js"></script>
+
+<script type="text/javascript" src="js/jquery.touchSwipe.js"></script>
+<script>
+
+/*$(function()
+			{			
+				//Enable swiping...
+				$(".componentContent").swipe( {
+					//Generic swipe handler for all directions
+					swipe:function(event, direction, distance, duration, fingerCount) {
+						alert(direction);	
+					},
+					//Default is 75px, set to 0 for demo so any distance triggers swipe
+					threshold:0
+				});
+			});*/
+</script>
+<script type="text/javascript">
+			
+			function autoSlideReady(){
+				//function called when component is ready to receive public method calls
+				//console.log('autoSlideReady');
+			}
+			
+			function detailActivated(){
+				//function called when prettyphoto (in this case) is being triggered (in which case slideshow if is on, automatically stops, then later when prettyphoto is closed, slideshow is resumed)
+				//console.log('detailActivated');
+			}
+			
+			function detailClosed(){
+				//function called when prettyphoto (in this case) is closed
+				//console.log('detailClosed');
+			}
+			
+			var autoSlide_settings = {
+				/* componentFixedSize: true/false. If you use 100% for width/height, or both on componentWrapper, set this to false! */
+				componentFixedSize: false,
+				/*
+				timer interval is separated for IE and Chrome vs rest of the browsers, because javascript engine (in this case) runs much slower than in other browsers 
+				(although every browser is slightly different). 
+				I found IE runs much faster so it needed little bit slower interval (Chrome also quite fast). 
+				The problem is obviously if it goes too fast in the beginning until all images havent been loaded yet.
+				timer interval for autoslide 
+				*/
+				autoSlideInterval: 1,
+				IEautoSlideInterval: 10,
+				/* timer interval for manual slide (on button press) */
+				manualIncrement: 3,
+				IEmanualIncrement: 5,
+				/* margins between images */
+				verticalMarginSpace:5,
+				horizontalMarginSpace: 5,
+				/* slideshow autoplay */
+				autoPlay: true,
+				/* activePlaylist: playlist to be loaded on beginning (pass element 'id' attribute) */
+				activePlaylist: 'playlist1',
+				/* orientation: horizontal/vertical */
+				orientation: 'horizontal',
+				/* type: timer/scroll/thumbs (driven by timer, manual scroll, or thumbnails) */
+				type: 'timer',
+				/* showTitleOnRollover: true/false, show image title on rollover or always (on mobile always by default)  */
+				showTitleOnRollover: true,
+				/* showDetailOnRollover: true/false, show image details (link/lightbox buttons) on rollover or always (on mobile always by default)  */
+				showDetailOnRollover: true,
+				/* useMusic: true/false */
+				useMusic: false
+				
+			}
+			
+			/* music settings, delete if you dont use audio */
+			var autoSlide_music_settings = {
+				/* autoPlay: true/false, (false on mobile by default)  */
+				autoPlay: true,
+				/* activePlaylist: playlist to be loaded on beginning (pass element 'id' attribute) */
+				activePlaylist: 'audio_playlist1',
+				/*defaultVolume: 0-1 */
+				defaultVolume:1,
+				/*randomPlay: true/false */
+				randomPlay:false,
+				/*loopingOn: true/false (loop on the end of the playlist) */
+				loopingOn:true
+			}
+			
+			/* sound manager settings, delete if you dont use audio */
+			soundManager.allowScriptAccess = 'always';
+			soundManager.debugMode = false;
+			soundManager.noSWFCache = true;
+			soundManager.useConsole = false;
+			soundManager.waitForWindowLoad = true;
+			soundManager.url = 'swf/';//the path to flash files
+			soundManager.flashVersion = 9;//min flash version required
+			soundManager.preferFlash = false; // use HTML5 audio for MP3/MP4, if available
+			soundManager.useHTML5Audio = false;
+			
+			var audio = document.createElement('audio'), mp3Support, oggSupport;
+			if (audio.canPlayType) {
+			   mp3Support = !!audio.canPlayType && "" != audio.canPlayType('audio/mpeg');
+			   oggSupport = !!audio.canPlayType && "" != audio.canPlayType('audio/ogg; codecs="vorbis"');
+			}else{
+				//for IE<9
+				mp3Support = true;
+				oggSupport = false;
+			}
+			//console.log('mp3Support = ', mp3Support, ' , oggSupport = ', oggSupport);
+			
+			/*
+			FF - false, true
+			OP - false, true
+			
+			IE9 - true, false 
+			SF - true, false 
+			
+			CH - true, true
+			*/
+			
+		    soundManager.audioFormats = {
+			  'mp3': {
+				'type': ['audio/mpeg; codecs="mp3"', 'audio/mpeg', 'audio/mp3', 'audio/MPA', 'audio/mpa-robust'],
+				'required': mp3Support
+			  },
+			  'mp4': {
+				'related': ['aac','m4a'], // additional formats under the MP4 container
+				'type': ['audio/mp4; codecs="mp4a.40.2"', 'audio/aac', 'audio/x-m4a', 'audio/MP4A-LATM', 'audio/mpeg4-generic'],
+				'required': false
+			  },
+			  'ogg': {
+				'type': ['audio/ogg; codecs=vorbis'],
+				'required': oggSupport
+			  },
+			  'wav': {
+				'type': ['audio/wav; codecs="1"', 'audio/wav', 'audio/wave', 'audio/x-wav'],
+				'required': false
+			  }
+			};
+			
+			jQuery(window).load(function() {
+				jQuery.noConflict();
+				
+					  //init component
+					  jQuery.autoSlide('#componentWrapper', autoSlide_settings, autoSlide_music_settings);
+					  autoSlide_settings = null;
+					  autoSlide_music_settings=null;
+				
+			});
+           
+        </script>
+<style type="text/css">
+.componentContent{cursor:move;}
+.taheader {
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 10px;
+	width: 100px;
+}
+.taheader:hover {
+	opacity: 0.9;
+}
+.taheader a {
+	text-decoration: none;
+	line-height: 18px;
+	padding: 0 4px;
+	color: #ddd;
+}
+.taheader a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+.taheader a span {
+	font-weight: bold;
+}
+.right_ab {
+	float: right;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	padding: 8px;
+	text-shadow: 1px 1px 2px #333333;
+	filter: dropshadow(color=#333333, offx=1, offy=1);
+}
+.right_ab a {
+	float: right;
+	color: #fff;
+}
+</style>
+</head>
+<body>
+
+<!-- wrapper for the whole component -->
+<div id="componentWrapper"> 
+  
+  <!-- music playlist -->
+  <div class="musicPlaylist"> 
+    
+    <!-- NO EXTENSION for music file names!! -->
+    
+    <div id='audio_playlist1'>
+      <ul>
+        <li class= "audio_playlistItem" data-path="data/audio/1/add_your_songs_here"></li>
+        <li class= "audio_playlistItem" data-path="data/audio/1/add_your_songs_here"></li>
+        <li class= "audio_playlistItem" data-path="data/audio/1/add_your_songs_here"></li>
+      </ul>
+    </div>
+    <div id='audio_playlist2'>
+      <ul>
+        <li class= "audio_playlistItem" data-path="data/audio/2/add_your_songs_here"></li>
+        <li class= "audio_playlistItem" data-path="data/audio/2/add_your_songs_here"></li>
+        <li class= "audio_playlistItem" data-path="data/audio/2/add_your_songs_here"></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- gallery playlist -->
+  <div class="componentPlaylist"> 
+    
+    <!-- 
+                          data-path: path to the image (required, all other parameters optional),
+                          data-title: title for image, optional, empty for none like this: data-title='' or delete whole attribute,
+                      	  data-link: href address, optional, empty for none like this: data-link='' or delete whole attribute,
+                          data-target: '_blank' (open in new window) or '_parent' (open in same window), optional (_blank by default), empty for none like this: data-target='' or delete whole attribute,
+                          -to add prettyphoto content example, place this INTO 'li' item:
+                          <a class="pp_content" href="http://vimeo.com/49224248" data-rel="prettyPhoto[gallery1]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Vimeo Video" /></a>
+                          class has to be 'pp_content' for my jquery code to recognize it. a 'title' = description, img 'alt' = title as per prettyphoto documentation.
+                          
+                          if 'orientation' == 'horizontal'
+                          <ul class="section"> => this is a 'column'
+                          <li class='sub_section'> => this is a 'row'
+                          
+                          if 'orientation' == 'vertical'
+                          <ul class="section"> => this is a 'row'
+                          <li class='sub_section'> => this is a 'column'
+                      -->
+    
+    <div id='playlist1'>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/600x398/999999/ffffff/pic.jpg' 
+                                     data-title="Optional title"  > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/600x398/999999/ffffff/pic.jpg' 
+                                     data-title="YouTube Video"  
+                                     data-link='http://www.youtube.com/watch?v=JYKpIr1lSG0' 
+                                     data-target='_blank' > <a class="pp_content" href="http://www.youtube.com/watch?v=JYKpIr1lSG0" data-rel="prettyPhoto[gallery1]" title="Sample YouTube Video"><img src="data/icons/detail.png" width="30" height="30" alt="YouTube Video" /></a> </li>
+                                     	
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Ut lectus magna" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/400x399/999999/ffffff/pic.jpg' 
+                                     data-title="YouTube Video"  
+                                     data-link='http://www.youtube.com/watch?v=JYKpIr1lSG0' 
+                                     data-target='_blank' > <a class="pp_content" href="http://www.youtube.com/watch?v=JYKpIr1lSG0" data-rel="prettyPhoto[gallery1]" title="Sample YouTube Video"><img src="data/icons/detail.png" width="30" height="30" alt="YouTube Video" /></a> </li>                                     	
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/400x533/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/400x322/999999/ffffff/pic.jpg' 
+                                     data-title="Vimeo Video" 
+                                     data-link='http://vimeo.com/49224248' 
+                                     data-target='_blank' > <a class="pp_content" href="http://vimeo.com/49224248" data-rel="prettyPhoto[gallery1]" title="Sample Vimeo Video"><img src="data/icons/detail.png" width="30" height="30" alt="Vimeo Video" /></a> </li>
+                                     	
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/675x900/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam aliquam" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam justo" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/600x483/999999/ffffff/pic.jpg' 
+                                     data-title="Sed fermentum"  > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/600x450/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1350x900/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam aliquam"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean suscipit"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Donec non purus" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/500x409/999999/ffffff/pic.jpg' 
+                                     data-title="Donec mattis" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/500x612/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam vitae est"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/675x900/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam justo" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/675x900/999999/ffffff/pic.jpg' 
+                                     data-title="Duis lacus diam"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/675x900/999999/ffffff/pic.jpg' 
+                                     data-title="Aliquam erat" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Ut lectus magna" > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/525x700/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean egestas" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+      </ul>    	
+    </div>
+    
+    <div id='playlist2'>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Integer sit amet"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Optional title" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Ut porta dolor" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam aliquam"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Nulla facilisi" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Sed fermentum" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean suscipit" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Donec non purus"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Donec mattis" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Ut lectus magna" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam vitae est"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean egestas" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x900/999999/ffffff/pic.jpg' 
+                                     data-title="Ut porta dolor" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+      </ul>
+    </div>
+    
+    <div id='playlist3'>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/700x525/999999/ffffff/pic.jpg' 
+                                     data-title="YouTube Video"  
+                                     data-link='http://www.youtube.com/watch?v=JYKpIr1lSG0' 
+                                     data-target='_parent' > <a class="pp_content" href="http://www.youtube.com/watch?v=JYKpIr1lSG0" data-rel="prettyPhoto[gallery1]" title="Sample YouTube Video"><img src="data/icons/detail.png" width="30" height="30" alt="YouTube Video" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/700x488/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam aliquam" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1354x900/999999/ffffff/pic.jpg' 
+                                     data-title="Ut lectus magna" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/700x488/999999/ffffff/pic.jpg' 
+                                     data-title="Vimeo Video" 
+                                     data-link='http://vimeo.com/49224248' 
+                                     data-target='_blank' > <a class="pp_content" href="http://vimeo.com/49224248" data-rel="prettyPhoto[gallery1]" title="Sample Vimeo Video"><img src="data/icons/detail.png" width="30" height="30" alt="Vimeo Video" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean varius" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1299x900/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam vitae est" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1354x900/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam justo" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Sed fermentum" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean suscipit" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Donec non purus" > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/675x900/999999/ffffff/pic.jpg' 
+                                     data-title="Donec mattis" 
+                                     data-link='http://www.google.com/' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1200x900/999999/ffffff/pic.jpg' 
+                                     data-title="Ut porta dolor" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/700x957/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam aliquam" > </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- content holder, dont touch! -->
+  <div class="componentContent"></div>
+  
+  <!-- header at the top for menu and navigation -->
+  <div class="componentHeader">
+    <div class="taheader"> >> <a href="javascript:history.go(-1)" title="Go Back"><span>Back</span></a></div>
+    <span class="right_ab"> 
+    <!-- TA Style Switcher: This code can be safely removed --> 
+    <strong>Switch to:</strong> &nbsp; <a href="index2.html" title="Switch to Scroll View">Scroll View</a> &nbsp; 
+    <!-- /TA Style Switcher --> 
+    </span> 
+    
+    <!-- You need to have one menu item for every category in the gallery (in the order categoies appear) -->
+    <div class="componentMenu">
+      <div class="menuPlus"> <img src="data/icons/fullscreen_enter.png" width="30" height="30" alt="Select Category" title="Select Category" /></div>
+      <div class="currentCategory"></div>
+      <ul class="subMenu">
+        <li><a href="#">Gallery: Creative</a></li>
+        <li><a href="#">Gallery: Nature</a></li>
+        <li><a href="#">Gallery: Food</a></li>
+      </ul>
+    </div>
+    
+    <!-- controls -->
+    <div class="component_controls">
+      <ul>
+        <!-- music button is automatically removed if music is not used -->
+        <li><img src="data/icons/music_on.png" width="30" height="30" alt="music_on" class="controls_music" /></li>
+        <!-- fullscreen button is automatically removed if browser doesnt support fullscreen -->
+        <li><img src="data/icons/fullscreen_enter.png" width="30" height="30" alt="Fullscreen" title="Fullscreen" class="controls_fullscreen" /></li>
+        <li><img src="data/icons/dir_forward.png" width="30" height="30" alt="controls_direction" title="Change Direction" class="controls_direction" /></li>
+        <li><img src="data/icons/forward.png" width="30" height="30" alt="controls_forward" title=">>" class="controls_forward" /></li>
+        <li><img src="data/icons/play.png" width="30" height="30" alt="controls_pausePlay" title="Play/Pause" class="controls_pausePlay" /></li>
+        <li><img src="data/icons/backward.png" width="30" height="30" alt="controls_backward" title="<<" class="controls_backward" /></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- public function calls -->
+<div id='publicFunctions'>
+  <p>PUBLIC API</p>
+  <br/>
+  <p>GALLERY SETTINGS</p>
+  <br/>
+  <ul>
+    <!-- Toggle slideshow (pass true (play), false (stop) as parameter, or none for simple toggle). 
+                    This is for autoSlide and thumbs version, scroll doesnt have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.toggleSlideshow(); return false;">Toggle slideshow</a></li>
+    
+    <!-- Play next media,
+                    This is for thumbs version, autoSlide and scroll dont have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.nextMedia(); return false;">Play next media</a></li>
+    
+    <!-- Play previous media,
+                    This is for thumbs version, autoSlide and scroll dont have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.previousMedia(); return false;">Play previous media</a></li>
+    
+    <!-- Open media number,
+                    This is for thumbs version, autoSlide and scroll dont have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.openMedia(2); return false;">Open media number 2</a></li>
+    
+    <!-- Toggle direction, 
+                    This is for autoSlide and thumbs version, scroll doesnt have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.toggleDirection(); return false;">Toggle direction</a></li>
+    
+    <!-- Toggle playlist (pass true (open), false (close) as parameter, or none for simple toggle). 
+                    This is for thumbs version, autoSlide and scroll dont have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.togglePlaylist(); return false;">Toggle playlist</a></li>
+    
+    <!-- Load new playlist (pass element 'id' attribute) -->
+    <li><a href='#' onClick="jQuery.autoSlide.inputPlaylist('playlist2'); return false;">Load playlist number 2</a></li>
+  </ul>
+  <br/>
+  <p>MUSIC SETTINGS</p>
+  <br/>
+  <ul>
+    <!-- Toggle audio (pass true (play), false (stop) as parameter, or none for simple toggle). -->
+    <li><a href='#' onClick="jQuery.autoSlide.toggleAudio(); return false;">Toggle audio</a></li>
+    
+    <!-- Play next audio -->
+    <li><a href='#' onClick="jQuery.autoSlide.nextAudio(); return false;">Play next audio</a></li>
+    
+    <!-- Play previous audio -->
+    <li><a href='#' onClick="jQuery.autoSlide.previousAudio(); return false;">Play previous audio</a></li>
+    
+    <!-- Load audio number -->
+    <li><a href='#' onClick="jQuery.autoSlide.loadAudio(2); return false;">Load audio number 2</a></li>
+    
+    <!-- Set volume (0-1) -->
+    <li><a href='#' onClick="jQuery.autoSlide.setAudioVolume(0.5); return false;">Set volume (0.5)</a></li>
+    
+    <!-- Load audio playlist (pass element 'id' attribute) -->
+    <li><a href='#' onClick="jQuery.autoSlide.inputAudioPlaylist('audio_playlist2'); return false;">Load audio playlist 2</a></li>
+    
+    <!-- destroy audio -->
+    <li><a href='#' onClick="jQuery.autoSlide.destroyAudio(); return false;">Destroy audio</a></li>
+  </ul>
+</div>
+</body>
+</html>

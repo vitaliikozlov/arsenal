@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="dCodes Framework">
+<meta name="description" content="Super Gallery II" />
+<title>Super Gallery II (Responsive)</title>
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link href="css/skeleton.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="css/multiGalleryPlaylistBottomInside.css" />
+<!--[if lte IE 8 ]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="js/jquery.address-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.gallery.js"></script>
+<script type="text/javascript" src="js/jquery.touchSwipe.js"></script>
+<script type="text/javascript">
+			
+			// SETTINGS
+			var kb_settings = {
+				/* GENERAL */
+				/* componentFixedSize: true/false. If you use 100% for width/height, or both on componentWrapper, set this to false. */
+				componentFixedSize: false,
+				/* disableRightClick: true/false  */
+				disableRightClick: true,
+				/* forceImageFitMode: true/false. By default, only images bigger than component size will get proportionally resized to 'fit inside' or 'fit outside' mode. If this is true, all images will be forced into that mode. */
+				forceImageFitMode: true,
+				
+				/* DEEPLINK / START URL */
+				/* <!-- useDeeplink: true/false - creates direct urls for each image for easier sharing. Each image *must have* unique filenames or images will fail to load. --> */
+				useDeeplink:false,
+				/* <!-- startUrl: deeplink start url, enter which photo category to show on startup, enter category data-address/picture name (NO EXTENSION!). Leave empty for none like this: startUrl:'' -> no category loaded, start with menu. --> */
+				startUrl: 'landmarks_ken_burns',
+				
+				/* SLIDESHOW */
+				/* slideshowOn; true, false */
+				slideshowOn: true,
+				/* useGlobalDelay; true, false (use same timer delay for all slides, if false you NEED to set individual delays for all categories) */
+				useGlobalDelay: true,
+				/* slideshowDelay; global delay, in miliseconds */
+				slideshowDelay: 3000,
+				/* slideshowAdvancesToNextCategory: true/false. On the end of current category, go to next one, instead of loop current one. */
+				slideshowAdvancesToNextCategory: false,
+				/* randomPlay; true, false (random image play in category) */
+				randomPlay: false,
+				
+				/* DESCRIPTION */
+				/* autoOpenDescription; true/false (automatically open description, if exist)  */
+				autoOpenDescription: true,
+				/* maxDescriptionWidth: max width of the description */
+				maxDescriptionWidth: 250,
+				
+				/* PLAYLIST */
+				/* playlistPosition: top, right, left, bottom  */
+				playlistPosition: 'bottom',
+				/* autoOpenPlaylist: true/false. Auto open playlist on beginning */
+				autoOpenPlaylist: true,
+				/* playlistHidden: true/false. (leave css display none on componentPlaylist) */
+				playlistHidden: false,
+				/* playlistIndex: inside/outside  */
+				playlistIndex: 'inside',
+				
+				/* MENU */
+				/* menuOrientatation: horizontal/vertical  */
+				menuOrientatation: 'horizontal',
+				/* menuItemOffOpacity: opacity of menu item when inactive */
+				menuItemOffOpacity:0.6,
+				/* menuBtnOffOpacity: opacity of menu button when inactive */
+				menuBtnOffOpacity:0.6,
+				/* menuBtnOffset: offset of menu buttons from the menu (enter 0 or more) */
+				menuBtnOffset: 15,
+				/* visibleMenuItems: visible menu items by default. Enter number (if they dont fit into provided area, the code will automatically reduce this number) or 'max' (maximum number that fits). */
+				visibleMenuItems: 'max',
+				/* fixMenu: true/false. false by default (menu centered). Can be true ONLY if 'visibleMenuItems' != 'max'. 
+				Set this to true to fix it to one side. */
+				fixMenu: false,
+				/* fixMenuSettings: (if fixMenu = true), side: left/right if menuOrientatation = horizontal, top/bottom if menuOrientatation = vertical */
+				fixMenuSettings: {side: 'top',value: 100},
+				
+				/* THUMBNAILS */
+				/* thumbOrientatation: horizontal/vertical  */
+				thumbOrientatation: 'horizontal',
+				/* thumbOffOpacity: opacity of thumb when inactive */
+				thumbOffOpacity:0.6,
+				/* thumbBtnOffOpacity: opacity of thumb button when inactive */
+				thumbBtnOffOpacity:0.6,
+				/* visibleThumbs: visible thumb items by default. Enter number (if they dont fit into provided area, the code will automatically reduce this number) or 'max' (maximum number that fits). */
+				visibleThumbs: 'max',
+				/* thumbBtnOffset:  offset of thumb buttons from the thumbs (enter 0 or more) */
+				thumbBtnOffset: 15,
+				/* fixThumbs: true/false. false by default (thumbs centered). Can be true ONLY if 'visibleThumbs' != 'max'. 
+				Set this to true to fix it to one side. */
+				fixThumbs: false,
+				/* fixThumbsSettings:  (if fixThumbs = true), side: left/right if thumbOrientatation = horizontal, top/bottom if thumbOrientatation = vertical */
+				fixThumbsSettings: {side: 'top',value: 100}
+				
+			};
+			
+			jQuery(document).ready(function() {
+				jQuery.multiGallery('#componentWrapper', kb_settings);
+				kb_settings = null;
+			});
+		
+</script>
+</head>
+<body>
+
+<!-- wrapper for the whole component -->
+<div id="componentWrapper">
+          <div class="componentHolder">
+    <div class="mediaHolder1"></div>
+    <div class="mediaHolder2"></div>
+    
+    <!-- playlist (hidden) -->
+    <div class="componentPlaylist gap4"> 
+              
+              <!-- 
+       NOTE: ken_burns transition doesnt have 'data-imageFitMode', 'data-slideshowDelay', 'data-transitionEase', 'data-transitionTime' attributes like other transitions!
+       Also 'data-bgColor' attribute is visible only on the beginning before first picture fades in because ken_burns is only available in 'fit-outside' image mode.
+       Ken burns transition points: 'tl','tc','tr','ml','mc','mr','bl','bc','br'.
+       
+       data-address: think of this as 'category name', used for swfaddress (indexable images) 
+          			SWFADDRESS RULES:
+          			No spaces between words, so use either cammelCase or under_score.
+          			Any spaces left will be stripped, and all will be converted to lowercase. 
+          			Only normal characters allowed: a-z, 0-9.
+       data-title: menu category title.
+       data-transitionType: transition type (ken_burns/alpha/zoom/slide/split/reveal)
+       data-imageFitMode: 'fit-inside'/'fit-outside'. Resize images larger than component size to 'fit-inside' or 'fit-outside' (check forceImageFitMode in settings as well).
+       data-slideshowDelay: slideshow delay, in miliseconds.
+       data-transitionTime: transition time, in miliseconds.
+       data-transitionEase: transition ease, (some eases may possibly not work well), check eases here: http://gsgd.co.uk/sandbox/jquery/easing/.
+       data-bgColor: background color behind image, visible only if image smaller than component.
+       data-playlistSize: width (if playlistPosition == left/right), height (if playlistPosition == top/bottom) of the playlist background.
+       data-imagePath: path to the main image.
+       data-link: link to url (optional).
+       data-target: _blank (open in new window) or _parent (open in same window).
+       data-description: image description (optional).
+        -->
+              
+              <div class="menuHolder">
+        <div class="menuWrapper"> </div>
+      </div>
+              <div class="thumbHolder">
+        <div class="thumbWrapper">
+                  <div class="playlist" data-address='landmarks_ken_burns' data-title='landmarks' data-transitionType='ken_burns' data-bgColor='#e5e5e5' data-playlistSize='165'>
+            <ul>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-startScale="1.5" data-endScale="1" data-startPosition="tl" data-endPosition="br" data-duration="15" data-link='http://www.google.com' data-target='_blank' data-description="In play: Ken Burns Transitions">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-startScale="1.9" data-endScale="1" data-startPosition="bl" data-endPosition="tr" data-duration="15" data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/666666/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-startScale="1" data-endScale="2" data-startPosition="tr" data-endPosition="br" data-duration="15" data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-startScale="1.5" data-endScale="1" data-startPosition="ml" data-endPosition="br" data-duration="15">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/666666/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-startScale="1.9" data-endScale="1" data-startPosition="bl" data-endPosition="tr" data-duration="15" data-link='http://www.google.com' data-target='_blank' data-description="Optional image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-startScale="1" data-endScale="2" data-startPosition="mr" data-endPosition="bl" data-duration="15" data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/666666/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-startScale="1.5" data-endScale="1" data-startPosition="bc" data-endPosition="tc" data-duration="15" data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-startScale="1.5" data-endScale="1" data-startPosition="tc" data-endPosition="bc" data-duration="15">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/666666/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-startScale="1.9" data-endScale="1" data-startPosition="br" data-endPosition="tl" data-duration="15" data-link='http://www.google.com' data-target='_blank' data-description="Optional image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-startScale="1" data-endScale="2" data-startPosition="bl" data-endPosition="tr" data-duration="15" data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/666666/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                    </ul>
+          </div>
+                  <div class="playlist" data-address='military_alpha' data-title='military' data-transitionType='alpha' data-imageFitMode='fit-outside' data-slideshowDelay='3000' data-transitionTime='1000' data-transitionEase='easeOutSine' data-bgColor='#e5e5e5' data-playlistSize='165'>
+            <ul>
+                      <li class='playlistItem2' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="In play: Alpha Fade Transitions">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x80/999999/ffffff/pic.jpg' width='130' height='80' alt=''/></a></li>
+                      <li class='playlistItem2' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x80/666666/ffffff/pic.jpg' width='130' height='80' alt=''/></a></li>
+                      <li class='playlistItem2' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x80/999999/ffffff/pic.jpg' width='130' height='80' alt=''/></a></li>
+                      <li class='playlistItem2' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x80/666666/ffffff/pic.jpg' width='130' height='80' alt=''/></a></li>
+                      <li class='playlistItem2' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x80/999999/ffffff/pic.jpg' width='130' height='80' alt=''/></a></li>
+                      <li class='playlistItem2' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x80/666666/ffffff/pic.jpg' width='130' height='80' alt=''/></a></li>
+                      <li class='playlistItem2' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x80/999999/ffffff/pic.jpg' width='130' height='80' alt=''/></a></li>
+                      <li class='playlistItem2' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x80/666666/ffffff/pic.jpg' width='130' height='80' alt=''/></a></li>
+                      <li class='playlistItem2' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x80/999999/ffffff/pic.jpg' width='130' height='80' alt=''/></a></li>
+                    </ul>
+          </div>
+                  <div class="playlist" data-address='dating_zoom' data-title='dating' data-transitionType='zoom' data-imageFitMode='fit-outside' data-slideshowDelay='2000' data-transitionTime='1000' data-transitionEase='easeOutSine' data-bgColor='#e5e5e5' data-playlistSize='165'>
+            <ul>
+                      <li class='playlistItem3' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="In play: Zoom Transitions">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem3' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/666666/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem3' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem3' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/666666/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem3' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem3' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/666666/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem3' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem3' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/666666/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                      <li class='playlistItem3' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/120x80/999999/ffffff/pic.jpg' width='120' height='80' alt=''/></a></li>
+                    </ul>
+          </div>
+                  <div class="playlist" data-address='retail_slide' data-title='retail' data-transitionType='slide' data-imageFitMode='fit-outside' data-slideshowDelay='2500' data-transitionTime='1000' data-transitionEase='easeInOutExpo' data-bgColor='#e5e5e5' data-playlistSize='220'>
+            <ul>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="In play: Slide Transitions">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/999999/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/666666/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/999999/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/666666/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/999999/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/666666/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/999999/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/666666/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/999999/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                      <li class='playlistItem4' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/200x133/666666/ffffff/pic.jpg' width='200' height='133' alt=''/></a></li>
+                    </ul>
+          </div>
+                  <div class="playlist" data-address='creative_design_split' data-title='creative' data-transitionType='split' data-imageFitMode='fit-outside' data-slideshowDelay='3000' data-transitionTime='1000' data-transitionEase='easeInOutExpo' data-bgColor='#e5e5e5' data-playlistSize='185'>
+            <ul>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="In play: Split Transitions">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/999999/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/666666/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/999999/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/666666/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/999999/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/666666/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/999999/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/666666/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/999999/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/666666/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                      <li class='playlistItem5' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/130x100/999999/ffffff/pic.jpg' width='130' height='100' alt=''/></a></li>
+                    </ul>
+          </div>
+                  <div class="playlist" data-address='space_reveal' data-title='space' data-transitionType='reveal' data-imageFitMode='fit-outside' data-slideshowDelay='3000' data-transitionTime='1000' data-transitionEase='easeInOutExpo' data-bgColor='#e5e5e5' data-playlistSize='185'>
+            <ul>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="In play: Reveal Transitions">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/999999/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/666666/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/999999/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank'>
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/666666/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/999999/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' data-link='http://www.google.com' data-target='_blank' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/666666/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/999999/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/666666/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg' data-description="Short image description">
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/999999/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                      <li class='playlistItem6' data-imagePath='http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg' >
+                      	<a href='#'><img src='http://cdn.pimg.co/p/150x100/666666/ffffff/pic.jpg' width='150' height='100' alt=''/></a></li>
+                    </ul>
+          </div>
+                </div>
+      </div>
+              
+              <!--  -->
+              <div class="prevMenuBtn"><img src='data/icons/playlist_prev_h.png' width='12' height='18' alt=''/></div>
+              <div class="nextMenuBtn"><img src='data/icons/playlist_next_h.png' width='12' height='18' alt=''/></div>
+              
+              <!--  -->
+              <div class="prevThumbBtn"><img src='data/icons/playlist_prev_h.png' width='12' height='18' alt=''/></div>
+              <div class="nextThumbBtn"><img src='data/icons/playlist_next_h.png' width='12' height='18' alt=''/></div>
+              
+              <!-- playlist toggle -->
+              <div class="playlist_toggle"><img src='data/icons/plus_off.png' width='30' height='30' alt='playlist_toggle'/></div>
+            </div>
+  </div>
+          
+          <!-- slideshow controls - previous,pause/play,next -->
+          <div class="slideshow_controls">
+    <div class="controls_next"><img src='data/icons/next_off.png' width='30' height='30' alt='controls_next'/></div>
+    <div class="controls_toggle"><img src='data/icons/play_off.png' width='30' height='30' alt='controls_toggle'/></div>
+    <div class="controls_prev"><img src='data/icons/prev_off.png' width='30' height='30' alt='controls_prev'/></div>
+  </div>
+          
+          <!-- data controls - link/description -->
+          <div class="data_controls">
+    <div class="info_toggle"><img src='data/icons/info_off.png' width='30' height='30' alt='info_toggle'/></div>
+    <div class="link_toggle"><img src='data/icons/link_off.png' width='30' height='30' alt='link_toggle'/></div>
+  </div>
+          <div class="info_holder"></div>
+          
+          <!-- preloader -->
+          <div class="componentPreloader"></div>
+          
+          <!-- for measuring font dimensions -->
+          <div class="fontMeasure">a</div>
+        </div>
+
+<!-- public function calls -->
+<div id='publicFunctions'>
+          <p>PUBLIC METHODS</p>
+          <br/>
+          <ul>
+    <!-- toggle slideshow, (pass true (play), false (stop) as parameter, or none for simple toggle). -->
+    <li><a href='#' onClick="jQuery.multiGallery.toggleSlideshow(); return false;">toggle slideshow</a></li>
+    
+    <!-- toggle playlist (open /close) -->
+    <li><a href='#' onClick="jQuery.multiGallery.togglePlaylist(); return false;">toggle playlist</a></li>
+    
+    <!-- open next media -->
+    <li><a href='#' onClick="jQuery.multiGallery.nextItem(); return false;">next media</a></li>
+    
+    <!-- open previous media -->
+    <li><a href='#' onClick="jQuery.multiGallery.previousItem(); return false;">previous media</a></li>
+    
+    <!-- Open media, pass number (counting starts from 0), or media name as string without extension (for deeplink). -->
+    <li><a href='#' onClick="jQuery.multiGallery.loadItem(3); return false;">Open media number 4</a></li>
+    <li><a href='#' onClick="jQuery.multiGallery.loadItem('05'); return false;">Open media name '05'</a></li>
+    
+    <!-- Open new category (counting starts from 0), or category name as string (for deeplink).
+          This will open first image in category. -->
+    <li><a href='#' onClick="jQuery.multiGallery.loadCategory(3); return false;">Open category number 4</a></li>
+    <li><a href='#' onClick="jQuery.multiGallery.loadCategory('wellness_reveal'); return false;">Open category number 6</a></li>
+  </ul>
+        </div>
+</body>
+</html>

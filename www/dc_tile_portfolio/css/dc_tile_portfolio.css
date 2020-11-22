@@ -1,0 +1,85 @@
+/* dCodes Framework: (c) TemplateAccess */
+
+ul.dc_list { margin:0 0 16px; padding:0; height:1.4em; list-style:none;}
+ul.dc_list li { float:left; margin:0 16px 0 0; padding:0; height:1.4em; list-style:none; text-decoration:none; color:#999; cursor:pointer;}
+ul.dc_list li:hover { text-decoration:underline; color:#009;}
+ul.dc_list li.current { font-weight:bold;}
+
+.dc_tile_portfolio_content { margin:0 auto; padding: 10px 0; }
+
+#dc_tile_portfolio { }
+#element-container { margin:0; margin-right:0px; padding:0;}
+
+.invis1 { display:none;}
+
+.element { margin-right:10px; margin-bottom:10px;}
+.element a { display:block; position:relative; width:100%; height:100%; border:none; outline:none; text-decoration:none;}
+.element a:hover { text-decoration:none; border:none; outline:none; text-decoration:none;}
+.element a span.overlay { display:none; position:absolute; left:0; top:0; width:100%; height:100%; background:#fff; opacity:0;}
+.element a:hover span.overlay { display:block; opacity:0.4;}
+.element a span.elementInfo { position:absolute; left:0; bottom:0; width:100%; padding:10px 0; color:#fff; font-size:14px; line-height:1.4em; text-decoration:none; background:#555;}
+.element a span.elementCat { padding-left:16px;}
+.element a span.elementDate { }
+.element a img { width:100%; height:100%; border:none; outline:none; text-decoration:none;}
+
+.element.size310x220 { width:310px; height:220px;}
+.element.size310x320 { width:290px; height:320px;}
+.element.size310x420 { width:310px; height:420px;}
+.element.size310x520 { width:310px; height:520px;}
+.element.size640x220 { width:610px; height:220px;}
+.element.size640x320 { width:610px; height:320px;}
+.element.size640x420 { width:610px; height:420px;}
+.element.size640x520 { width:610px; height:520px;}
+
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+.element.size640x320, .element.size640x420, .element.size640x220 { width: 500px; }
+.element.size310x220, .element.size310x320 { width: 240px; }  
+
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+	.dc_tile_portfolio_content { width: 768px; } 
+
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+
+
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+	.element a span.elementInfo { font-size: 12px; }
+	.element.size310x220 { width: 130px; height: 95px;}
+	.element.size310x320 { width: 130px; height: 134px;}
+	.element.size310x420 { width: 130px; height: 173px;}
+	.element.size310x520 { width: 130px; height: 213px;}
+	.element.size640x220 { width: 250px; height: 99px;}
+	.element.size640x320 { width: 250px; height: 140px;}
+	.element.size640x420 { width: 250px; height: 181px;}
+	.element.size640x520 { width: 250px; height: 222px;}
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+	.element { margin-right: 0px; }
+	#element-container { margin: 0px; }
+	.element a span.elementInfo { font-size: 12px; }
+	.element.size310x220 { width: 300px; height: 220px;}
+	.element.size310x320 { width: 300px; height: 310px;}
+	.element.size310x420 { width: 300px; height: 400px;}
+	.element.size310x520 { width: 300px; height: 490px;}
+	.element.size640x220 { width: 300px; height: 100px;}
+	.element.size640x320 { width: 300px; height: 150px;}
+	.element.size640x420 { width: 300px; height: 200px;}
+	.element.size640x520 { width: 300px; height: 240px;}
+
+}

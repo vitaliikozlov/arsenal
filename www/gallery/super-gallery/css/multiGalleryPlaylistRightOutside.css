@@ -1,0 +1,427 @@
+/* dCodes Framework */
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+}
+
+a{ 
+	text-decoration: none; 
+}
+
+ul{
+	list-style: none;
+}
+
+body {
+	background:#fff;
+	overflow:hidden;
+}
+
+
+
+
+
+/* component holder */
+#componentWrapper{
+	position:absolute;
+	top:0px;	
+	left:0px;
+	width:100%;
+	height:100%;
+}
+
+#componentWrapper .componentHolder{
+	position:absolute;
+	top:0px;	
+	left:0px;
+	width:100%;
+	height:100%;
+}
+
+#componentWrapper .mediaHolder1, #componentWrapper .mediaHolder2{
+	position:absolute;
+	display:none;
+}
+
+#componentWrapper .componentPlaylist{
+	position:absolute;
+	top:0px;
+	right:0px;
+	height:100%;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.7);
+	display:none;
+}
+
+#componentWrapper .componentPlaylist .playlist{
+	display:none;
+}
+
+#componentWrapper .thumbHolder{
+	position:absolute;
+	left:140px;
+	/*size is set automatically in jquery based on thumb size for every category */
+	/*background:green;*/
+	overflow:hidden;
+}
+
+#componentWrapper .thumbWrapper{
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+#componentWrapper .playlistItem{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:120px;
+	height:80px;
+	border: 4px solid #ccc;
+	margin-bottom:5px;
+}
+
+#componentWrapper .playlistItem:last-child {  
+   margin-bottom:0px;
+}  
+
+#componentWrapper .playlistItem2{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:130px;
+	height:80px;
+	border: 4px solid #ccc;
+	margin-bottom:5px;
+}
+
+#componentWrapper .playlistItem2:last-child {  
+   margin-bottom:0px;
+}   
+
+#componentWrapper .playlistItem3{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:120px;
+	height:80px;
+	border: 4px solid #ccc;
+	margin-bottom:5px;
+}
+
+#componentWrapper .playlistItem3:last-child {  
+   margin-bottom:0px;
+}  
+
+#componentWrapper .playlistItem4{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:200px;
+	height:133px;
+	border: 4px solid #ccc;
+	margin-bottom:5px;
+}
+
+#componentWrapper .playlistItem4:last-child {  
+   margin-bottom:0px;
+}   
+
+
+#componentWrapper .playlistItem5{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:130px;
+	height:100px;
+	border: 4px solid #ccc;
+	margin-bottom:5px;
+}
+
+#componentWrapper .playlistItem5:last-child {  
+   margin-bottom:0px;
+}   
+
+
+#componentWrapper .playlistItem6{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:150px;
+	height:100px;
+	border: 4px solid #ccc;
+	margin-bottom:5px;
+}
+
+#componentWrapper .playlistItem6:last-child {  
+   margin-bottom:0px;
+}   
+ 
+
+
+
+
+
+
+/* slideshow controls */
+#componentWrapper .slideshow_controls{
+	position:absolute;
+	width:110px;
+	height:30px;
+	top:20px;
+	left:20px;
+	/*background:red;*/
+	display:none;
+}
+
+#componentWrapper .controls_next, .controls_toggle{
+	position:relative;
+	width:30px;
+	height:30px;
+	top:0px;
+	left:0px;
+	margin-left:10px;
+	float:right;
+}
+
+#componentWrapper .controls_prev{
+	position:relative;
+	width:30px;
+	height:30px;
+	top:0px;
+	left:0px;
+	float:right;
+}
+
+
+
+
+
+
+/* data_controls */
+#componentWrapper .data_controls{
+	position:absolute;
+	width:70px;
+	height:30px;
+	top:20px;
+	left:140px;
+	/*background:red;*/
+}
+
+/* link */
+#componentWrapper .link_toggle{
+	position:relative;
+	width:30px;
+	height:30px;
+	top:0px;
+	left:0px;
+	float:left;
+	display:none;
+}
+
+/* description */
+#componentWrapper .info_toggle{
+	position:relative;
+	width:30px;
+	height:30px;
+	top:0px;
+	left:0px;
+	float:left;
+	margin-right:10px;
+	display:none;
+}
+
+#componentWrapper .info_holder{
+	position:absolute;
+	top:60px;
+	left:20px;
+	
+	color:#e5e5e5;
+	padding: 10px 20px 15px 20px;
+	
+	font-family:Arial, Helvetica, sans-serif;
+	
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+				
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+
+	display:none;
+}
+
+#componentWrapper .info_holder a{
+	color:#e5e5e5;
+	text-decoration:underline;
+}
+
+#componentWrapper .info_holder a:hover, a:active{
+	text-decoration:underline;
+}
+
+
+
+
+
+
+
+/* playlist toggle */
+#componentWrapper .playlist_toggle{
+	position:absolute;
+	width:30px;
+	height:30px;
+	bottom:20px;
+	left:-50px;
+	display:none;
+}
+
+#componentWrapper .prevMenuBtn{
+	position:absolute;
+	width:18px;
+	height:12px;
+	display:none;
+}
+
+#componentWrapper .prevMenuBtn img{
+	display:block;
+	top:0px;
+	left:0px;
+	width:18px;
+	height:12px;
+}
+
+#componentWrapper .nextMenuBtn{
+	position:absolute;
+	width:18px;
+	height:12px;
+	display:none;
+}
+
+#componentWrapper .nextMenuBtn img{
+	display:block;
+	top:0px;
+	left:0px;
+	width:18px;
+	height:12px;
+}
+
+#componentWrapper .prevThumbBtn{
+	position:absolute;
+	width:18px;
+	height:12px;
+	display:none;
+}
+
+#componentWrapper .prevThumbBtn img{
+	display:block;
+	top:0px;
+	left:0px;
+	width:18px;
+	height:12px;
+}
+
+#componentWrapper .nextThumbBtn{
+	position:absolute;
+	width:18px;
+	height:12px;
+	display:none;
+}
+
+#componentWrapper .nextThumbBtn img{
+	display:block;
+	top:0px;
+	left:0px;
+	width:18px;
+	height:12px;
+}
+
+
+
+/* menu */
+#componentWrapper .menuHolder{
+	position:absolute;
+	left:25px;
+	overflow:hidden;
+	/*background:#444;*/
+}
+
+#componentWrapper .menuWrapper{
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+/* menu item */
+#componentWrapper .menu_item{
+	position:absolute;
+	/*background:#9a6;*/
+	color:#fff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	text-align:center;
+	margin-bottom:15px;
+}
+
+
+
+
+/* preloader */
+#componentWrapper .componentPreloader{
+	display:none;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-25px 0px 0px -25px;
+	background:#000 url('../data/loader.gif') no-repeat center center;
+	width:50px;
+	height:50px;
+	z-index:999;
+	opacity:0.7;
+}
+
+/* font calculations */
+#componentWrapper .fontMeasure{
+	visibility:hidden;
+}
+
+
+
+
+
+
+
+/* public functions */	
+#publicFunctions{
+	position: absolute;
+	padding: 10px 25px 20px 20px;
+	background:#444;
+	left:100px;
+	top:100px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color:#fff;
+	list-style:circle;
+	z-index:9999;
+	
+	-moz-box-shadow: 2px 2px 5px #222;
+	-webkit-box-shadow: 2px 2px 5px #222;
+	box-shadow: 2px 2px 5px #222;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222');
+	
+	display:none;
+}
+
+#publicFunctions li a{
+	font-size: 16px;
+	color:#fff;
+}
+
+#publicFunctions li a:hover, #publicFunctions li .current{
+	text-decoration: underline;
+}
+
+

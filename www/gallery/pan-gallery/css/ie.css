@@ -1,0 +1,19 @@
+
+/* IE transparent bg hack */
+#componentWrapper .menuWrapper, #componentWrapper .menu_title {
+	background: url('../data/bg.png');
+}
+
+#componentWrapper .thumb_backward {
+	background-color:#111111;
+	background-url: url('../data/icons/thumb_backward_h.png') no-repeat center center;
+}
+
+#componentWrapper .thumb_forward {
+	background-color:#111111;
+	background-url: url('../data/icons/thumb_forward_h.png') no-repeat center center;
+}
+
+#componentWrapper .thumbHolder .category li{
+	display:none;
+}

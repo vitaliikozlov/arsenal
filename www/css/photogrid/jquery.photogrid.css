@@ -1,0 +1,66 @@
+/* dCodes Framework: (c) TemplateAccess */
+
+.dc_clear { clear: both; padding: 0; margin: 0; width: 100%; font-size: 0px; line-height: 0px; }
+.hs_container { position: relative; height: 470px; overflow: hidden; clear: both; border: 5px solid #fff; cursor: pointer; -moz-box-shadow: 1px 2px 2px #ccc; -webkit-box-shadow: 2px 2px 2px #ccc; box-shadow: 1px 2px 2px #ccc; background: #fff; }
+.hs_container .hs_area { position: absolute; overflow: hidden; }
+.hs_area img { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: none; }
+.hs_area img.hs_visible { display: block; z-index: 1000; }
+
+.hs_area1 { border-right: 2px solid #fff; }
+.hs_area4, 
+.hs_area5 { border-top: 2px solid #fff; }
+.hs_area4 { border-right: 2px solid #fff; }
+.hs_area3 { border-top: 2px solid #fff; }
+
+.hs_area1 { width: 473px; height: 334px; top: 0px; left: 0px; }
+.hs_area2 { width: 474px; height: 165px; top: 0px; left: 475px; }
+.hs_area3 { width: 474px; height: 167px; top: 165px; left: 475px; }
+.hs_area4 { width: 203px; height: 135px; top: 334px; left: 0px; }
+.hs_area5 { width: 745px; height: 135px; top: 334px; left: 205px; }
+
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+.hs_container { position: relative; width: 740px; height: 384px; border: 4px solid #fff; }
+
+.hs_area1 { width: 386px; height: 271px; top: 0px; left: 0px; }
+.hs_area2 { width: 373px; height: 135px; top: 0px; left: 387px; }
+.hs_area3 { width: 373px; height: 135px; top: 134px; left: 387px; }
+.hs_area4 { width: 194px; height: 114px; top: 270px; left: 0px; }
+.hs_area5 { width: 599px; height: 114px; top: 270px; left: 195px; }
+
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+.hs_container { position: relative; width: 390px; height: 439px; border: 5px solid #fff; }
+
+.hs_area1 { width: 390px; height: 288px; top: 0px; left: 0px; }
+.hs_area2 { width: 390px; height: 148px; top: 290px; left: 0px; }
+.hs_area3 { display: none; }
+.hs_area4 { display: none; }
+.hs_area5 { display: none; }
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+.hs_container { position: relative; width: 289px; height: 207px; border: 3px solid #fff; }
+
+.hs_area1 { width: 294px; height: 207px; top: 0px; left: 0px; }
+.hs_area2 { display: none; }
+.hs_area3 { display: none; }
+.hs_area4 { display: none; }
+.hs_area5 { display: none; }
+
+
+}

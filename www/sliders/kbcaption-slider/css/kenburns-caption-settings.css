@@ -1,0 +1,540 @@
+/*----------------------------------------------------------------------------- 
+
+	-	kenburn slider -
+
+Screen Stylesheet 
+
+version:   	1.0 
+date:      	09/18/11 
+author:		themepunch
+email:     	info@themepunch.com 
+website:   	http://www.themepunch.com
+-----------------------------------------------------------------------------*/				
+
+.tsc_clear { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
+
+/***********************************************
+	-	THE BACKGROUND OF THE SLIDER	-
+************************************************/
+
+.light .kenburn-bg{
+	background:url(../assets/bg/white50.png) repeat;	
+	padding:9px;
+	border:1px solid rgba(70,70,70,0.3);
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+}
+
+.dark .kenburn-bg{
+	background:url(../assets/bg/black50.png) repeat;	
+	padding:9px;
+	border:1px solid rgba(70,70,70,0.3);
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+}
+
+
+
+
+/*************************************************
+	-	THE PRELOADER OF THE BANNER 	-
+*************************************************/
+.kenburn-preloader{
+	background:url(../assets/loader/preloader.gif) no-repeat 50% 50%;
+	width:32px;
+	height:32px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	z-index:9999;
+	background-color: #000;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	padding: 10px;
+	margin-left: -14px;
+}
+
+
+
+/**************************************************
+	-	THE BASIC SETTINGS FOR THUMBNAILS	-
+***************************************************/
+
+/*****	-	LIGHT	-	*******/
+.light .kenburn_thumb_container{		
+	background:url(../assets/shadows/thumbshadow_repeater.png) repeat-X;
+	background-color:#100c09;
+}
+
+.light .kenburn_thumb_container_bg{
+	background:url(../assets/shadows/thumbshadow_repeater.png) repeat-X;
+	background-color: #ffffff;	
+	
+}
+
+.light .kenburn_thumb_container #thumbmask{
+	background:url(../assets/shadows/thumbshadow_repeater.png) repeat-X;
+	background-color:#fff;
+}
+
+
+
+/*****	-	DARK	-	*******/
+.dark .kenburn_thumb_container{		
+	
+	background:url(../assets/bg/black50.png) repeat;	
+	border-radius: 0px 0px 5px 5px; 
+	-moz-border-radius: 0px 0px 5px 5px; 
+	-webkit-border-radius: 0px 0px 5px 5px; 
+	border-left:1px solid rgba(70,70,70,0.3);
+	border-right:1px solid rgba(70,70,70,0.3);
+	border-bottom:1px solid rgba(70,70,70,0.3);
+}
+
+.dark .kenburn_thumb_container_bg{
+	
+	background:url(../assets/bg/black50.png) repeat;	
+	
+}
+
+.dark .kenburn_thumb_container #thumbmask{
+	
+	background:url(../assets/bg/black50.png) repeat;	
+}
+
+
+/*****	-	ALL	-	*******/
+.kenburn_thumb_container .video{
+	width:30px;
+	height:30px;
+	background:url(../assets/player/play_small.png) no-repeat;
+	margin-top:-15px;
+	margin-left:-15px;
+	cursor:pointer;
+	
+}
+
+
+
+
+/***********************************************
+	-	THE SHADOWS UNDER THE SLIDER	-
+************************************************/
+.kenburn-leftshadow{
+	background:url(../assets/shadows/thumbshadow_left.png) no-repeat;	
+	width:50px;
+	height:35px;
+	
+	position:absolute;	
+}
+
+.kenburn-rightshadow{
+	background:url(../assets/shadows/thumbshadow_right.png) no-repeat;
+	width:50px;
+	height:35px;
+	position:absolute;	
+	
+	right:0px;
+}
+
+.kenburn-repeatshadow{
+	background:url(../assets/shadows/thumbshadow_repeat.png);
+	width:100%;
+	height:35px;
+	position:absolute;	
+	
+}
+
+
+/***********************************************
+	-	THE VIDEO SETTINGS	-
+************************************************/
+.kenburn-video-overlay{
+	background-color:#000;
+	opacity:0.25;
+	filter: alpha(opacity=25);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+	width:100%;
+	height:100%;
+	position:relative;
+	z-index:1000;
+}
+
+.kenburn-video-button{
+	background:url(../assets/player/play.png) no-repeat;
+	width:100px;
+	height:100px;
+	position:absolute;
+	z-index:1500;
+	opacity:0.85;
+	filter: alpha(opacity=85);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+	cursor:pointer;
+
+	
+}
+
+.kenburn-video-button:hover {
+	opacity:1.0;
+}
+
+.video_container{
+		position:absolute;
+		top: 0; bottom: 0px;
+		width: 100%;
+		background: #000;
+		font-family: Arial, sans-serif;
+		font-size:12px;
+		line-height: 20px;
+		color: #eee;
+
+	}
+
+.video_container_wrap{
+	padding-right:20px;
+}
+
+.video_container .video_clip{
+	float: left;
+	padding-right: 20px;	
+}
+.video_container h2{
+	font-family: Arial, sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+	color: #999;
+
+	padding-top: 45px;
+	margin: 0;
+}
+.buttonlight {
+ float: right;
+ height: 30px;
+ line-height: 30px;
+ font-size: 12px;
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-radius: 5px;
+}
+
+.buttonlight:link, .buttonlight:visited {
+ color: #777;
+ padding: 0 20px 0 20px;
+ text-align: center;
+
+ background: #333;
+ border: 1px solid #cdcdcd;
+ text-decoration: none;
+ font-weight: bold;
+}
+
+.buttonlight:hover, .comment-reply-link:hover {
+ color: #fff;
+ text-shadow: 1px 1px 0px #000;
+ background: #333;
+ border: 1px solid #555555;
+ text-decoration: none;
+}
+
+.video_container .close{
+	width:30px;
+	height:30px;
+	position:absolute;
+	background:url(../assets/button/close.png) no-repeat top;	
+	right:10px;
+	top:10px;
+	cursor:pointer;
+}
+
+.video_container .close:hover{
+	background-position:bottom;
+	opacity:0.5;
+	filter: alpha(opacity=50);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	cursor:pointer;
+}
+
+
+/*************************************/
+/*		THUMBNAIL OPTIONS			*/
+/*************************************/
+.thumbbuttons{
+	background:url(../assets/button/navigdots_bgtile.png);
+	height:35px;	
+	 -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	position:absolute;
+	bottom:-33px;
+	z-index:1000;	
+}
+
+.thumbbuttons .grainme{
+	background:url(../assets/bg/grain.png);
+	height:35px;
+	width:100%;
+}
+
+
+.thumbbuttons .leftarrow{
+	background:url(../assets/button/arrowleft.png) no-Repeat bottom left;
+	width:9px;
+	height:16px;
+	margin-left:9px;	
+	margin-right:9px;
+	margin-top:9px;
+	float:left;
+	cursor:pointer;
+}
+
+
+.thumbbuttons .rightarrow{
+	background:url(../assets/button/arrowright.png) no-Repeat bottom left;
+	width:9px;
+	height:16px;
+	margin-top:9px;	
+	margin-right:9px;
+	margin-left:18px;
+	float:left;
+	cursor:pointer;
+}
+
+
+.thumbbuttons .minithumb{
+	background:url(../assets/button/navigdots.png) no-Repeat bottom left;
+	width:15px;
+	height:15px;
+	margin-top:9px;	
+	margin-left:9px;	
+	float:left;
+	cursor:pointer;
+}
+
+.thumbbuttons .thumbs{
+	float:left;
+}
+
+.thumbbuttons .rightarrow:hover, .thumbbuttons .leftarrow:hover, .thumbbuttons .minithumb:hover, .thumbbuttons .thumbs .selected{
+	background-position:top left;
+}
+
+/*******************************
+	-	MAIN SHADOWS AND EFFECTS -
+********************************/
+
+.bannerholder{
+	height:450px;
+}
+
+
+/*******************************
+	-	BANNER STYLES	-	
+********************************/
+#kbcaption-1{
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;	
+	top: 10px;
+}	
+
+#kbcaption-1 ul >li{
+	height:350px;
+}
+
+
+/**********************************************************
+	-	CAPTION SETTINGS FOR THE PARADIGM SLIDER	-
+**********************************************************/	
+.caption_transparent{
+	font-family: Arial, sans-serif;
+	font-size:26px;
+	color:#fff;
+	background-color: rgba(0,0,0,0.5);
+	padding:5px;
+	position:absolute;
+	font-weight: 700;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	
+}
+
+.caption_black{
+	font-family: Arial, sans-serif;
+	font-size:26px;
+	color:#fff;
+	background-color:#000;
+	padding:5px;
+	position:absolute;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	-moz-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: 700;
+}
+
+.caption_blue{
+	font-family: Arial, sans-serif;
+	font-size:26px;
+	color:#fff;
+	background-color:#00b4ff;
+	padding:5px;
+	position:absolute;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	-moz-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: 700;
+}
+
+.caption_green{
+	font-family: Arial, sans-serif;
+	font-size:26px;
+	color:#fff;
+	background-color:#445626;
+	padding:5px;
+	position:absolute;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	-moz-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: 700;
+}
+
+.caption_orange{
+	font-family: Arial, sans-serif;
+	font-size:26px;
+	color:#fff;
+	background-color:#e65700;
+	padding:5px;
+	position:absolute;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	-moz-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: 700;
+}
+
+.caption_red{
+	font-family: Arial, sans-serif;
+	font-size:26px;
+	color:#fff;
+	background-color:#c4302b;
+	padding:5px;
+	position:absolute;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	-moz-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: 700;
+}
+
+.caption_white{
+	font-family: Arial, sans-serif;
+	font-size:26px;
+	color:#000;
+	background-color:#fff;
+	padding:5px;
+	position:absolute;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	-moz-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	font-weight: 700;
+}
+
+.caption_grey{
+	font-family: Arial, sans-serif;
+	font-size:26px;
+	color:#fff;
+	background-color:#333;
+	padding:5px;
+	position:absolute;
+	-moz-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.75);
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.bannerholder a:link, .bannerholder a:visited {
+	text-decoration: none;
+	color: #fff;
+}
+
+.bannerholder a:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #ddd;
+}
+
+.caption_white a:link, .caption_white a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+.caption_white a:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #555;
+}
+
+a:focus { 
+    outline: none; 
+}
+
+.minicap{
+	font-size:14px;
+	font-weight: normal;
+}
+
+.smallcap{
+	font-size:18px;
+	font-weight: normal;
+}
+
+.largecap{
+	font-size:32px;
+}
+
+.imagecap{
+	position:absolute;
+}
+
+.nobg{
+	background: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-shadow: #000 5px 5px 5px;
+}
+

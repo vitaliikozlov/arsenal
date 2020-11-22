@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>(Pro) Responsive Template</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- Mobile Specific Metas  ================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="css/jcarousel_skin.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="preloader/css/preloader.css"  />
+<link rel="stylesheet" type="text/css" href="prettyPhoto/css/prettyPhoto.css" />
+<link rel="stylesheet" type="text/css" href="css/menusm.css" />
+<link type="text/css" href="ui_totop/css/ui.totop.css" rel="stylesheet" />
+<link type="text/css" href="twitter_tweet/jquery.tweet.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/layout.css">
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+<!-- DC Revolution Slider CSS -->
+<link rel="stylesheet" type="text/css" href="js/revolution/css/responsive.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="js/revolution/rs-plugin/css/settings.css" media="screen" />
+
+<!-- DC Revolution Slider JS -->
+<script type="text/javascript" src="js/revolution/rs-plugin/js/jquery.templateaccess.plugins.min.js"></script>
+<script type="text/javascript" src="js/revolution/rs-plugin/js/jquery.templateaccess.revolution.js"></script>
+
+<!-- DC Revolution Slider Settings -->
+<script type="text/javascript">
+
+var tpj=jQuery;
+//tpj.noConflict();
+
+tpj(document).ready(function() {
+
+if (tpj.fn.cssOriginal!=undefined)
+	tpj.fn.css = tpj.fn.cssOriginal;
+
+	tpj('.rev_banner').revolution(
+		{
+			delay:6000,
+			startheight:490,
+			startwidth:890,
+
+			hideThumbs:200,
+
+			thumbWidth:100,							// Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
+			thumbHeight:50,
+			thumbAmount:5,
+
+			navigationType:"bullet",					//bullet, thumb, none, both		(No Thumbs In FullWidth Version !)
+			navigationArrows:"verticalcentered",		//nexttobullets, verticalcentered, none
+			navigationStyle:"navbar",				//round,square,navbar
+
+			touchenabled:"on",						// Enable Swipe Function : on/off
+			onHoverStop:"on",						// Stop Banner Timet at Hover on Slide on/off
+
+			navOffsetHorizontal:0,
+			navOffsetVertical:20,
+
+			shadow:1,								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows  (No Shadow in Fullwidth Version !)
+			fullWidth:"off",							// Turns On or Off the Fullwidth Image Centering in FullWidth Modus
+
+			stopLoop:"off"							// on == Stop loop at the last Slie,  off== Loop all the time.
+		});
+
+	});
+
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+  <div id="header_top">
+    <div class="row container">
+      <div class="pull-left">
+        <p>Feel free to call us: +1 800 789 50 12</p>
+      </div>
+      <div class="social pull-right"> <a class="soc" href="#"><img src="images/spacer.gif" class="soc1" /></a> <a class="soc" href="#"><img src="images/spacer.gif" class="soc2" /></a> <a class="soc" href="#"><img src="images/spacer.gif" class="soc3" /></a> <a class="soc" href="#"><img src="images/spacer.gif" class="soc4" /></a> <a class="soc" href="#"><img src="images/spacer.gif" class="soc5" /></a> <a class="soc" href="#"><img src="images/spacer.gif" class="soc6" /></a> <a class="soc" href="#"><img src="images/spacer.gif" class="soc7" /></a> </div>
+    </div>
+  </div>
+  <!-- #header_top-->
+  <div class="header_bg">
+    <div id="header_menu">
+      <div class="container">
+        <div class="logo"> <a href="index.html" class="extrabold">Photo<span>tune</span></a> </div>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="nav nav-collapse pull-left">
+              <div class="menu"> 
+                <script type="text/javascript" src="js/menu_html_block.js"></script> 
+              </div>
+            </div>
+            <form class="navbar-search pull-right" id="search" action="" method="get">
+              <div class="input-append">
+                <input type="text" class="span2 input-search" placeholder="Search:">
+                <button type="submit" class="search-submit btn"><i class="icon-search"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- container --> 
+      </div>
+    </div>
+    <!-- header_menu --> 
+  </div>
+  <!-- header_menu -->
+  
+  <div id="sliderwrap" >
+    <div class="sliderwrap"> 
+      
+      <!-- DC Revolution Slider Start -->
+      <div class="rev_bannercontainer">
+        <div class="rev_banner">
+          <ul>
+            
+            <!-- slide 1 -->
+            <li data-transition="curtain-3" data-slotamount="5"  data-masterspeed="300" data-thumb="js/revolution/images/thumbs/regular_thumb1.jpg" > <img src="http://cdn.pimg.co/p/960x580/777/fff/img.png">
+              <div class="caption sfb" data-x="490" data-y="40" data-speed="6900" data-start="500" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/50x37/123321/fff/img.png"></div>
+              <div class="caption sfb" data-x="450" data-y="70" data-speed="7900" data-start="900" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/50x37/321321/fff/img.png"></div>
+              <div class="caption sfb" data-x="550" data-y="70" data-speed="8900" data-start="1200" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/50x37/965478/fff/img.png"></div>
+              <div class="caption lfr" data-x="550" data-y="120" data-speed="3700" data-start="800" data-easing="easeOutExpo"><img src="http://cdn.pimg.co/p/238x143/921333/fff/img.png"></div>
+              <div class="caption lfr" data-x="620" data-y="240" data-speed="4700" data-start="1000" data-easing="easeOutExpo"><img src="http://cdn.pimg.co/p/300x179/600666/fff/img.png"></div>
+              <div class="caption lfr" data-x="490" data-y="200" data-speed="2700" data-start="800" data-easing="easeOutExpo"><img src="http://cdn.pimg.co/p/191x114/777ggg/fff/img.png"></div>
+              <div class="caption lfr" data-x="660" data-y="50" data-speed="8700" data-start="800" data-easing="easeOutExpo"><img src="http://cdn.pimg.co/p/157x125/951526/fff/img.png"></div>
+              <div class="caption lfr" data-x="377" data-y="290" data-speed="2700" data-start="800" data-easing="easeOutExpo"><img src="http://cdn.pimg.co/p/285x106/392863/fff/img.png"></div>
+              <div class="caption lfb big_white"  data-x="50" data-y="47" data-speed="900" data-start="1700" data-easing="easeOutBack" style="padding:15px;"> Revolution Slider</div>
+              <div class="caption lft big_white"  data-x="50" data-y="119" data-speed="900" data-start="1900" data-easing="easeOutBack" style="padding:9px;">World's <span style="font-weight:normal;">#1</span><em> Parallax Slider</em></div>
+              <div class="caption lfr medium_grey"  data-x="60" data-y="190" data-speed="300" data-start="2500" data-easing="easeOutExpo">Unlimited Transitions</div>
+              <div class="caption sfl" data-x="60" data-y="230" data-speed="300" data-start="2600" data-easing="easeOutExpo"><img src="js/revolution/images/check.png"></div>
+              <div class="caption lfr small_text"  data-x="120" data-y="228" data-speed="300" data-start="2600" data-easing="easeOutExpo">Sliding, Fading, Slots, Box Transitions<br/>
+                <span style="color: #ccc;">SLIDER REVOLUTION</span> has it all!</div>
+              <div class="caption sfl" data-x="60" data-y="280" data-speed="300" data-start="2900" data-easing="easeOutExpo"><img src="js/revolution/images/check.png"></div>
+              <div class="caption lfr small_text"  data-x="120" data-y="287" data-speed="300" data-start="2900" data-easing="easeOutExpo">Responsive & Mobile Optimized</div>
+              <div class="caption sfl" data-x="60" data-y="330" data-speed="300" data-start="3200" data-easing="easeOutExpo"><img src="js/revolution/images/check.png"></div>
+              <div class="caption lfr small_text"  data-x="120" data-y="328" data-speed="300" data-start="3200" data-easing="easeOutExpo">Customizable Navigation<br/>
+                Arrows, Bullets, Thumbs</div>
+              <div class="caption sfb" data-x="55" data-y="380" data-speed="1000" data-start="3500" data-easing="easeOutBack"><a href="http://www.dcodes.net/" target="_blank" class="button blue small">More Details</a></div>
+            </li>
+            
+            <!-- slide 2 -->
+            <li data-transition="boxfade" data-slotamount="12"  data-masterspeed="300"  data-link="http://www.nasa.gov" title="Visit NASA Website" data-thumb="js/revolution/images/thumbs/regular_thumb2.jpg"> <img src="http://cdn.pimg.co/p/960x580/214578/fff/img.png"  >
+              <div class="caption lft big_white"  data-x="350" data-y="80" data-speed="900" data-start="1200" data-easing="easeOutBack">The Planets</div>
+              <div class="caption sfl" data-x="-270" data-y="0" data-speed="700" data-start="1700" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/496x496/956892/fff/img.png"></div>
+              <div class="caption sfb" data-x="160" data-y="210" data-speed="800" data-start="1200" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/36x35/123321/fff/img.png"></div>
+              <div class="caption sfb" data-x="210" data-y="215" data-speed="900" data-start="1300" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/66x64/321321/fff/img.png"></div>
+              <div class="caption sfb" data-x="290" data-y="220" data-speed="1000" data-start="1400" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/65x63/789987/fff/img.png"></div>
+              <div class="caption sfb" data-x="370" data-y="240" data-speed="1100" data-start="1500" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/30x29/600666/fff/img.png"></div>
+              <div class="caption sfb" data-x="410" data-y="230" data-speed="1200" data-start="1600" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/100x100/777ggg/fff/img.png"></div>
+              <div class="caption sfb" data-x="540" data-y="225" data-speed="1300" data-start="1700" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/150x84/568912/fff/img.png"></div>
+              <div class="caption sfb" data-x="700" data-y="210" data-speed="1400" data-start="1800" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/56x56/965478/fff/img.png"></div>
+              <div class="caption sfb" data-x="760" data-y="200" data-speed="1500" data-start="1900" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/50x50/921336/fff/img.png"></div>
+              <div class="caption sfb" data-x="825" data-y="190" data-speed="1600" data-start="2000" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/30x30/333/fff/img.png"></div>
+              <div class="caption sfb small_text" style="padding:8px;"  data-x="350" data-y="120" data-speed="300" data-start="2600" data-easing="easeOutExpo">The Amazing Solar System</div>
+            </li>
+            
+            <!-- slide 3 -->
+            <li data-transition="slotfade-horizontal" data-slotamount="1" data-masterspeed="300"  data-thumb="js/revolution/images/thumbs/regular_thumb3.jpg"> <img src="http://cdn.pimg.co/p/960x580/333/fff/img.png"  >
+              <div class="caption sfb" data-x="340" data-y="30" data-speed="900" data-start="500" data-easing="easeOutBack"><img src="http://cdn.pimg.co/p/482x429/125689/fff/img.png"></div>
+              <div class="caption lfl" data-x="290" data-y="160" data-speed="700" data-start="800" data-easing="easeOutExpo"><img src="http://cdn.pimg.co/p/246x310/788956/fff/img.png"></div>
+              <div class="caption sfb" data-x="470" data-y="300" data-speed="700" data-start="1200" data-easing="easeOutExpo"><img src="http://cdn.pimg.co/p/104x175/562345	/fff/img.png"></div>
+              <div class="caption sfb medium_grey" style="padding:8px;"  data-x="40" data-y="320" data-speed="300" data-start="1800" data-easing="easeOutExpo">100% Responsive</div>
+              <div class="caption lfl very_big_white"  data-x="40" data-y="50" data-speed="300" data-start="1200" data-easing="easeOutExpo" style="padding:9px;">PC</div>
+              <div class="caption lfl very_big_white"  data-x="40" data-y="140" data-speed="300" data-start="1300" data-easing="easeOutExpo" style="padding:9px;">Tablet</div>
+              <div class="caption lfl very_big_white"  data-x="40" data-y="230" data-speed="300" data-start="1400" data-easing="easeOutExpo" style="padding:9px;">Mobile</div>
+              <div class="caption lfb medium_grey"  data-x="40" data-y="400" data-speed="300" data-start="1500" data-easing="easeOutExpo" style="padding:9px;"><a href="#">Signup Now</a></div>
+            </li>
+            
+            <!-- slide 4 -->
+            <li data-transition="slideup" data-slotamount="20" data-masterspeed="300" data-delay="10000" data-thumb="js/revolution/images/thumbs/regular_thumb5.jpg"> <img src="http://cdn.pimg.co/p/960x580/666/fff/img.png"  >
+              <div class="caption lfb boxshadow" data-x="70" data-y="120" data-speed="900" data-start="500" data-easing="easeOutBack">
+                <iframe src="http://player.vimeo.com/video/49224248?title=0&amp;byline=0&amp;portrait=0;api=1" width="460" height="259"></iframe>
+              </div>
+              <div class="caption sft big_black"  data-x="550" data-y="120" data-speed="300" data-start="1200" data-easing="easeOutExpo">Video Support</div>
+              <div class="caption sft big_white"  data-x="550" data-y="157" data-speed="300" data-start="1300" data-easing="easeOutExpo">Vimeo Example</div>
+              <div class="caption lfb medium_grey"  data-x="550" data-y="210" data-speed="300" data-start="1400" data-easing="easeOutExpo">You can easily add</div>
+              <div class="caption lfb medium_grey"  data-x="550" data-y="234" data-speed="300" data-start="1500" data-easing="easeOutExpo">Vimeo Videos</div>
+              <div class="caption lfb medium_grey"  data-x="550" data-y="258" data-speed="300" data-start="1600" data-easing="easeOutExpo">to your Slides</div>
+              <div class="caption sfb" data-x="0" data-y="0" data-speed="300" data-start="200" data-easing="easeOutBack"><img src="js/revolution/images/vimeo.jpg"></div>
+            </li>
+            
+            <!-- slide 5 -->
+            <li data-transition="slidedown" data-slotamount="14"  data-masterspeed="300" data-delay="10000" data-thumb="js/revolution/images/thumbs/regular_thumb6.jpg"> <img src="http://cdn.pimg.co/p/960x580/666/fff/img.png"  >
+              <div class="caption lft boxshadow" data-x="70" data-y="120" data-speed="900" data-start="500" data-easing="easeOutBack">
+                <iframe src="http://www.youtube.com/embed/JYKpIr1lSG0?hd=1&amp;wmode=opaque&amp;controls=1&amp;showinfo=0" width="460" height="259"></iframe>
+              </div>
+              <div class="caption sft big_black"  data-x="550" data-y="120" data-speed="300" data-start="1200" data-easing="easeOutExpo">Video Support</div>
+              <div class="caption sft big_white"  data-x="550" data-y="157" data-speed="300" data-start="1300" data-easing="easeOutExpo">Youtube Example</div>
+              <div class="caption lfb medium_grey"  data-x="550" data-y="210" data-speed="300" data-start="1400" data-easing="easeOutExpo">You can easily add</div>
+              <div class="caption lfb medium_grey"  data-x="550" data-y="234" data-speed="300" data-start="1500" data-easing="easeOutExpo">Youtube Videos</div>
+              <div class="caption lfb medium_grey"  data-x="550" data-y="258" data-speed="300" data-start="1600" data-easing="easeOutExpo">to your Slides</div>
+              <div class="caption sfb" data-x="0" data-y="0" data-speed="300" data-start="200" data-easing="easeOutBack"><img src="js/revolution/images/youtube.png"></div>
+            </li>
+          </ul>
+          <div class="tp-bannertimer"></div>
+        </div>
+        <!-- /rev_banner --> 
+      </div>
+      <!-- DC Revolution Slider End -->
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div id="content">
+    <div class="now_page gap">
+      <div class="container">
+        <div class="content_box">
+          <h1 class="text-center">Fusce lobortis lorem at ipsum semper sagittis. Donec nec justo eget felis facilisis fermentum.</h1>
+          <p class="text-center">Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+        </div>
+        <div class="sep_small"></div>
+      </div>
+    </div>
+    <!-- #now_page -->
+    
+    <div class="services">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <h2 class="light text-left">Our Services</h2>
+            <div class="sep"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span3"> <a href="#" class="serv_ico img-circle">
+            <div class="ico img-circle"> <img class="ico1 img-circle" src="images/spacer.gif" alt="" /></div>
+            </a>
+            <h3 class="serv">Ideas & Design</h3>
+            <p >Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+          </div>
+          <div class="span3"> <a href="#" class="serv_ico img-circle">
+            <div class="ico img-circle"> <img class="ico2 img-circle" src="images/spacer.gif" alt="" /></div>
+            </a>
+            <h3 class="serv">Development</h3>
+            <p>Nullam malesuada erat ut turpis. 
+              Suspendisse urna nibh</p>
+          </div>
+          <div class="span3"> <a href="#" class="serv_ico img-circle">
+            <div class="ico img-circle"> <img class="ico3 img-circle" src="images/spacer.gif" alt="" /></div>
+            </a>
+            <h3 class="serv">100% Retina Ready</h3>
+            <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. </p>
+          </div>
+          <div class="span3"> <a href="#" class="serv_ico img-circle">
+            <div class="ico img-circle"> <img class="ico4 img-circle" src="images/spacer.gif" alt="" /></div>
+            </a>
+            <h3 class="serv">Easy to Customize</h3>
+            <p>Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          </div>
+        </div>
+        <div class="separator"></div>
+      </div>
+    </div>
+    <!-- services -->
+    
+    <div id="gallery">
+      <div class="container">
+        <h2 class="white light">Recent Projects</h2>
+      </div>
+      <ul id="gallery-carousel" class="jcarousel-skin-tango" >
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+        <li>
+          <div class="item"> <img src="http://cdn.pimg.co/p/299x299/404040/fff/img.png" alt="" height="299" width="299" /> <a href="http://cdn.pimg.co/p/800x600/404040/fff/img.png" rel="prettyPhoto[gallery]" class="zoom"></a> </div>
+        </li>
+      </ul>
+    </div>
+    <div class="blockblog">
+      <div class="container">
+        <div class="separator_small"></div>
+        <div class="row">
+          <div class="span12">
+            <div class="pull-left margin">
+              <h2 class="light">Recent Posts</h2>
+            </div>
+          </div>
+        </div>
+        <div class="sep_small"></div>
+        <div class="span12">
+          <ul class="thumbnails">
+            <li>
+              <div class="thumbnail-post">
+                <div class="pic"> <img  src="http://cdn.pimg.co/p/313x190/456987/fff/img.png" width="313" height="190" alt="" /> <a href="http://cdn.pimg.co/p/800x600/456987/fff/img.png" rel="PrettyPhoto[thumbnail]" class="zoom img-circle"></a> </div>
+                <div class="date pull-left"> <span class="red extrabold">12</span> <span class="extrabold">Aug</span> </div>
+                <div class="thumb_caption">
+                  <h3 class="extrabold"><a href="#" class="h3_href">Vivamus vestibulum nulla nec ante.</a></h3>
+                  <p class="comments"><strong>By:</strong> Admin | <strong>12 Comments</strong></p>
+                  <p>Donec nec justo eget felis facilisis fermentum.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="thumbnail-post">
+                <div class="pic"> <img  src="http://cdn.pimg.co/p/313x190/456987/fff/img.png" width="313" height="190" alt="" /> <a href="http://cdn.pimg.co/p/800x600/456987/fff/img.png" rel="PrettyPhoto[thumbnail]" class="zoom img-circle"></a> </div>
+                <div class="date pull-left"> <span class="red extrabold">05</span> <span class="extrabold">Aug</span> </div>
+                <div class="thumb_caption">
+                  <h3 class="extrabold"><a href="#" class="h3_href">Fusce pellentesque suscipit nibh.</a></h3>
+                  <p class="comments"><strong>By:</strong> Admin | <strong>12 Comments</strong></p>
+                  <p>Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="thumbnail-post">
+                <div class="pic"> <img  src="http://cdn.pimg.co/p/313x190/456987/fff/img.png" width="313" height="190" alt="" /> <a href="http://cdn.pimg.co/p/800x600/456987/fff/img.png" rel="PrettyPhoto[thumbnail]" class="zoom img-circle"></a> </div>
+                <div class="date pull-left"> <span class="red extrabold">05</span> <span class="extrabold">Aug</span> </div>
+                <div class="thumb_caption">
+                  <h3 class="extrabold"><a href="#" class="h3_href">Integer vitae libero ac risus egestas placerat.</a></h3>
+                  <p class="comments"><strong>By:</strong> Admin | <strong>12 Comments</strong></p>
+                  <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- container --> 
+    </div>
+    <!-- blockblog --> 
+    
+  </div>
+  <!-- #content--> 
+  
+</div>
+<!-- #wrapper -->
+
+<div id="footer">
+  <div class="container">
+    <div class="cols">
+      <div class="row">
+        <div class="span3">
+          <h4>Latest Tweets</h4>
+          <!-- DC Twitter Start --> 
+          <!-- Generate your own embedded timeline: https://dev.twitter.com/docs/embedded-timelines --> 
+          <a class="twitter-timeline" href="https://twitter.com/DevCodes" data-widget-id="346557522754293760" width="230" height="200" data-chrome="nofooter noheader transparent noscrollbar" data-theme="dark" data-link-color="#ccc">Tweets</a> 
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
+          <!-- DC Twitter End --> 
+        </div>
+        <div class="span3">
+          <h4>Sign up for our Newsletter</h4>
+          <p>Vestibulum id ligula porta felis lorem eus semper. Donec ullamcorper nulla non metus fringilla.</p>
+          <form id="subscribe" name="subscribe" action="#" method="post" class="validate" target="_blank">
+            <div class="input-append">
+              <input type="email" id="email" name="email" placeholder="Your Email" class="subscribe-input">
+              <button class="subscribe-button btn" type="submit">SUBSCRIBE</button>
+            </div>
+          </form>
+        </div>
+        <div class="span3">
+          <h4>Flickr Stream</h4>
+          <ul class="thumbnails">
+            <li><a href="#" ><img src="http://cdn.pimg.co/p/60x60/805060/fff/img.png" width="60" height="60" alt=""></a></li>
+            <li><a href="#" ><img src="http://cdn.pimg.co/p/60x60/213151/fff/img.png" width="60" height="60" alt=""></a></li>
+            <li><a href="#" ><img src="http://cdn.pimg.co/p/60x60/456985/fff/img.png" width="60" height="60" alt=""></a></li>
+            <li><a href="#" ><img src="http://cdn.pimg.co/p/60x60/963258/fff/img.png" width="60" height="60"  alt=""></a></li>
+            <li><a href="#" ><img src="http://cdn.pimg.co/p/60x60/458712/fff/img.png" width="60" height="60"  alt=""></a></li>
+            <li><a href="#" ><img src="http://cdn.pimg.co/p/60x60/805060/fff/img.png" width="60" height="60"  alt=""></a></li>
+          </ul>
+        </div>
+        <div class="span3">
+          <h4>Stay Connected</h4>
+          <div class="post"> <span>Contact us today!</span>
+            <p> 123 Example Way<br />
+              San Francisco, CA 94108<br />
+              USA <br />
+              <br />
+              Phone: (888) 123-4567 <br />
+              Fax: (887) 123-4567 <br />
+              contact&#64;example.com <br />
+            </p>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_sep"></div>
+  </div>
+  <div class="copyright text-center">�&copy; Copyright SiteName. All Rights Reserved. Design by <a href="http://www.dreamtemplate.com/" target="_blank" title="Dream Templates">dreamtemplate</a>.</div>
+</div>
+<!-- container cols -->
+
+</div>
+<!-- #footer --> 
+
+<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script> 
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="prettyPhoto/js/jquery.prettyPhoto.js"></script> 
+<script type="text/javascript" src="js/menusm.js"></script> 
+<script type="text/javascript" src="js/scripts.js"></script> 
+<script type="text/javascript" src="ui_totop/js/jquery.ui.totop.js" charset="utf-8"></script> 
+<script type="text/javascript" src="preloader/js/jquery.preloader.js" charset="utf-8"></script> 
+<script type="text/javascript" src="twitter_tweet/jquery.tweet.js" charset="utf-8"></script> 
+<script type="text/javascript" src="js/tinynav.min.js"></script> 
+<script type="text/javascript">
+	$(function () {
+		$('#nav').tinyNav({
+			active: 'selected',
+			header: 'Navigation' 
+		});
+	});
+</script>
+</body>
+</html>

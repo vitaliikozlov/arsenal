@@ -1,0 +1,3 @@
+DirectoryIndex index.html index.php
+Order Allow,Deny
+Allow from All

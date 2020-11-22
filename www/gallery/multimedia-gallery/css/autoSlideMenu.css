@@ -1,0 +1,92 @@
+/* dCodes Framework */
+#componentWrapper .componentMenu{
+	position:absolute;
+	top:10px;
+	left:130px;
+	width:300px;
+	
+	display:none;
+}
+
+#componentWrapper .menuPlus{
+	position:absolute;
+	top:-4px;
+	left:-20px;
+	width:30px;
+	height:30px;
+}
+
+#componentWrapper .menuPlus img{
+	display:block;
+	top:0px;
+	left:0px;
+	width:30px;
+	height:30px;
+}
+
+#componentWrapper .currentCategory{
+	position:absolute;
+	top:0px;
+	left:15px;
+	
+	color:#fff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:17px;
+	font-weight:400;
+	-webkit-font-smoothing: antialiased;
+}
+
+#componentWrapper .subMenu{
+	position:absolute;
+	top:35px;
+	left:0px;
+	
+	background-color:#333;
+	padding:5px 15px 5px 15px;
+	
+	-moz-box-shadow: 1px 1px 2px #333;
+	-webkit-box-shadow: 1px 1px 2px #333;
+	box-shadow: 1px 1px 2px #333;
+	
+	display:none;
+}
+
+#componentWrapper .subMenu ul{
+    margin: 0; 
+	padding: 0;
+}
+
+#componentWrapper .subMenu li{
+	display:block;
+	list-style:none;
+	padding:2px 5px 2px 5px;
+}
+
+#componentWrapper .subMenu li a{
+	width: 100%; 
+    display: inline-block;
+	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	color:#fff;
+}
+
+#componentWrapper .subMenu li a:hover, #componentWrapper .subMenu li a:active{
+	color:#333;
+}
+
+#componentWrapper .subMenu li.hover a{
+	color:#333;
+}
+
+#componentWrapper .subMenu li:hover, #componentWrapper .subMenu li:active{
+    background-color:#fff;
+	text-decoration: none;
+	
+}
+
+#componentWrapper .selectedMenuItem{
+    background-color:#fff;
+	text-decoration: none;
+	color:#333;
+}

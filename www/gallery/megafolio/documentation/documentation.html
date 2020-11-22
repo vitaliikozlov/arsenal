@@ -1,0 +1,866 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Megafolio Pro jQuery Gallery - The Documentation</title>
+	
+	<meta name="generator" content="Documenter v1.6 http://rxa.li/documenter">
+	<meta name="date" content="2013-01-10T00:00:00+01:00">
+	
+	<link rel="stylesheet" href="css/documenter_style.css" media="all">
+	
+	
+	<script src="js/jquery.min.js"></script>
+	
+	<script src="js/jquery.scrollTo-1.4.2-min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+	
+	<link rel="stylesheet" href="css/shDocumenter.css" media="screen">
+	<script src="js/shCore.js"></script>
+	<script src="js/shBrushCss.js"></script>
+	<script src="js/shBrushXml.js"></script>
+	<script src="js/shBrushJScript.js"></script>
+	<script>SyntaxHighlighter.defaults['toolbar'] = false;SyntaxHighlighter.all();</script>
+
+	<script>document.createElement('section');var duration=913,easing='easeOutQuart';</script>
+	<script src="js/script.js"></script>
+	
+	<style>
+		html{background-color:#A8A7A7;color:#363636;background-image:url(assets/images/image_18.gif);background-repeat:repeat;background-attachment:scroll;}
+		::-moz-selection{background:#404040;color:#B50D0D;}
+		::selection{background:#404040;color:#B50D0D;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/image_19.png);}
+		a{color:#830909;}
+		hr{border-top:1px solid #858484;border-bottom:1px solid #CFCDCD;}
+		#documenter_sidebar, #documenter_sidebar ol a{background-color:#363636;color:#A8A7A7;}
+		#documenter_sidebar ol a{-webkit-text-shadow:1px 1px 0px #575757;-moz-text-shadow:1px 1px 0px #575757;text-shadow:1px 1px 0px #575757;}
+		#documenter_sidebar ol{border-top:1px solid #242424;}
+		#documenter_sidebar ol a{border-top:1px solid #575757;border-bottom:1px solid #242424;color:#A8A7A7;}
+		#documenter_sidebar ol a:hover{background:#404040;color:#B50D0D;border-top:1px solid #404040;}
+		#documenter_sidebar ol a.current{background:#404040;color:#B50D0D;border-top:1px solid #404040;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body>
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ol id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+			<li><a href="#first_steps">First Steps</a></li>
+			<li><a href="#creating_filters">Creating Filters</a></li>
+			<li><a href="#options">Options</a></li>
+			<li><a href="#grid_layouts">Grid Layouts</a></li>
+			<li><a href="#entry_captions">Entry Captions</a></li>
+			<li><a href="#fancybox">FancyBox</a></li>
+			<li><a href="#classes_markups_overview">Classes & Markups Overview</a></li>
+			<li><a href="#methodes">Methodes</a></li>
+			<li><a href="#licenses">Licenses</a></li>
+			<li><a href="#support">Support</a></li>
+
+		</ol>
+
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover"><h1>Megafolio Pro jQuery Gallery</h1><h2>The Documentation</h2><hr>
+		</p>Used under licensed agreement.</p></section>
+			
+			<section id="first_steps">
+	<h3>First Steps</h3><hr class="notop">
+<p>
+	This chapter will give you general instructions on how to install the Megafolio Pro Gallery and setup the options. Later chapters will be more detailed if needed.</p>
+<p>
+	We will set up a very simple Gallery, without Filters, API&#39;s, Options etc. &nbsp;as example.</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	00 What files do I need to upload to my server?<a name="first-steps"></a></h4>
+<p>
+	Please upload the <strong>megafolio</strong> folder to your server. In this folder you will find the following subfolders containing all of the items content:</p>
+<ul>
+	<li>
+		js</li>
+	<li>
+		css</li>
+	<li>
+		assets</li>
+	<li>
+		fancybox</li>
+	<li>
+		icons</li>
+</ul>
+<p>
+	You could use your own jQuery but we recommend loading it directly from the Google ressources (see later in this documentation).</p>
+<p>
+	You will find some&nbsp;<strong>example</strong> <strong>html files</strong>&nbsp;in your downloaded zip.&nbsp;</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	01 Implement the jQuery</h4>
+<p>
+	Add the following lines to your HTML Head:&nbsp;</p>
+<pre class="brush: js">
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&gt;</pre>
+<h4>
+	&nbsp;</h4>
+<h4>
+	02 Add Megafolio js and css files to your HTML page &nbsp;</h4>
+<div>
+	Also in the &lt;HEAD&gt; section:</div>
+<div>
+	<pre class="brush: html">
+ &lt;!-- MEGAFOLIO PRO GALLERY CSS SETTINGS --&gt;
+
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;megafolio/css/settings.css&quot; media=&quot;screen&quot; /&gt; 
+&lt;!-- MEGAFOLIO PRO GALLERY JS FILES --&gt; 
+&lt;script type=&quot;text/javascript&quot; src=&quot;megafolio/js/jquery.plugins.min.js&quot;&gt;&lt;/script&gt; 
+&lt;script type=&quot;text/javascript&quot; src=&quot;megafolio/js/jquery.megafoliopro.js&quot;&gt;&lt;/script&gt;</pre>
+	<div>
+		&nbsp;</div>
+</div>
+<div>
+	This contains the JS and CSS for the Megafolio Plugin itself &nbsp;and some helping modules .</div>
+<div>
+	<h4>
+		&nbsp;</h4>
+	<h4>
+		03 Create the surrounding DIV for your Megafolio Gallery</h4>
+	<div>
+		Put it in the HTML:</div>
+	<div>
+		&nbsp;</div>
+	<pre class="brush: html">
+&lt;div class=&quot;container&quot;&gt;
+   &lt;div class=&quot;megafolio-container&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	<p class="info">
+		The Container Names can be different.&nbsp;<br>
+		It is only important that the reference in the Plugin initialisation points to this div<br>
+		(in example named megafolio-container).&nbsp;</p>
+	<div>
+		<h4>
+			&nbsp;</h4>
+		<h4>
+			04 The CSS Settings for the Container</h4>
+		<div>
+			Put it in one of your StyleSheets</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<pre class="brush: css">
+.container{  max-width:1260px; 
+   min-width:240px; 
+   width:auto; 
+   margin:auto; 
+   padding:0px 30px;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   overflow: hidden;
+}
+
+.megafolio-container{  width:100%;  
+   position:relative;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+}</pre>
+		</div>
+	</div>
+	<div>
+		<h4>
+			&nbsp;</h4>
+		<h4>
+			05 The first Entries&nbsp;</h4>
+		<p>
+			Simple Entries. ( Filters, Contents, Captions etc. are shown in later examples)</p>
+		<pre class="brush: html">
+&lt;div class=&quot;mega-entry&quot; id=&quot;entry-1&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;320&quot; data-height=&quot;240&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;mega-entry&quot; id=&quot;entry-2&quot; data-src=&quot;images/image2.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;mega-entry&quot; id=&quot;entry-3&quot; data-src=&quot;images/image3.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;&lt;/div&gt;</pre>
+		<p class="warning">
+			Class <strong>entry</strong> must exist at this point !&nbsp;</p>
+		<p class="warning">
+			Each Entry need to have an <strong>id</strong> (for Later References)&nbsp;</p>
+		<p class="warning">
+			<strong>data-width</strong> and <strong>data-height</strong> need to be defined for the Mobile View version. In case the Entry shown in the Mobile Device mode, it need to know its basic proportions.</p>
+		<p class="info">
+			&nbsp;Image src for the Background image! Videos, audio, html etc, will be added as Content and not as BG Images.&nbsp;</p>
+		<h4>
+			&nbsp;</h4>
+		<h4>
+			06 Call the jQuery Plugin to build the Gallery</h4>
+		<p>
+			Put it in end of your HTML Document in the &lt;body&gt; section.</p>
+		<pre class="brush: js">
+&lt;script type=&quot;text/javascript&quot;&gt;
+    jQuery(document).ready(function() {
+        var api=jQuery(&#39;.megafolio-container&#39;).megafoliopro({});
+    });
+&lt;/script&gt;</pre>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="creating_filters">
+	<h3>Creating Filters</h3><hr class="notop">
+<p>	This Chapter shows you how to add Filters to your existing Simple Gallery.&nbsp;</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	00 Creating Filter Buttons</h4>
+<p>	Since the Filtering of Entries happens via the API of the MEgafolio Pro Gallery, you can create any kind of html elements to use it as filter. It can be Dropdown, buttons, simple divs, a tags etc. &nbsp;In this Example we will show you how to use some simple Buttons to filter the Gallery.</p>
+<p>	Create the Markups for the Filters&nbsp;</p>
+<p>	&nbsp;</p>
+<pre class="brush: html">
+&lt;button class=&quot;filter&quot; data-category=&quot;cat-all&quot;&gt;ALL&lt;/button&gt;
+&lt;button class=&quot;filter&quot; data-category=&quot;cat-one&quot;&gt;CATEGORY ONE&lt;/button&gt;
+&lt;button class=&quot;filter&quot; data-category=&quot;cat-two&quot;&gt;CATEGORY TWO&lt;/button&gt;
+&lt;button class=&quot;filter&quot; data-category=&quot;cat-three&quot;&gt;CATEGORY THREE&lt;/button&gt;
+&lt;button class=&quot;filter&quot; data-category=&quot;cat-four&quot;&gt;CATEGORY FOUR&lt;/button&gt;</pre>
+<p>	&nbsp;</p>
+<p>	The category names can be free defined. You will need to use the same category names as classes at the Entry points later below.</p>
+<p class="info">
+	Each Filter Point needs to have a <strong>data-category</strong> attribute. This Attribute corresponds with the item classes.</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	01 Adding the Filter Classes to the Entry Points</h4>
+<p>	The category types need to be defined as class at each Entries (each item basically). One Entry can have more than one Category class.&nbsp;</p>
+<p>	&nbsp;</p>
+<pre class="brush: html">
+&lt;div class=&quot;megafolio-container&quot;&gt;
+
+&lt;div class=&quot;mega-entry cat-all cat-one&quot; id=&quot;entry-1&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;mega-entry cat-all cat-two&quot; id=&quot;entry-2&quot; data-src=&quot;images/image2.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;mega-entry cat-all cat-three&quot; id=&quot;entry-3&quot; data-src=&quot;images/image3.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;mega-entry cat-all cat-four&quot; id=&quot;entry-4&quot; data-src=&quot;images/image4.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+<h4>
+	&nbsp;</h4>
+<h4>
+	02. Define the jQuery function to call the API Filter function of the MegaFolio Gallery</h4>
+<p>	The API is very simple. &nbsp;We have different API Functions discussed later in the Documentation.</p>
+<p>	Here again the full Script part for initialising the Gallery and than call the Filter function.</p>
+<p>	&nbsp;</p>
+<pre class="brush: html">
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+jQuery(document).ready(function() {
+
+     var api=jQuery(&#39;.megafolio-container&#39;).megafoliopro({});
+
+    // CALL FILTER FUNCTION IF ANY FILTER HAS BEEN CLICKED
+    jQuery(&#39;.filter&#39;).click(function() {        api.megafilter(jQuery(this).data(&#39;category&#39;));    
+    });
+
+});
+
+&lt;/script&gt;</pre>
+<p>	&nbsp;</p>
+</section>
+<section id="options">
+	<h3>Options</h3><hr class="notop">
+<p>	This Chapter is all about the Options. Via the Plugin Options you can change the Grid styles, set up different Transition types, change speed, delays, scales and rotations of entries by activating the filters.</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	01. How to add Options to the Plugin</h4>
+<p>	The Options are defined in the Plugin Activation section in the HTML Document.</p>
+<pre class="brush: html">
+&lt;script type=&quot;text/javascript&quot;&gt;
+   jQuery(document).ready(function() {
+     var api=jQuery(&#39;.megafolio-container&#39;).megafoliopro(
+        {
+            filterChangeAnimation:&quot;rotatescale&quot;
+            filterChangeSpeed:600,
+            filterChangeRotate:99,
+            filterChangeScale:0.6,           
+            delay:20,
+            paddingHorizontal:10,
+            paddingVertical:10,
+            layoutarray:[0]
+         });
+
+      // CALL FILTER FUNCTION IF ANY FILTER HAS BEEN CLICKED
+      jQuery(&#39;.filter&#39;).click(function() {            api.megafilter(jQuery(this).data(&#39;category&#39;));   
+      });
+   });
+&lt;/script&gt;</pre>
+<p>	&nbsp;</p>
+<h4>
+	02. The Options</h4>
+<p>	<strong>filterChangeAnimation:</strong> This Option defines which Transition is used if the Entries disappearing or appearing after a filter has been activated. Possible settings: <em><strong>fade, rotate, scale, rotatescale, pagetop pagebottom, pagemiddle</strong></em></p>
+<p>	<strong>filterChangeSpeed: </strong>defines the speed of the Transition set via the filterChangeAnimation option. Values should be between 300 - 1500 (0.3sec till 1.5 Sec)&nbsp;</p>
+<p>	<strong>filterChangeRotate: </strong>defines the rotating degree of the Entries by Transition. Used only at <strong>rotate and rotatescale </strong>transitions. Possible values are <strong>-720 &nbsp;till 720.</strong> &nbsp;<strong>99= Random</strong> Rotating.</p>
+<p>	<strong>filterChangeScale: </strong>defines the scaling of Entries by Transition. Used only at <strong>scale</strong> and <strong>rotatescale</strong>. Values are from <strong>0-2</strong>. i.e. 0.6 will 60% decrease the Entry at disappearing.</p>
+<p>	<strong>delay: </strong>defines the dealying between two Entries transition. If this set to 0 than all entrypoint animated at the same time. i.e. 20 0.2 Sec will be delayed between each transition.</p>
+<p>	<strong>paddingHorizontal: </strong>the space between the Entries Horizontal (value is in px)</p>
+<p>	<strong>paddingVertical:&nbsp;</strong>the space between the Entries Vertical (value is in px)</p>
+<p>	<strong>layoutarray: </strong>defines the Grid, Grids used in the Gallery. This can be a single Value, or even more values.<br>
+	The Gallery Grid types are</p>
+<ul>	<li>		2-9 (Special Grids), &nbsp;2 = 2 Entry &nbsp;3 = 3 Entry etc.. See Grid Types later !&nbsp;</li>
+	<li>		11,12,13,14 (for Square Grids. 11=3 in the Row, 12= 4 in the Row, 13=5 in the Row, 14=6 in the Row)</li>
+	<li>		15,16,17,18 (Different Heights per Column. Height of Entries defined in data-height per Entry) will be taken. &nbsp;15= 3 in the Row, 16 = 4 in the Row etc...</li>
+	<li>		0 = Random Grid Types</li>
+</ul>
+<p>	The layoutarray is an array where you define i.e. an array like [5,3,13] &nbsp;which means, the first 5 item will be arranged in &quot;Grid Type 5&quot;, the next 3 item will be arranged in &quot;Grid Type 3&quot; the next 5 item will be arranged in &quot;Grid Type 15&quot;. If you have more entries here, then the Array will be looped and the Gallery form starts from the first Defined Grid Type again. You can not Mix types from 15,16,17,18 with any other types !!&nbsp;</p>
+<p>	Some Possibilities: [0,5,0,5,0,5] &nbsp;or [ 9,6,3,6,0,4,13] &nbsp;but you can not mix like [16,2,...] since the Grid Types above 15 are different Height Grids, which is logically not mixable with other grids.&nbsp;<br>
+	&nbsp;</p>
+</section>
+<section id="grid_layouts">
+	<h3>Grid Layouts</h3><hr class="notop">
+<p>	Megafolio has 9 Special Grids, 4 Square Grids and 4 Different Height Grids. Each Layout has some attributes which act &nbsp;on Resizing Events.&nbsp;</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	00 The Special Grids</h4>
+<p>	Grid Layout Nr. 9</p>
+<p>	<img alt="" src="assets/images/image_15.png" style="width: 792px; height: 587px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid Layout Nr. 8</p>
+<p>	<img alt="" src="assets/images/image_2.png" style="width: 792px; height: 442px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid Layout Nr. 7</p>
+<p>	<img alt="" src="assets/images/image_8.png" style="width: 792px; height: 439px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid Layout Nr. 6</p>
+<p>	<img alt="" src="assets/images/image_11.png" style="width: 792px; height: 297px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid Layout Nr. 5</p>
+<p>	<img alt="" src="assets/images/image_1.png" style="width: 792px; height: 296px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid Layout Nr. 4</p>
+<p>	<img alt="" src="assets/images/image_12.png" style="width: 792px; height: 293px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid Layout Nr. 3</p>
+<p>	<img alt="" src="assets/images/image_6.png" style="width: 792px; height: 297px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid Layout Nr. 2</p>
+<p>	<img alt="" src="assets/images/image_14.png" style="width: 792px; height: 287px;"></p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	01 Square Grids</h4>
+<p>	Grid 10</p>
+<p>	<img alt="" src="assets/images/image_13.png" style="width: 792px; height: 528px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid 11</p>
+<p>	<img alt="" src="assets/images/image_17.png" style="width: 792px; height: 435px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid 12</p>
+<p>	<img alt="" src="assets/images/image_5.png" style="width: 792px; height: 338px;"></p>
+<p>	&nbsp;</p>
+<p>	Grid 13</p>
+<p>	<img alt="" src="assets/images/image_7.png" style="width: 793px; height: 259px;"></p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	02 Different Height Grids</h4>
+<p>	Grid 14 - 17 (Columns 14 = 3, 15=4, 16=5, 17 = 6)</p>
+<p>	<img alt="" src="assets/images/image_16.png" style="width: 792px; height: 326px;"></p>
+<p>	&nbsp;</p>
+<h4>
+	03 Mixed Grids&nbsp;</h4>
+<p>	Using the layoutarray you can define different kinds of mixed grids. Since the only limitation is to not mix different height grids with any other grids, you can build your grid system very flexible, even with random grids within the other grids.</p>
+<p>	The Option Description again:</p>
+<p>	&nbsp;</p>
+<p>	<strong>layoutarray:&nbsp;</strong>defines the Grid, Grids used in the Gallery. This can be a single Value, or even more values.<br>
+	The Gallery Grid types are</p>
+<ul>	<li>		2-9 (Special Grids), &nbsp;2 = 2 Entry, 3 = 3 Entries etc.. See Grid Types later !&nbsp;</li>
+	<li>		10,11,12,13 (for Square Grids. 10=3 in the Row, 11= 4 in the Row, 12=5 in the Row, 13=6 in the Row)</li>
+	<li>		14,15,16,17 (Different Heights per Column. Height of Entries defined in data-height per Entry) will be taken. &nbsp;14= 3 in the Row, 15 = 4 in the Row etc...</li>
+	<li>		0 = Random Grid Types</li>
+</ul>
+<p>	The layoutarray is an array where you can define i.e. an array like [5,3,13] &nbsp;which means, the first 5 item will be arranged in &quot;Grid Type 5&quot;, the next 3 item will be arranged in &quot;Grid Type 3&quot; the next 5 item will be arranged in &quot;Grid Type 14&quot;.</p>
+<p>	If you have more entries here, then the Array will be looped, and the Gallery form starts from the first Defined Grid Type again. You can not Mix types from 15,16,17,18 with any other types !!&nbsp;</p>
+<p>	Some Possibilities: [0,5,0,5,0,5] &nbsp;or [ 9,6,3,6,0,4,13] &nbsp;but you can not mix like [16,2,...] since the Grid Types above 15 are different Height Grids, which is logically not mixable with other grids.&nbsp;</p>
+</section>
+<section id="entry_captions">
+	<h3>Entry Captions</h3><hr class="notop">
+<p>	MegaFolio has Prepared Captions on Board, but it is very simple to add any html formatted containers inside the entries. &nbsp;In Our examples you can find Hover Effects, Covering Captions and some Social Bars. Based on these Examples you can build your own Entries by modificating the existing styles, or creating new styles by copying our examples.</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	00 Embeded Captions with The &quot;.mega-covercaption&quot; Style</h4>
+<p>	The .mega-covercaption will cover part of your Entry with a frame. Here are some Examples:</p>
+<p>	<img alt="" src="assets/images/image_9.png" style="width: 797px; height: 443px;"></p>
+<p>	or like in the Metro Style</p>
+<p>	<img alt="" src="assets/images/image_10.png" style="width: 792px; height: 581px;"></p>
+<p>	Since the Entries can have three different types, (Generated Automatically based on the Grid you selected and on the current Width of main Container)&nbsp;</p>
+<ul>	<li>		landscape</li>
+	<li>		portrait</li>
+	<li>		square</li>
+</ul>
+<p>	you need to define three different Layouts for each Caption. The Layout will align the Caption to bottom, top, left or right in each Entry Form.</p>
+<p>	<br>
+	The Following Classes can be defined (choose always 3, one per layout art !):<br>
+	&nbsp;</p>
+<p>	1st choose the Square Layout&nbsp;&nbsp; -&gt;&nbsp; <strong>.mega-square-top</strong> or <strong>.mega-square-bottom</strong><br>
+	+<br>
+	2nd choose the Landscape Layout -&gt; .<strong>mega-landscape-left </strong>or <strong>.mega-landscape-right</strong><br>
+	+<br>
+	3thd choose the Portrait Layout -&gt; <strong>.mega-portrait-top</strong> or .<strong>mega-portrait-bottom</strong></p>
+<p>	&nbsp;</p>
+<p>	At this point we have a caption container which looks like:</p>
+<pre class="brush: html">
+&lt;div class=&quot;mega-covercaption mega-square-top mega-landscape-right mega-portrait-bottom&quot;&gt;</pre>
+<p>	&nbsp;</p>
+<p>	To choose the background color of &nbsp;the caption you can use predefined classes like:</p>
+<p>	<strong>.mega-white </strong>,&nbsp;<strong>.mega-black, .mega-red, .mega-turquoise, .mega-green, .mega-orange, .mega-blue, .mega-violet</strong></p>
+<p>	To Make it transparent use the <strong>.mega-transparent </strong>class. (Works only at black and white, for other colors RGBA needs to be set)</p>
+<p>	&nbsp;</p>
+<p>	An &nbsp;Entry can look like this (based on the settings above):</p>
+<pre class="brush: html">
+&lt;div class=&quot;mega-entry cat-all cat-one&quot; id=&quot;entry-1&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;
+
+&lt;div class=&quot;mega-covercaption mega-square-top mega-landscape-right mega-portrait-bottom mega-white&quot;&gt;
+
+&lt;div class=&quot;mega-title&quot;&gt;WE BRING CREATIVE IDEAS&lt;/div&gt;
+&lt;div class=&quot;mega-date&quot;&gt;2nd January, 2013&lt;/div&gt;
+&lt;p&gt;Lorem ipsum dolot sit amet, consetetur sadipscing elitr, sed diam nonumy...&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+<p>	&nbsp;</p>
+<p class="info">
+	These classes are a nice to have. You dont need to use them, or you can edit them any time in the setting.css document in the megafolio/css/ &nbsp;plugin folder.</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	01 Embeded Captions with Hovered Buttons</h4>
+<p>	Unlimited possibilities of Hovereffects can be created in the Gallery. For Demonstration we created a few for you.&nbsp;</p>
+<p>	<img alt="" src="assets/images/image_3.png" style="width: 590px; height: 387px;"></p>
+<p>	Create a container for the hover effect inside the Entry. This container should have the class <strong>.mega-hover</strong></p>
+<p>	The content of the mega-hover container can be any HTML Content. The Demo Effects are created with CSS3 transitions.</p>
+<p>	Use the .mega-hoverlink Class for the &quot;link&quot; Button, and the .mega-hoverview Class for the View More Button.<br>
+	MegaFolio has FancyBox 2 (A great Responsive LiveBox Tool) on Board. You can use it for showing Detail infos, more views, etc, of the Entries via a livebox. &nbsp;</p>
+<p>	&nbsp;</p>
+<p>	Markup Example for Hover Function (This Markup comes inside the Entry Container):</p>
+<pre class="brush: html">
+&lt;!-- THE CONTAINER FOR THE HOVER EFFECT --&gt;
+&lt;div class=&quot;mega-hover&quot;&gt;
+
+   &lt;!-- TITLE AND SUBTITILE INSIDE THE HOVER EFFECT --&gt;
+   &lt;div class=&quot;mega-hovertitle&quot;&gt;THIS IS A TITLE
+     &lt;div class=&quot;mega-hoversubtitle&quot;&gt;JUST A PERFECT START&lt;/div&gt;
+   &lt;/div&gt;
+
+    &lt;!-- THE LINK BUTTON --&gt;
+    &lt;a href=&quot;#&quot;&gt;&lt;div class=&quot;mega-hoverlink&quot;&gt;&lt;/div&gt;&lt;/a&gt;
+
+    &lt;!-- THE VIEW MORE BUTTON --&gt;
+    &lt;a class=&quot;fancybox&quot; rel=&quot;group&quot; href=&quot;images/entries/large1.jpg&quot;&gt;
+     &lt;div class=&quot;mega-hoverview&quot;&gt;&lt;/div&gt;
+    &lt;/a&gt;
+
+&lt;/div&gt; &lt;!-- // END OF THE HOVER EFFECT MARKUP --&gt;</pre>
+<p>	&nbsp;</p>
+<p class="info">
+	To Use only one Icon you can extend the the <strong>mega-hover</strong> class with the class&nbsp;alone In this case the Button will be centered within the Entry point.&nbsp;</p>
+<p class="info">
+	In that case you dont want title, you can center the buttons within you extend the <strong>mega-hover</strong> class with the class <strong>notitle</strong></p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	02 The Social Bar Example</h4>
+<p>	<img alt="" src="assets/images/image_4.png" style="width: 474px; height: 206px;"></p>
+<p>	The Prepared Socialbar in Megafolio has only limited functions on board. This is a Design Demonstration with hover effects to present how to build a fullwidth bar over the border.</p>
+<p>	The Markup for the .mega-socialbar</p>
+<p>	&nbsp;</p>
+<pre class="brush: html">
+&lt;div class=&quot;mega-socialbar&quot;&gt;
+   &lt;span class=&quot;mega-leftfloat&quot;&gt;Share this&lt;/span&gt;
+   &lt;a href=&quot;#&quot;&gt;&lt;div class=&quot;mega-soc mega-facebook mega-leftfloat&quot;&gt;&lt;/div&gt;&lt;/a&gt;
+   &lt;a href=&quot;#&quot;&gt;&lt;div class=&quot;mega-soc mega-twitter mega-leftfloat&quot;&gt;&lt;/div&gt;&lt;/a&gt;
+   &lt;div class=&quot;mega-show-more mega-soc mega-more mega-rightfloat&quot;&gt;&lt;/div&gt;
+   &lt;a href=&quot;#&quot;&gt;&lt;div class=&quot;mega-soc mega-like mega-rightfloat&quot;&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;&lt;/a&gt;
+   &lt;a href=&quot;#&quot;&gt;&lt;div class=&quot;mega-soc mega-comments mega-rightfloat&quot;&gt;&lt;span&gt;5&lt;/span&gt;&lt;/div&gt;&lt;/a&gt;
+&lt;/div&gt;</pre>
+<p>	&nbsp;</p>
+<p class="warning">
+	In case you use a border per entries like this:</p>
+<pre class="brush: css">
+.megafolio-container .mega-entry .mega-entry-innerwrap{border:5px solid #fff;}</pre>
+<p>	You will need to adjust also the social bar positions in the settings.css document:</p>
+<pre class="brush: css">
+.megasocialbar  {  
+                                    margin-left:-5px;
+                                    margin-right:-5px;
+                                    bottom:-5px;
+                }</pre>
+<p>	This Values should be always the same as the Border size itself.&nbsp;</p>
+</section>
+<section id="fancybox">
+	<h3>FancyBox</h3><hr class="notop">
+<p>	Megafolio Pro use Fancybox as Lightbox System for Detail viewing. Megafolio uses only a basic function of FancyBox, in case you need advanced functions like Thumbnail views, mouse scroll etc. please check out the <a href="http://fancyapps.com/fancybox/">FancyBox documentation</a>.</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	00 Load FancyBox2 Basics in the Document</h4>
+<p>	Put the following Code in the &lt;head&gt; part of your document under the jQuery Library script !!.&nbsp;</p>
+<p>	&nbsp;</p>
+<pre class="brush: html">
+ &lt;!-- THE FANYCYBOX ASSETS --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;megafolio/fancybox/<strong>jquery.fancybox.css</strong>?v=2.1.3&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;megafolio/fancybox/<strong>jquery.fancybox.pack.js</strong>?v=2.1.3&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Optionally add helpers - button, thumbnail and/or media ONLY FOR ADVANCED USAGE--&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;megafolio/fancybox/helpers/<strong>jquery.fancybox-media.js</strong>?v=1.0.5&quot;&gt;&lt;/script&gt;</pre>
+<p>	&nbsp;</p>
+<h4>
+	01 Markup for View More Entry</h4>
+<p>	&nbsp;</p>
+<pre class="brush: html">
+&lt;div class=&quot;mega-entry cat-all cat-one&quot; id=&quot;mega-entry-1&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;
+
+      &lt;div class=&quot;mega-hover&quot;&gt;
+
+            &lt;div class=&quot;mega-hovertitle&quot;&gt;THIS IS A TITLE&lt;div class=&quot;mega-hoversubtitle&quot;&gt;JUST A PERFECT START&lt;/div&gt;&lt;/div&gt;
+
+            &lt;a href=&quot;#&quot;&gt;&lt;div class=&quot;mega-hoverlink&quot;&gt;&lt;/div&gt;&lt;/a&gt;
+
+           <strong> &lt;a class=&quot;fancybox&quot; rel=&quot;group&quot; href=&quot;images/entries/large1.jpg&quot;&gt;&lt;div class=&quot;mega-hoverview&quot;&gt;&lt;/div&gt;&lt;/a&gt;</strong>
+
+       &lt;/div&gt;
+
+&lt;/div&gt;</pre>
+<p>	&nbsp;</p>
+<h4>
+	02 Initialising the FancyBox</h4>
+<p>	Put this Code somewhere behind the MegaFolio Plugin initialisation (within the &lt;scrip&gt; tags):</p>
+<p>	&nbsp;</p>
+<pre class="brush: js">
+// THE FANCYBOX PLUGIN INITALISATION
+jQuery(&quot;.fancybox&quot;).fancybox({
+     openEffect  : &#39;none&#39;,
+     closeEffect : &#39;none&#39;,
+     helpers : {
+                 media : {}
+                }
+});</pre>
+<p>	&nbsp;</p>
+<p>	For More example see the 03-example-hovers.html document or the index-images.html document.</p>
+</section>
+<section id="classes_markups_overview">
+	<h3>Classes & Markups Overview</h3><hr class="notop">
+<p>	The Markups to import Scripts, start Plugin, integrate filters etc. &nbsp;has been discussed in the <strong>First Steps</strong> Captiel.</p>
+<p>	This Chapter will show you the classes and markups of the Entries.</p>
+<h4>
+	00 A Simple Entry wihtout Filter and Content</h4>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-entry</strong>&quot; id=&quot;mega-entry-1&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;&lt;/div&gt;</pre>
+<h4>
+	&nbsp;</h4>
+<h4>
+	01 A Simple Entry with Filter Classes, without Content</h4>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-entry</strong> cat-all cat-one&quot; id=&quot;mega-entry-1&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;504&quot; data-height=&quot;400&quot;&gt;&lt;/div&gt;</pre>
+<h4>
+	&nbsp;</h4>
+<h4>
+	02 A Simple Entry with Filter Classes and with Some Content</h4>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-entry</strong> cat-three cat-all&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;512&quot; data-height=&quot;500&quot;&gt;
+        &lt;div class=&quot;<strong>fatcaption-bottom</strong>&quot;&gt;TRIPPY AIRPLANES&lt;/div&gt;
+&lt;/div&gt;</pre>
+<h4>
+	&nbsp;</h4>
+<h4>
+	03 Entry with Filter, Content, Hover Link,View and Titles</h4>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-entry</strong> cat-three cat-all&quot; data-src=&quot;images/p7-full.jpg&quot; data-width=&quot;512&quot; data-height=&quot;500&quot;&gt;
+
+    &lt;div class=&quot;<strong>mega-hover</strong>&quot;&gt;
+         &lt;div class=&quot;<strong>mega-hovertitle</strong>&quot;&gt;MOBILE OPTIMIZED
+                  &lt;div class=&quot;<strong>mega-hoversubtitle</strong>&quot;&gt;CATEGORY FOUR&lt;/div&gt;
+         &lt;/div&gt;
+        &lt;a href=&quot;#&quot;&gt;&lt;div class=&quot;<strong>mega-hoverlink</strong>&quot;&gt;&lt;/div&gt;&lt;/a&gt;
+        &lt;a class=&quot;<strong>fancybox</strong>&quot; rel=&quot;group&quot; href=&quot;images/p7-full.jpg&quot;&gt;
+              &lt;div class=&quot;<strong>mega-hoverview</strong>&quot;&gt;&lt;/div&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;<strong>fatcaption-bottom</strong>&quot;&gt;TRIPPY AIRPLANES&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+<h4>
+	&nbsp;</h4>
+<h4>
+	04 Entry with Filter, Content, Hover with View but no Link, no Hover Title</h4>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-entry</strong> cat-three cat-all&quot; data-src=&quot;images/p7-full.jpg&quot; data-width=&quot;512&quot; data-height=&quot;500&quot;&gt;
+
+      &lt;div class=&quot;<strong>mega-hover</strong> notitle alone&quot;&gt;
+
+            &lt;a class=&quot;<strong>fancybox</strong>&quot; rel=&quot;group&quot; href=&quot;images/p7-full.jpg&quot;&gt;
+                 &lt;div class=&quot;<strong>mega-hoverview</strong>&quot;&gt;&lt;/div&gt;
+            &lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;<strong>fatcaption-bottom</strong>&quot;&gt;TRIPPY AIRPLANES&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+<p>	&nbsp;</p>
+<h4>
+	05 Entry with mega-covercaption content</h4>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-entry</strong> cat-two cat-all&quot; id=&quot;mega-entry-1&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;780&quot; data-height=&quot;585&quot; data-lowsize=&quot;&quot;&gt;
+
+&lt;div class=&quot;<strong>mega-covercaption</strong> mega-square-bottom mega-landscape-right mega-portrait-bottom mega-red&quot;&gt;
+
+&lt;div class=&quot;<strong>mega-title</strong>&quot;&gt;&lt;img src=&quot;images/icons/grid.png&quot; alt=&quot;&quot; style=&quot;float: left; padding-right: 15px;&quot;/&gt;A Multi-Purpose Grid Plugin&lt;/div&gt;
+
+&lt;div class=&quot;<strong>mega-date</strong>&quot;&gt;With a certain twist&lt;/div&gt;
+
+&lt;p&gt;Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...&lt;br/&gt;&lt;br/&gt;&lt;a href=&quot;#&quot;&gt;Read the whole story&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+<h4>
+	&nbsp;</h4>
+<h4>
+	06 Entry with mega-covercaption and mega-coverbuttons</h4>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-entry</strong> cat-two cat-all&quot; id=&quot;mega-entry-1&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;780&quot; data-height=&quot;585&quot; data-lowsize=&quot;&quot;&gt;
+
+
+&lt;div class=&quot;<strong>mega-covercaption</strong> mega-square-bottom mega-landscape-right mega-portrait-bottom mega-red&quot;&gt;
+
+&lt;div class=&quot;<strong>mega-title</strong>&quot;&gt;&lt;img src=&quot;images/icons/grid.png&quot; alt=&quot;&quot; style=&quot;float: left; padding-right: 15px;&quot;/&gt;A Multi-Purpose Grid Plugin&lt;/div&gt;
+
+&lt;div class=&quot;<strong>mega-date</strong>&quot;&gt;With a certain twist&lt;/div&gt;
+
+&lt;p&gt;Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...&lt;br/&gt;&lt;br/&gt;&lt;a href=&quot;#&quot;&gt;Read the whole story&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;<strong>mega-coverbuttons</strong>&quot;&gt;
+
+      &lt;a href=&quot;#&quot;&gt;&lt;div class=&quot;<strong>mega-link</strong> mega-red&quot;&gt;&lt;/div&gt;&lt;/a&gt;
+
+      &lt;a class=&quot;fancybox&quot; rel=&quot;group&quot; href=&quot;images/image1.jpg&quot; title=&quot;A Grid Plugin&quot;&gt;
+            &lt;div class=&quot;<strong>mega-view</strong> mega-red&quot;&gt;&lt;/div&gt;
+      &lt;/a&gt;
+
+&lt;/div&gt;
+
+
+&lt;/div&gt;</pre>
+<p>	&nbsp;</p>
+<h4>
+	07 The Mega-Covercaption Predefined &amp; Styled Caption Class</h4>
+<pre>
+<strong>mega-covercaption</strong></pre>
+<p>	An prepared Caption (you are free o build any other captions as your needs are) which is covering a part of the entry.<br>
+	<br>
+	It has<strong> Extending color classes</strong> like:&nbsp;</p>
+<ul style="margin-left: 40px;">
+	<li>		<strong>mega-white&nbsp;</strong></li>
+	<li>		<strong>mega-black</strong></li>
+	<li>		<strong><font color="#43a1a9">mega-turquoise</font></strong></li>
+	<li>		<strong><font color="#de921a">mega-orange</font></strong></li>
+	<li>		<strong><font color="#9ab534">mega-green</font></strong></li>
+	<li>		<strong><font color="#d74f35">mega-red</font></strong></li>
+	<li>		<strong><font color="#791869">mega-violet</font></strong></li>
+	<li>		<strong><font color="#034e92">mega-blue</font></strong></li>
+</ul>
+<p>	it has <strong>Extending Layout Classes</strong> for Aligning depending on Entry current Form&nbsp;like:</p>
+<ul style="margin-left: 40px;">
+	<li>		<strong>mega-square-top</strong> or <strong>mega-square-bottom</strong></li>
+	<li>		<strong>mega-portrait-top</strong> or <strong>mega-portrait-bottom</strong></li>
+	<li>		<strong>mega-landscape-left</strong> or <strong>mega-landscape-right</strong></li>
+</ul>
+<p>	&nbsp;</p>
+<p>	Example for mega-covercaption :</p>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-covercaption</strong> mega-square-bottom mega-landscape-right mega-portrait-bottom mega-red&quot;&gt;</pre>
+<p>	&nbsp;</p>
+<p>	In the mega-covercaption you can use prepared containers like:</p>
+<ul style="margin-left: 40px;">
+	<li style="font-size:24px; line-height: 24px; color:#000; font-weight:400">
+		mega-title</li>
+	<li style="font-size:15px; color:#666; font-weight:300;">
+		mega-date</li>
+</ul>
+<p>	&nbsp;</p>
+<p>	In case the Entry also has a Social Bar, you should use the class:</p>
+<ul style="margin-left: 40px;">
+	<li>		<strong>mega-withsocialbar</strong></li>
+</ul>
+<p>	<br>
+	A Full Example for a mega-covercaption class styled entry:</p>
+<p>	&nbsp;</p>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-entry</strong> cat-two cat-all&quot; id=&quot;mega-entry-1&quot; data-src=&quot;images/image1.jpg&quot; data-width=&quot;780&quot; data-height=&quot;585&quot; data-lowsize=&quot;&quot;&gt;
+
+&lt;div class=&quot;<strong>mega-covercaption mega-square-bottom mega-landscape-right mega-portrait-bottom mega-red</strong>&quot;&gt;
+
+&lt;div class=&quot;<strong>mega-title</strong>&quot;&gt;&lt;img src=&quot;images/icons/grid.png&quot; alt=&quot;&quot; style=&quot;float: left; padding-right: 15px;&quot;/&gt;A Multi-Purpose Grid Plugin&lt;/div&gt;
+
+&lt;div class=&quot;<strong>mega-date</strong>&quot;&gt;With a certain twist&lt;/div&gt;
+
+&lt;p&gt;Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...&lt;br/&gt;&lt;br/&gt;&lt;a href=&quot;#&quot;&gt;Read the whole story&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+<p>	&nbsp;</p>
+<h4>
+	07B The Mega-CoverButtons for Link and View over the mega-covercaptions</h4>
+<pre>
+<strong>mega-coverbuttons</strong></pre>
+<p>	This Class helps you to add prestyled Buttons which are fits well to the mega-covercaptions</p>
+<p>	In the mega-coverbuttons you can use prepared containers with classes like :</p>
+<ul style="margin-left: 40px;">
+	<li>		<strong>mega-link</strong> (extended with any Color Classes above)</li>
+	<li>		<strong>mega-view</strong> (extended with any Color Classes above)</li>
+</ul>
+<p>	<br>
+	Example for mega-coverbuttons:</p>
+<p>	&nbsp;</p>
+<pre class="brush: html">
+&lt;div class=&quot;<strong>mega-coverbuttons</strong>&quot;&gt;
+    &lt;a href=&quot;#&quot;&gt;
+           &lt;div class=&quot;<strong>mega-link</strong> <strong>mega-orange</strong>&quot;&gt;&lt;/div&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;fancybox&quot; rel=&quot;group&quot; href=&quot;images/image2.jpg&quot; title=&quot;Snowboard Mania&quot;&gt;
+           &lt;div class=&quot;<strong>mega-view</strong> <strong>mega-orange</strong>&quot;&gt;&lt;/div&gt;
+    &lt;/a&gt;
+&lt;/div&gt;</pre>
+<p>	&nbsp;</p>
+<h4>
+	08 The Hover Classes</h4>
+<pre>
+<strong>mega-hover</strong></pre>
+<p>	The mega-hover class helps you to create a hover effect with buttons, titles and subtitles on it.&nbsp;</p>
+<p>	It can be extended with following classes:</p>
+<ul style="margin-left: 40px;">
+	<li>		<strong>alone</strong> (when only one Button used inside the hover container)</li>
+	<li>		<strong>notitle</strong> (when no title and subtitle used in hover effect, to center the Buttons verticaly)</li>
+</ul>
+<p>	<br>
+	Inside the mega-hover you can use following containers and classes (or build your own one):</p>
+<ul style="margin-left: 40px;">
+	<li>		<strong>mega-hovertitle</strong> (A prestyled title when mouse is hovered)</li>
+	<li>		<strong>mega-hoversubtitle</strong> (Is used inside the mega.hovertitle !!)</li>
+	<li>		<strong>mega-hoverlink </strong>(A Button with link icon on it)</li>
+	<li>		<strong>mega-hoverview&nbsp;</strong>(A Button with lupe icon on it)</li>
+</ul>
+<p>	&nbsp;</p>
+<h4>
+	09 Some other Caption Styles</h4>
+<ul style="margin-left: 40px;">
+	<li>		<strong>fatcaption-top </strong>(Top aligned Caption with Bold Font)</li>
+	<li>		<strong>fatcaption-bottom &nbsp;</strong>(Bottom aligned Caption with Bold Font)</li>
+	<li>		<strong>gallerycaption-top&nbsp;</strong>(Top aligned Styled Caption)</li>
+	<li>		<strong>gallerycaption-bottom&nbsp;</strong>(Bottom aligned Styled Caption)</li>
+</ul>
+<p>	&nbsp;</p>
+<h4>
+	10 Border and Background Styling of Entries</h4>
+<p>	You can use two predefined Border Style or modificate them as you wish. Standard the border of entries is 5px and rounded. To remove the border, or remove the rounded borders you can use the following two classes <strong>extended the megafolio-container classes</strong>:</p>
+<ul style="margin-left: 40px;">
+	<li>		<strong>noborder</strong></li>
+	<li>		<strong>norounded</strong></li>
+	<li>		<strong>light-bg-entries</strong></li>
+	<li>		<strong>dark-bg-entries</strong></li>
+</ul>
+<p>	A typical Border Setting for the entires look like this somewhere in your style sheet:</p>
+<pre class="brush: css">
+.mega-entry .mega-entry-innerwrap{border:5px solid #fff; }</pre>
+<p>	&nbsp;</p>
+<p>	&nbsp;</p>
+</section>
+<section id="methodes">
+	<h3>Methodes</h3><hr class="notop">
+<p>	To Manage the Gallery from extern, like adding new elements, resize, rebuild, filter, sort etc. you can use the following methodes:</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	00 Register the Plugin with API</h4>
+<p>	The Plugin need to be saved in a variable (we name it here &quot;api&quot;) so we can referenz on it later, just like this:</p>
+<p>	&nbsp;</p>
+<pre class="brush: js">
+var <strong>api</strong>=jQuery(&#39;.megafolio-container&#39;).megafoliopro({....});
+</pre>
+<p>	Of course you should use the options etc. as written in the Options Chapter.</p>
+<p>	Since we registered the Plugin we can call its methodes.</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	01 Remix the Gallery with a new / or current Layout</h4>
+<pre class="brush: js">
+api.megaremix([9]);</pre>
+<p>	It will rearrange the Gallery in Grid 9 type. You can use here the same Order as you used at the Plugin Initialisation.</p>
+<p>	In case you dont know the order (since it was done randomly etc) you can use the&nbsp;</p>
+<h4>
+	&nbsp;</h4>
+<h4>
+	02 Get Current Order of Order Array</h4>
+<pre class="brush: js">
+var order=api.megagetcurrentorder();</pre>
+<p>	For remix the Gallery in the Order it has been builded after Random Initialisation, you could use:</p>
+<pre class="brush: js">
+api.megaremix(api.megagetcurrentorder());</pre>
+<p>	&nbsp;</p>
+<h4>
+	03 Filter the Gallery with a class</h4>
+<p>	To filter and rebuild the gallery with current Filter you can use the</p>
+<pre class="brush: js">
+api.megafilter(&quot;cat-all&quot;);</pre>
+<p>	See how to build filters, and how to use them in the Chapter <strong>Filters.</strong></p>
+<p>	&nbsp;</p>
+<h4>
+	04 Change Animation Type on Demand</h4>
+<p>	You can change the Animation Type (as defined in the Options) like:</p>
+<pre class="brush: js">
+api.megaanimchange(animtype, speed, rotate, scale);</pre>
+<p>	&nbsp;</p>
+<p>	<strong>animtype:</strong>&nbsp;This Option defines which Transition is used if the Entries disappearing or appearing after a filter has been activated. Possible settings:&nbsp;<em><strong>fade, rotate, scale, rotatescale, pagetop pagebottom, pagemiddle</strong></em></p>
+<p>	<strong>speed:&nbsp;</strong>defines the speed of the Transition set via the filterChangeAnimation option. Values should be between 300 - 1500 (0.3sec till 1.5 Sec)&nbsp;</p>
+<p>	<strong>rotate:&nbsp;</strong>defines the rotating degree of the Entries by Transition. Used only at&nbsp;<strong>rotate and rotatescale&nbsp;</strong>transitions. Possible values are&nbsp;<strong>-720 &nbsp;till 720.</strong>&nbsp;&nbsp;<strong>99= Random</strong>&nbsp;Rotating.</p>
+<p>	<strong>scale:&nbsp;</strong>defines the scaling of Entries by Transition. Used only at&nbsp;<strong>scale</strong>&nbsp;and&nbsp;<strong>rotatescale</strong>. Values are from&nbsp;<strong>0-2</strong>. i.e. 0.6 will 60% decrease the Entry at disappearing.</p>
+<p>	&nbsp;</p>
+</section>
+<section id="licenses">
+	<h3>Licenses</h3><hr class="notop">
+<p>
+	Used Assets</p>
+<ul>
+	<li>
+		<a href="https://github.com/louisremi/jquery.transition.js/">jQuery Transision Plugin&nbsp;</a></li>
+	<li>
+		<a href="https://github.com/alexanderdickson/waitForImages">WaitForImages jQuery Plugin</a></li>
+	<li>
+		Parts of <a href="http://www.iconsweets2.com/">Iconsweets 2</a></li>
+	<li>
+		Patterns from <a href="http://subtlepatterns.com/">Subtlepatterns</a></li>
+	<li>Color Wheel Icon from <a href="http://www.iconfinder.com/icondetails/14807/48/color_html_wheel_icon">http://www.addictedtocoffee.de/</a></li>
+	<li>
+		Fancybox MultiDomain License (Only Together with Megafolio !!)</li>
+</ul>
+<p>
+	&nbsp;</p>
+</section>
+<section id="support">
+	<h3>Support</h3><hr class="notop">
+<p>	If you face problems with the installation or customization of our product please do not hesitate to contact your theme maker.</p>
+
+</section>
+
+	</div>
+</body>
+</html>

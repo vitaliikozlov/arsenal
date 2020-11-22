@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="dCodes Framework">
+<meta name="description" content="PhotoMatrix" />
+<title>PhotoMatrix (Responsive)</title>
+<!-- Use Google Chrome rendering engine if available -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<!-- Google Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+
+<!-- must remain or scrollbars appear -->
+<noscript>
+<style>
+#ib-img-preview{cursor:move;}
+.ib-main a {
+	cursor:pointer;
+}
+.ib-main-wrapper {
+	position:absolute;
+	top:0px;
+	bottom:24px;
+	overflow:scroll;
+}
+.ib-main {
+	overflow:hidden;
+	position:absolute;
+}
+</style>
+</noscript>
+<!-- must remain or scrollbars appear -->
+
+<script id="previewTmpl" type="text/x-jquery-tmpl">
+			<div id="ib-img-preview" class="ib-preview">
+                <img src="${src}" alt="" class="ib-preview-img"/>
+                <span class="ib-preview-descr" style="display:none;">${description}</span>
+                <div class="ib-nav" style="display:none;">
+                    <span class="ib-nav-prev">Previous</span>
+                    <span class="ib-nav-next">Next</span>
+                </div>
+                <span class="ib-close" style="display:none;">Close Preview</span>
+                <div class="ib-loading-large" style="display:none;">Loading...</div>
+            </div>		
+		</script>
+<script id="contentTmpl" type="text/x-jquery-tmpl">	
+			<div id="ib-content-preview" class="ib-content-preview">
+                <div class="ib-teaser" style="display:none;">{{html teaser}}</div>
+                <div class="ib-content-full" style="display:none;">{{html content}}</div>
+                <span class="ib-close" style="display:none;">Close Preview</span>
+            </div>
+		</script>
+</head><body>
+<div class="container">
+  <div id="taheader" class="taheader"> >> <a href="javascript:history.go(-1)" title="Go Back">Go Back</a> <span class="right_ab"> All images and materials are copyright protected. </span> </div>
+  <div id="ib-top" class="ib-top">
+    <h1><a href="../../index.html" title="Go Back Home">PhotoMATRIX</a> <span>(with mouse panning)</span></h1>
+  </div>
+  
+  <!-- Images Go Here -->
+  <div id="ib-main-wrapper" class="ib-main-wrapper">
+    <div class="ib-main"> 
+      
+      <!-- sample local image --> 
+      <!-- <a href="#"><img src="images/thumbs/thumb-image.jpg" data-largesrc="images/large-image.jpg" /><span>Caption Text</span></a> --> 
+      
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Cards</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Zone</span></a> 
+      
+      <a href="#" class="ib-content">
+      <div class="ib-teaser">
+        <h2>Vimeo<span>Supported</span></h2>
+      </div>
+      <div class="ib-content-full">
+        <iframe src="http://player.vimeo.com/video/23237102?color=ffffff" width="560" height="315" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        <br>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor purus, rutrum sed euismod quis, posuere id sapien. Maecenas sed risus id eros gravida ornare eu eget ipsum. Fusce quis aliquam purus. Maecenas nec diam ipsum, quis condimentum risus. Nunc mi libero, laoreet a consectetur id, pellentesque et arcu. Sed volutpat ipsum at mauris mattis interdum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+      </div>
+      </a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Bet</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Friends</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The View</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Surreal</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Groove</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Chances</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Friend</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Player</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Ride</span></a> 
+      	
+      	<a href="#" class="ib-content">
+      <div class="ib-teaser">
+        <h2>YouTube <span>Supported</span></h2>
+      </div>
+      <div class="ib-content-full">
+        <iframe width="560" height="315" src="http://www.youtube.com/embed/-3y-6LDArp0?rel=0" frameborder="0" allowfullscreen></iframe>
+        <br>
+        <p>Quisque vehicula elementum rhoncus. Phasellus dapibus lorem suscipit diam convallis eget commodo tortor placerat. Sed ac mollis ligula. Vivamus sed orci sit amet neque sodales adipiscing. Donec at eleifend orci.</p>
+      </div>
+      </a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Fun Times</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Music</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Cheers</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Moves</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Friends</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Moments</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Singing</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Dancers</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Chill</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Date</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Dancing</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Times</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The DJs</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Film</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Moves</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Singing</span></a> 
+      
+      <a href="#" class="ib-content">
+      <div class="ib-teaser">
+        <h2>Customize <span>Add Your Text</span></h2>
+      </div>
+      <div class="ib-content-full"> <br>
+        <p>Sed ullamcorper ligula nec nisl blandit sit amet consectetur dui sollicitudin. Vivamus elit nunc, congue at bibendum quis, pharetra sit amet lectus. Suspendisse blandit lectus a quam euismod ac congue lacus varius. Nunc arcu arcu, ornare sit amet egestas in, tincidunt faucibus neque.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus erat in lorem lobortis accumsan. Aliquam tempor fermentum euismod. Nam sit amet mi nulla, id pulvinar dui. Sed eu sem quis dui ultricies ullamcorper. Suspendisse sit amet tincidunt lorem. Ut sed sem est, eu fermentum orci.</p>
+        <p>Integer sit amet tellus felis. Sed scelerisque, risus sit amet dictum pulvinar, dolor lorem viverra orci, vitae sagittis diam nibh eget ligula. Sed molestie malesuada aliquam. </p>
+      </div>
+      </a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Friends</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Drink</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Dance</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Dancer</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Win</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Game</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Films</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Drinks</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Concert</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Times</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Look</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Music</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Win</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Friends</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Fame</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Clap</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/666666/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/666666/ffffff/pic.jpg" /><span>The Shot</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>The Dancers</span></a> 
+      <a href="#"><img src="http://cdn.pimg.co/p/210/999999/ffffff/pic.jpg" data-largesrc="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" /><span>Hello!</span></a>
+      <div class="clr"></div>
+    </div>
+    <!-- ib-main --> 
+  </div>
+  <!-- ib-main-wrapper --> 
+</div>
+
+<!-- Required PhotoMatrix Scripts --> 
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tmpl.min.js"></script> 
+<script type="text/javascript" src="js/jquery.kinetic.js"></script> 
+<script type="text/javascript" src="js/jquery.easing.js"></script> 
+<script type="text/javascript" src="js/jquery.touchSwipe.js"></script>
+<script type="text/javascript">
+
+            $(function() {
+			
+				var $ibWrapper	= $('#ib-main-wrapper'),
+				 
+					Template	= (function() {
+							
+							// true if dragging the container
+						var kinetic_moving				= false,
+							// current index of the opened item
+							current						= -1,
+							// true if the item is being opened / closed
+							isAnimating					= false,
+							// items on the grid
+							$ibItems					= $ibWrapper.find('div.ib-main > a'),
+							// image items on the grid
+							$ibImgItems					= $ibItems.not('.ib-content'),
+							// total image items on the grid
+							imgItemsCount				= $ibImgItems.length,
+							init						= function() {
+								
+								// add a class ib-image to the image items
+								$ibImgItems.addClass('ib-image');
+								// apply the kinetic plugin to the wrapper
+								loadKinetic();
+								// load some events
+								initEvents();
+						
+							},
+							loadKinetic					= function() {
+								
+								setWrapperSize();
+								
+								$ibWrapper.kinetic({
+									moved	: function() {
+										
+										kinetic_moving = true;
+										
+									},
+									stopped	: function() {
+										
+										kinetic_moving = false;
+										
+									}
+								});
+								
+							},
+							setWrapperSize				= function() {
+								
+								var containerMargins	= $('#ib-top').outerHeight(true) + $('#taheader').outerHeight(true) + parseFloat( $ibItems.css('margin-top') );
+								$ibWrapper.css( 'height', $(window).height() - containerMargins )
+								
+							},
+							initEvents					= function() {
+							
+								// open the item only if not dragging the container
+								$ibItems.bind('click.ibTemplate', function( event ) {
+									
+									//if( !kinetic_moving )
+										openItem( $(this) );
+								
+									return false;	
+								
+								});
+								
+								// on window resize, set the wrapper and preview size accordingly
+								$(window).bind('resize.ibTemplate', function( event ) {
+									
+									setWrapperSize();
+									
+									$('#ib-img-preview, #ib-content-preview').css({
+										width	: $(window).width(),
+										height	: $(window).height()
+									})
+									
+								});
+								
+								 $("body").keyup(function(event){  
+									var keycode=event.which;
+									if(keycode==27){
+										closeImgPreview();
+									} 
+								});  
+							
+							},
+							openItem					= function( $item ) {
+								
+								if( isAnimating ) return false;
+								
+								// if content item
+								if( $item.hasClass('ib-content') ) {
+									
+									isAnimating	= true;
+									current	= $item.index('.ib-content');
+									loadContentItem( $item, function() { isAnimating = false; } );
+									
+								}
+								// if image item
+								else {
+								
+									isAnimating	= true;
+									current	= $item.index('.ib-image');
+									loadImgPreview( $item, function() { isAnimating = false; } );
+									
+								}
+								
+							},
+							// opens one image item (fullscreen)
+							loadImgPreview				= function( $item, callback ) {
+								
+								var largeSrc		= $item.children('img').data('largesrc'),
+									description		= $item.children('span').text(),
+									largeImageData	= {
+										src			: largeSrc,
+										description	: description
+									};
+								
+								// preload large image
+								$item.addClass('ib-loading');
+								
+								preloadImage( largeSrc, function() {
+									
+									$item.removeClass('ib-loading');
+									
+									var hasImgPreview	= ( $('#ib-img-preview').length > 0 );
+									
+									if( !hasImgPreview )
+										$('#previewTmpl').tmpl( largeImageData ).insertAfter( $ibWrapper );
+									else
+										$('#ib-img-preview').children('img.ib-preview-img')
+															.attr( 'src', largeSrc )
+															.end()
+															.find('span.ib-preview-descr')
+															.text( description );
+										
+									//get dimentions for the image, based on the windows size
+									var	dim	= getImageDim( largeSrc );
+									
+									$item.removeClass('ib-img-loading');
+									
+									//set the returned values and show/animate preview
+									$('#ib-img-preview').css({
+										width	: $item.width(),
+										height	: $item.height(),
+										cursor  : 'move',
+										left	: $item.offset().left,
+										top		: $item.offset().top
+									}).children('img.ib-preview-img').hide().css({
+										width	: dim.width,
+										height	: dim.height,
+										left	: dim.left,
+										top		: dim.top
+									}).fadeIn( 400 ).end().show().animate({
+										width	: $(window).width(),
+										left	: 0
+									}, 500, 'easeOutExpo', function() {
+									
+										$(this).animate({
+											height	: $(window).height(),
+											top		: 0
+										}, 400, function() {
+										
+											var $this	= $(this);
+											$this.find('span.ib-preview-descr, span.ib-close').show()
+											if( imgItemsCount > 1 )
+												$this.find('div.ib-nav').show();
+												
+											if( callback ) callback.call();
+										
+										});
+									
+									});
+									
+									if( !hasImgPreview )
+										initImgPreviewEvents();
+									
+								} );
+								
+							},
+							// opens one content item (fullscreen)
+							loadContentItem				= function( $item, callback ) {
+								
+								var hasContentPreview	= ( $('#ib-content-preview').length > 0 ),
+									teaser				= $item.children('div.ib-teaser').html(),
+									content				= $item.children('div.ib-content-full').html(),
+									contentData			= {
+										teaser		: teaser,
+										content		: content
+									};
+									
+								if( !hasContentPreview )
+									$('#contentTmpl').tmpl( contentData ).insertAfter( $ibWrapper );
+									
+								//set the returned values and show/animate preview
+								$('#ib-content-preview').css({
+									width	: $item.width(),
+									height	: $item.height(),
+									left	: $item.offset().left,
+									top		: $item.offset().top
+								}).show().animate({
+									width	: $(window).width(),
+									left	: 0
+								}, 500, 'easeOutExpo', function() {
+								
+									$(this).animate({
+										height	: $(window).height(),
+										top		: 0
+									}, 400, function() {
+										
+										var $this	= $(this),
+											$teaser	= $this.find('div.ib-teaser'),
+											$content= $this.find('div.ib-content-full'),
+											$close	= $this.find('span.ib-close');
+											
+										if( hasContentPreview ) {
+											$teaser.html( teaser )
+											$content.html( content )
+										}
+									
+										$teaser.show();
+										$content.show();
+										$close.show();
+										
+										if( callback ) callback.call();
+									
+									});
+								
+								});
+								
+								if( !hasContentPreview )
+									initContentPreviewEvents();	
+								
+							},
+							// preloads an image
+							preloadImage				= function( src, callback ) {
+							
+								$('<img/>').load(function(){
+								
+									if( callback ) callback.call();
+								
+								}).attr( 'src', src );
+							
+							},
+							// load the events for the image preview : navigation ,close button, and window resize
+							initImgPreviewEvents		= function() {
+							
+								var $preview	= $('#ib-img-preview');
+								
+								$preview.find('span.ib-nav-prev').bind('click.ibTemplate', function( event ) {
+									
+									navigate( 'prev' );
+									
+								}).end().find('span.ib-nav-next').bind('click.ibTemplate', function( event ) {
+									
+									navigate( 'next' );
+									
+								}).end().find('span.ib-close').bind('click.ibTemplate', function( event ) {
+									
+									closeImgPreview();
+									
+								});
+								
+							$preview.swipe( {
+								//Generic swipe handler for all directions
+								swipe:function(event, direction, distance, duration, fingerCount) {
+								if(direction=='left')
+								{
+									navigate( 'next' );
+								}	
+								if(direction=='right')
+								{
+									navigate( 'prev' );
+								}
+								},
+								//Default is 75px, set to 0 for demo so any distance triggers swipe
+								threshold:50
+								});
+								//resizing the window resizes the preview image
+								
+								//resizing the window resizes the preview image
+								$(window).bind('resize.ibTemplate', function( event ) {
+									
+									var $largeImg	= $preview.children('img.ib-preview-img'),
+										dim			= getImageDim( $largeImg.attr('src') );
+									
+									$largeImg.css({
+										width	: dim.width,
+										height	: dim.height,
+										left	: dim.left,
+										top		: dim.top
+									})
+									
+								});
+								
+							},
+							// load the events for the content preview : close button
+							initContentPreviewEvents	= function() {
+							
+								$('#ib-content-preview').find('span.ib-close').bind('click.ibTemplate', function( event ) {
+									
+									closeContentPreview();
+									
+								});
+								
+							},
+							// navigate the image items in fullscreen mode
+							navigate					= function( dir ) {
+								
+								if( isAnimating ) return false;
+								
+								isAnimating		= true;
+								
+								var $preview	= $('#ib-img-preview'),
+									$loading	= $preview.find('div.ib-loading-large');
+								
+								$loading.show();
+								
+								if( dir === 'next' ) {
+									
+									( current === imgItemsCount - 1 ) ? current	= 0 : ++current;
+									
+								}
+								else if( dir === 'prev' ) {
+									
+									( current === 0 ) ? current	= imgItemsCount - 1 : --current;
+									
+								}
+								
+								var $item		= $ibImgItems.eq( current ),
+									largeSrc	= $item.children('img').data('largesrc'),
+									description	= $item.children('span').text();
+									
+								preloadImage( largeSrc, function() {
+									
+									$loading.hide();
+									
+									//get dimentions for the image, based on the windows size
+									var	dim	= getImageDim( largeSrc );
+									
+									$preview.children('img.ib-preview-img')
+												    .attr( 'src', largeSrc )
+													.css({
+										width	: dim.width,
+										height	: dim.height,
+										left	: dim.left,
+										top		: dim.top
+													})
+													.end()
+													.find('span.ib-preview-descr')
+													.text( description );
+									
+									$ibWrapper.scrollTop( $item.offset().top )
+											  .scrollLeft( $item.offset().left );
+									
+									isAnimating	= false;
+									
+								});
+								
+							},
+							// closes the fullscreen image item
+							closeImgPreview				= function() {
+							
+								if( isAnimating ) return false;
+								
+								isAnimating	= true;
+								
+								var $item	= $ibImgItems.eq( current );
+								
+								$('#ib-img-preview').find('span.ib-preview-descr, div.ib-nav, span.ib-close')
+												.hide()
+												.end()
+												.animate({
+													height	: $item.height(),
+													top		: $item.offset().top
+													}, 500, 'easeOutExpo', function() {
+													
+													$(this).animate({
+														width	: $item.width(),
+														left	: $item.offset().left
+														}, 400, function() {
+														
+															$(this).fadeOut(function() {isAnimating	= false;});
+														
+													} );
+												
+												});
+							
+							},
+							// closes the fullscreen content item
+							closeContentPreview			= function() {
+								
+								if( isAnimating ) return false;
+								
+								isAnimating	= true;
+								
+								var $item	= $ibItems.not('.ib-image').eq( current );
+								
+								$('#ib-content-preview').find('div.ib-teaser, div.ib-content-full, span.ib-close')
+														.hide()
+														.end()
+														.animate({
+															height	: $item.height(),
+															top		: $item.offset().top
+														}, 500, 'easeOutExpo', function() {
+															
+															$(this).animate({
+																width	: $item.width(),
+																left	: $item.offset().left
+															}, 400, function() {
+																
+																$(this).fadeOut(function() {isAnimating	= false;});
+																
+															} );
+														
+														});
+							
+							},
+							// get the size of one image to make it full size and centered
+							getImageDim					= function( src ) {
+								
+								var img     	= new Image();
+								img.src     	= src;
+								
+								var w_w	= $(window).width(),
+									w_h	= $(window).height(),
+									r_w	= w_h / w_w,
+									i_w	= img.width,
+									i_h	= img.height,
+									r_i	= i_h / i_w,
+									new_w, new_h,
+									new_left, new_top;
+								
+								if( r_w > r_i ) {
+								
+									new_h	= w_h;
+									new_w	= w_h / r_i;
+								
+								}	
+								else {
+								
+									new_h	= w_w * r_i;
+									new_w	= w_w;
+								
+								}
+								
+								return {
+									width	: new_w,
+									height	: new_h,
+									left	: (w_w - new_w) / 2,
+									top		: (w_h - new_h) / 2
+								};
+							
+							};
+						
+						return { init : init };
+						
+					})();
+				
+				Template.init();
+				
+            });
+        </script> 
+<!-- Required PhotoMatrix Scripts -->
+
+</body>
+</html>

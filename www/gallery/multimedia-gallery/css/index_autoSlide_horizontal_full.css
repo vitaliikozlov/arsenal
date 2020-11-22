@@ -1,0 +1,166 @@
+/* dCodes Framework */
+*{
+	margin:0;
+	padding:0;
+	border: 0;
+}
+
+a{ 
+	text-decoration: none; 
+}
+
+ul{
+	list-style: none;
+}
+
+body{
+	background:#333;
+}
+
+
+
+
+/* set position and size of whole component here */
+#componentWrapper{
+	position:absolute; 
+	width:100%;
+	height:100%;
+	top:0px;
+	left:0px;
+	overflow:hidden; 
+}
+
+/* header at the top for menu and navigation */
+#componentWrapper .componentHeader{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:40px;
+	background:#333;
+
+	-moz-box-shadow: 1px 1px 2px #333;
+	-webkit-box-shadow: 1px 1px 2px #333;
+	box-shadow: 1px 1px 2px #333;
+	opacity: 0.8;	
+}
+
+/* content holder, lies below componentHeader */
+#componentWrapper .componentContent{
+	position:absolute;
+	top:40px;
+	left:0px;
+	/* size is set with jquery code base on layout (horizontal/vertical) */
+}
+
+/* navigation holder */
+#componentWrapper .component_controls{
+	position:absolute; 
+	width:230px;
+	height:30px;
+	top:5px;
+	right:10px;
+	display:none;
+	/*background:red;*/
+}
+
+/* navigation buttons (backward, pause/play, forward, direction, fullscreen) */
+#componentWrapper .component_controls .controls_backward,
+#componentWrapper .component_controls .controls_pausePlay,
+#componentWrapper .component_controls .controls_forward,
+#componentWrapper .component_controls .controls_direction,
+#componentWrapper .component_controls .controls_fullscreen,
+#componentWrapper .component_controls .controls_music{
+	position:relative;
+	display:block;
+	width:30px;
+	height:30px;
+	top:0px;
+	left:0px;
+	float:right;
+	margin-left:10px;
+}
+
+#componentWrapper .component_controls .controls_backward{
+	margin-left:0px;
+}
+
+#componentWrapper .image_title{
+	position:absolute; 
+	bottom:25px;
+	left:50%;
+	/*title is centered in jquery code (find this in jquery.autoSlide.js: function createData(sub_sectionDiv)*/
+	background:#333;
+	color:#ffffff;
+	padding: 5px 10px 5px 10px; 
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:25px;
+	font-weight:400;
+	-webkit-font-smoothing: antialiased;
+	
+	/*-moz-box-shadow: 1px 1px 2px #333;
+	-webkit-box-shadow: 1px 1px 2px #333;
+	box-shadow: 1px 1px 2px #333;*/
+	
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+/* holder for both image link and image details icons */
+#componentWrapper .image_data{
+	position:absolute; 
+	width:30px;
+	height:80px;
+	right:25px;
+	top:25px;
+}
+
+/* image link, image details for lightbox */
+#componentWrapper .image_link, #componentWrapper .image_detail{
+	position:relative; 
+	width:30px;
+	height:30px;
+	left:0px;
+	top:0px;
+	margin-bottom:10px;
+}
+
+/* playlist data, remains hidden */
+#componentWrapper .componentPlaylist{
+	display:none;	
+}
+
+
+
+
+/* public functions */	
+#publicFunctions{
+	position: absolute;
+	padding: 10px 25px 20px 20px;
+	background:#444;
+	left:350px;
+	top:50px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color:#fff;
+	list-style:circle;
+	
+	-moz-box-shadow: 2px 2px 5px #222;
+	-webkit-box-shadow: 2px 2px 5px #222;
+	box-shadow: 2px 2px 5px #222;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222');
+	
+	display:none;
+}
+
+#publicFunctions li a{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color:#fff;
+}
+
+#publicFunctions li a:hover, #publicFunctions li .current{
+	text-decoration: underline;
+}

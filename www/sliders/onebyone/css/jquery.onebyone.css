@@ -1,0 +1,419 @@
+/* dCodes Framework: (c) TemplateAccess */
+/* Slider Banner Banner Image Positions */
+.oneByOne1 {
+	top: 0;
+	left: 0;
+	margin: 0;
+	width: 100%;
+	height: 370px;
+	position: relative;
+	overflow: hidden;
+}
+#obo_banner .oneByOne_item {
+	position: absolute;
+	width: 980px;
+	height: 370px;
+	overflow: hidden;
+}
+#obo_banner {
+	position: absolute;
+}
+#obo_banner img {
+	display: block;
+}
+.oneByOne_item {
+	padding: 0;
+	position: absolute;
+	overflow: hidden;
+}
+/* To position layer items on the slider you can use either padding or margin */
+
+/*slide 1*/
+.obo_slide1 {
+	background-image: url('../images/backdrop.jpg');
+}
+.obo_slide1 img.element_bg {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+} /* padding: top, right, bottom, left  */
+.obo_slide1 img.element_0 {
+	padding: 30px 120px 10px 28px;
+	float: right;
+}
+.obo_slide1 img.element_1 {
+	position: absolute;
+	left: 550px;
+	top: 5px;
+} /* padding: top, right, bottom, left  */
+.obo_slide1 img.element_2 {
+	position: absolute;
+	left: 500px;
+	top: 145px;
+} /* padding: top, right, bottom, left  */
+#obo_banner .oneByOne_item span.slide1Txt1 {
+	position: relative;
+	float: left;
+	margin: 5% 2% 0 15%; /* margin: top, right, bottom, left  */
+	color: #069;
+	font-size: 34px;
+	background: #f8f8f8;
+	padding: 12px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	margin-bottom: 16px;
+}
+#obo_banner .oneByOne_item span.slide1Txt2 {
+	position: relative;
+	clear: left;
+	float: left;
+	margin: 6px 2% 0 15%; /* margin: top, right, bottom, left  */
+	color: #666666;
+	font-size: 24px;
+	background: #fff;
+	padding: 8px;
+}
+#obo_banner .oneByOne_item span.slide1Txt3 {
+	position: relative;
+	clear: left;
+	float: left;
+	margin: 6px 2% 0 15%; /* margin: top, right, bottom, left  */
+	color: #666666;
+	font-size: 22px;
+	background: #eee;
+	padding: 8px;
+}
+/*slide 2*/
+.obo_slide2 {
+	background-image: url('../images/backdrop.jpg');
+}
+.obo_slide2 img.element_0 {
+	padding: 60px 120px 10px 28px;
+	float: right;
+}
+.obo_slide2 img.element_1 {
+	padding: 28px 0 13px 55px;
+}  /* padding: top, right, bottom, left  */
+.obo_slide2 img.element_2 {
+	padding: 0 0 7px 48px;
+}
+.obo_slide2 img.element_3 {
+	padding: 0 0 19px 48px;
+}
+.obo_slide2 a.button {
+	display: block;
+	margin: 0 0 0 46px;
+}
+/*slide 3*/
+.obo_slide3 {
+	background-image: url('../images/backdrop.jpg');
+}
+.obo_slide3 img.element_2 {
+	padding: 0 0 0 93px;
+	float: left;
+}
+.obo_slide3 img.element_3 {
+	padding: 0 0 0 16px;
+	float: left;
+}
+.obo_slide3 img.element_4 {
+	padding: 0 0 0 16px;
+	float: left;
+}
+.obo_slide3 img.element_5 {
+	padding: 0 0 0 16px;
+	float: left;
+}
+.obo_slide3 a {
+}
+#obo_banner .oneByOne_item span.slide3Txt1 {
+	position: relative;
+	clear: left;
+	float: left;
+	margin: 6px 2% 0 25%; /* margin: top, right, bottom, left  */
+	color: #424242;
+	font-size: 34px;
+	font-family: 'PT Sans Narrow';
+	padding: 8px;
+}
+/*slide 4*/
+.obo_slide4 {
+	background-image: url('../images/backdrop.jpg');
+}
+.obo_slide4 img.element_1 {
+	padding: 44px 0 12px 24px;
+}   /* padding: top, right, bottom, left  */
+.obo_slide4 img.element_2 {
+	padding: 0 0 0 24px;
+	float: left;
+}
+.obo_slide4 img.element_3 {
+	padding: 0;
+	float: left;
+}
+.obo_slide4 img.element_4 {
+	padding: 0;
+	float: left;
+}
+.obo_slide4 img.element_5 {
+	padding: 0;
+	float: left;
+}
+.obo_slide4 img.element_6 {
+	padding: 0;
+	float: left;
+}
+.obo_slide4 img.element_7 {
+	padding: 0;
+	float: left;
+}
+.obo_slide4 a {
+}
+#obo_banner .oneByOne_item span {
+	font-family: 'PT Sans Narrow', "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial, sans-serif;
+}
+
+
+
+
+
+.buttonArea{
+    float: left;
+    left: 50%;
+    position: relative;            
+    top: 100%;
+	margin-top: -32px;	
+}                     
+.buttonCon{  
+    float: left;
+    left: -50%;
+    position: relative;        
+}
+.buttonCon .theButton {
+	display: block;
+	color: #B22222;
+	width: 20px;
+	height: 22px;
+	background: url(../images/assets/circlebutton.png) no-repeat;
+	text-indent: -9999px;
+	border: 0;
+	margin-right: 3px;
+	float: left;
+}
+.buttonArea a.active {
+	background-position: 0 -22px;
+}             
+
+.arrowButton{    
+	cursor: pointer;  
+}            
+.arrowButton .prevArrow{
+	background: url(../images/assets/prev.png) no-repeat; 
+	width: 40px;
+	height: 80px;      
+	position: absolute;
+	top: 170px;	 
+	left: 12px;        
+} 
+.arrowButton .nextArrow{                 
+	background: url(../images/assets/next.png) no-repeat;
+	width: 40px;
+	height: 80px;
+	position: absolute;
+	top: 170px;
+	right: 12px;	          
+}   
+
+.animate0{
+   	-webkit-animation-duration: .6s;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-duration: .6s;
+	-moz-animation-delay: 0s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-fill-mode: both;
+	-ms-animation-duration: .6s;
+	-ms-animation-delay: 0s;
+	-ms-animation-timing-function: ease;
+	-ms-animation-fill-mode: both;
+	animation-duration: .6s;
+	animation-delay: 0s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;	          
+}         
+
+.animate1{
+   	-webkit-animation-duration: .6s;
+	-webkit-animation-delay: .2s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-duration: .6s;
+	-moz-animation-delay: .2s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-fill-mode: both;
+	-ms-animation-duration: .6s;
+	-ms-animation-delay: .2s;
+	-ms-animation-timing-function: ease;
+	-ms-animation-fill-mode: both;
+	animation-duration: .6s;
+	animation-delay: .2s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;	          
+} 
+
+.animate2{
+   	-webkit-animation-duration: .6s;
+	-webkit-animation-delay: .4s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-duration: .6s;
+	-moz-animation-delay: .4s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-fill-mode: both;
+	-ms-animation-duration: .6s;
+	-ms-animation-delay: .4s;
+	-ms-animation-timing-function: ease;
+	-ms-animation-fill-mode: both;
+	animation-duration: .6s;
+	animation-delay: .4s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;	          
+} 
+
+.animate3{
+   	-webkit-animation-duration: .6s;
+	-webkit-animation-delay: .6s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-duration: .6s;
+	-moz-animation-delay: .6s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-fill-mode: both;
+	-ms-animation-duration: .6s;
+	-ms-animation-delay: .6s;
+	-ms-animation-timing-function: ease;
+	-ms-animation-fill-mode: both;
+	animation-duration: .6s;
+	animation-delay: .6s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;	          
+}   
+
+.animate4{
+   	-webkit-animation-duration: .6s;
+	-webkit-animation-delay: .8s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-duration: .6s;
+	-moz-animation-delay: .8s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-fill-mode: both;
+	-ms-animation-duration: .6s;
+	-ms-animation-delay: .8s;
+	-ms-animation-timing-function: ease;
+	-ms-animation-fill-mode: both;
+	animation-duration: .6s;
+	animation-delay: .8s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;	          
+}  
+
+.animate5{
+   	-webkit-animation-duration: .6s;
+	-webkit-animation-delay: 1s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-duration: .6s;
+	-moz-animation-delay: 1s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-fill-mode: both;
+	-ms-animation-duration: .6s;
+	-ms-animation-delay: 1s;
+	-ms-animation-timing-function: ease;
+	-ms-animation-fill-mode: both;
+	animation-duration: .6s;
+	animation-delay: 1s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;	          
+}    
+
+
+
+/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {
+			 
+		}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+		.obo_slide1 img.element_1 { left: 405px; }
+		.obo_slide1 img.element_2 { left: 420px; } 
+		.obo_slide1 img.element_0 { margin-right: 270px; width: 220px; padding: 0px; }
+		.obo_slide2 img.element_1 { padding-bottom: 0px; }
+		.obo_slide2 img.element_3 { padding-bottom: 0px; }
+		.obo_slide2 img.element_0.gap { padding-right: 250px; }
+		.obo_slide3 img.element_2 { padding: 0px; }
+		#obo_banner .oneByOne_item span.slide3Txt1 { margin-top: -17px; }
+		.obo_slide4 img { width: 135px; }
+		.oneByOne1 { height: 285px; }
+
+		}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+		.obo_slide4 img { height: auto; }
+		}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {
+		.obo_slide1 img.element_1 { left: 250px; width: 60px; }
+		.obo_slide1 img.element_2 { left: 300px; width: 100px; top: 15px; } 
+		.obo_slide1 img.element_0 { top: 70px; left: 240px; position: absolute; width: 60px; width: 60px; float: none; padding: 0px; }
+		.obo_slide2 img.element_1 { width: 100px; padding: 0px; margin: 10px 0 10px 20px; }
+		.obo_slide2 img.element_2 { width: 120px; padding: 0px; margin: 0px 0 0 20px; }
+		.obo_slide2 img.element_3 { width: 120px; padding: 0px; margin: 0px 0 0 20px; }
+		.obo_slide2 a.button { margin-left: 20px; }
+		.obo_slide2 a.button img { width: 120px; }
+		.obo_slide2 img.element_0.gap { padding: 0px; margin: 0px; float: none; width: 170px; position: absolute; top: 10px; left: 200px;}
+		.obo_slide3 img.element_2 { padding: 0px; }
+		#obo_banner .oneByOne_item span.slide1Txt1 { padding: 5px; margin: 25px 0 0 10px; font-size: 10px; line-height: 16px; }
+		#obo_banner .oneByOne_item span.slide1Txt3 { padding: 5px; margin: 10px 0 0 10px; font-size: 10px; line-height: 16px; }
+		#obo_banner .oneByOne_item span.slide1Txt2 { padding: 5px; margin: 10px 0 0 10px; font-size: 10px; line-height: 16px; }
+		#obo_banner .oneByOne_item span.slide3Txt1 { margin: 0px 0 0 120px; font-size: 13px; line-height: 18px; }
+		.obo_slide4 img { width: 74px; }
+		.buttonArea { margin-top: -20px; }
+		.obo_slide3 img { width: 82px; padding: 0px; margin: 0px; }
+		.obo_slide4 img.element_1 { width: 150px; padding: 10px 0 5px 10px; }
+		.oneByOne1 { height: 159px; }
+		#obo_banner .oneByOne_item{ width:418px; height:250px;}
+	 }
+	
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {
+		.obo_slide1 img.element_1 { left: 160px; width: 45px; }
+		.obo_slide1 img.element_2 { left: 200px; width: 70px; top: 15px; } 
+		.obo_slide1 img.element_0 { top: 55px; left: 165px; position: absolute; width: 45px; float: none; padding: 0px; }
+		.obo_slide2 img.element_1 { width: 100px; padding: 0px; margin: 10px 0 0px 20px; }
+		.obo_slide2 img.element_2 { width: 120px; padding: 0px; margin: 0px 0 0 20px; }
+		.obo_slide2 img.element_3 { width: 120px; padding: 0px; margin: 0px 0 0 20px; }
+		.obo_slide2 a.button { margin-left: 20px; }
+		.obo_slide2 a.button img { width: 70px; }
+		.obo_slide2 img.element_0.gap { padding: 0px; margin: 0px; float: none; width: 110px; position: absolute; top: 10px; left: 163px;}
+		.obo_slide3 img.element_2 { padding: 0px; }
+		#obo_banner .oneByOne_item span.slide1Txt1 { padding: 3px 5px 3px 5px; margin: 5px 0 0 10px; font-size: 10px; line-height: 12px; }
+		#obo_banner .oneByOne_item span.slide1Txt3 { padding: 3px 5px 3px 5px; margin: 5px 0 0 10px; font-size: 10px; line-height: 12px; }
+		#obo_banner .oneByOne_item span.slide1Txt2 { padding: 3px 5px 3px 5px; margin: 5px 0 0 10px; font-size: 10px; line-height: 12px; }
+		#obo_banner .oneByOne_item span.slide3Txt1 { padding: 0px; margin: 0px 0 0 88px; font-size: 9px; line-height: 12px; }
+		.obo_slide4 img { width: 50px; }
+		.buttonArea { margin-top: -20px; }
+		.obo_slide3 img { width: 60px; padding: 0px; margin: 0px; }
+		.obo_slide4 img.element_1 { width: 150px; padding: 10px 0 5px 0px; }
+		.oneByOne1 { height: 110px; }
+		.obo_slide3 img.element_3 { padding-left: 5px; }
+		.obo_slide3 img.element_4 { padding-left: 5px; }
+		.obo_slide3 img.element_5 { padding-left: 5px; }
+		.obo_slide4 img.element_2 { padding-left: 5px; }
+		
+				}

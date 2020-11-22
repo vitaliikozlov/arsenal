@@ -1,0 +1,255 @@
+/* dCodes Framework */
+/**********************
+	-	RESET	-
+************************/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { 
+    margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; 
+}
+
+html {
+	padding: 0;
+	margin:0px;
+}
+
+ol, ul {  list-style: none; }
+
+a{	text-decoration:none;}
+
+body{
+	background:#fff;
+}
+
+
+
+
+
+/* wrapper for component */
+#componentWrapper{
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0px;
+	top:0px;
+}
+
+#componentWrapper .componentPlaylist{
+	position:absolute;
+	overflow:hidden;
+}
+
+#componentWrapper .thumbContainer{
+	position:relative;
+	top:0px;
+	left:0px;
+}
+
+#componentWrapper .thumbInnerContainer{
+	position:relative;
+	top:0px;
+	left:0px;
+	display:none;
+}
+
+#componentWrapper .thumb_hidden{
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+
+#componentWrapper .thumbHolder{
+	position:absolute;
+	width:240px;
+	height:200px;
+	background:#fff;
+	box-shadow: 2px 2px 2px #ccc;
+	border-left:1px solid #eee;
+	overflow:hidden;
+}
+
+#componentWrapper .thumbHolder a img{
+	display:block;
+	top:0px;
+	left:0px;
+	width:240px;
+	height:160px;
+}
+
+#componentWrapper .innerThumbHolder{
+	position:absolute;
+	width:240px;
+	height:160px;
+	overflow:hidden;
+}
+
+#componentWrapper .innerThumbHolder a img{
+	display:block;
+	width:240px;
+	height:160px;
+}
+
+#componentWrapper .thumbBackward{
+	position:absolute;
+	width:112px;
+	height:40px;
+	left:50%;
+	margin-left:-56px;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+	display:none;
+}
+
+#componentWrapper .thumbBackward img{
+	position:absolute;
+	display:block;
+	width:31px;
+	height:21px;
+	top:50%;
+	left:50%;
+	margin-left:-15px;
+	margin-top:-10px;
+}
+
+#componentWrapper .thumbForward{
+	position:absolute;
+	width:112px;
+	height:40px;
+	left:50%;
+	margin-left:-56px;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+	display:none;
+}
+
+#componentWrapper .thumbForward img{
+	position:absolute;
+	display:block;
+	width:31px;
+	height:21px;
+	top:50%;
+	left:50%;
+	margin-left:-15px;
+	margin-top:-10px;
+}
+
+/* title */
+#componentWrapper .title{
+	position:absolute;
+	left:9px;
+	top:160px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color:#666;
+}
+
+#componentWrapper .title_big{
+	position:absolute;
+	left:9px;
+	bottom:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color:#999;
+}
+
+#componentWrapper .info{
+	position:absolute;
+	left:10px;
+	bottom:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#999;
+}	
+
+
+	  
+#componentWrapper #html_content{
+	position:absolute; 
+	top:0px;
+	left:0px;
+	width:240px;
+	height:160px;
+}
+
+#componentWrapper #html_content img{
+	display:block; 
+	top:0px;
+	left:0px;
+	width:240px;
+	height:160px;
+}
+		  
+/* google map example */
+#componentWrapper #gmap_canvas{
+	position:absolute; 
+	top:0px;
+	left:0px;
+	width:240px;
+	height:160px;
+}	  
+		  
+#componentWrapper #yt_player1{
+	position:absolute; 
+	top:0px;
+	left:0px;
+	width:240px;
+	height:160px;
+}
+
+#componentWrapper #vm_player_1{
+	position:absolute; 
+	top:0px;
+	left:0px;
+	width:240px;
+	height:160px;
+}		  
+		  
+		  
+	
+	
+		  
+		  
+		  
+		  
+			
+			
+					  
+
+/* public functions */	
+#publicFunctions{
+	position: absolute;
+	padding: 10px 25px 20px 20px;
+	background:#444;
+	left:200px;
+	top:100px;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	color:#fff;
+	list-style:circle;
+	
+	-moz-box-shadow: 2px 2px 5px #222;
+	-webkit-box-shadow: 2px 2px 5px #222;
+	box-shadow: 2px 2px 5px #222;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222');
+	
+	display:none;
+}
+
+#publicFunctions li a{
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	color:#fff;
+}
+
+#publicFunctions li a:hover, #publicFunctions li .current{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,598 @@
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+}
+
+a{ 
+	text-decoration: none; 
+}
+
+body {
+	background-color:#333;
+}
+
+
+
+
+
+/* wrapper for component */
+#componentWrapper{
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:900px;
+	height:600px;
+	margin-left:-450px;
+	margin-top:-300px;
+	background:#000;
+	overflow:hidden;
+		
+	/*hide component on beginning until all is set up*/
+	display:none;
+}
+
+/*horizontal thumbnails */	
+#componentWrapper .mediaWrapper{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	/*height set in code (componentWrapper height - thumbHolder height), it cant be 100%!, video MUSTNT lie below playlist, ios webview issue!*/
+	/*background:#366;*/
+}	
+
+/*vertical thumbnails */	
+#componentWrapper .mediaWrapper_v{
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:100%;
+	/*width set in code (componentWrapper width - thumbHolder width), it cant be 100%!, video MUSTNT lie below playlist, ios webview issue!*/
+	/*background:#366;*/
+}	
+
+/* video holders, 100% the size of '.mediaWrapper' */	
+#componentWrapper .youtubeHolder, #componentWrapper .vimeoHolder{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	display:none;
+}	
+
+/* this is just the data, needs to be hidden, nothing to style here */
+#componentWrapper .componentPlaylist{
+	display:none;
+}
+
+/* horizontal thumbnails */
+#componentWrapper .thumbHolder{
+	position:absolute;
+	width:100%;
+	height:140px;
+	left:0px;
+	bottom:0px;
+	background:#222;
+	overflow:hidden;
+}
+
+/* vertical thumbnails */
+#componentWrapper .thumbHolder_v{
+	position:absolute;
+	height:100%;
+	width:180px;
+	top:0px;
+	right:0px;
+	background:#222;
+	overflow:hidden;
+}
+
+/* horizontal thumbnails mob */
+#componentWrapper .thumbHolder_mob{
+	position:absolute;
+	width:100%;
+	height:107px;
+	left:0px;
+	bottom:0px;
+	background:#222;
+	overflow:hidden;
+}
+
+/* vertical thumbnails mob */
+#componentWrapper .thumbHolder_v_mob{
+	position:absolute;
+	height:100%;
+	width:140px;
+	top:0px;
+	right:0px;
+	background:#222;
+	overflow:hidden;
+}
+
+/* horizontal thumbnails */
+#componentWrapper .thumbContainer{
+	position:absolute;
+	height:80px;
+	top:50px;
+	/*left, width set in jquery*/
+	/*background:red;*/
+}
+
+/* vertical thumbnails */
+#componentWrapper .thumbContainer_v{
+	position:absolute;
+	width:120px;
+	left:50px;
+	/*top, height set in jquery*/
+	/*background:red;*/
+}
+
+/* horizontal thumbnails mob */
+#componentWrapper .thumbContainer_mob{
+	position:absolute;
+	height:67px;
+	top:40px;
+	/*left, width set in jquery*/
+	/*background:red;*/
+}
+
+/* vertical thumbnails mob */
+#componentWrapper .thumbContainer_v_mob{
+	position:absolute;
+	width:100px;
+	left:40px;
+	/*top, height set in jquery*/
+	/*background:red;*/
+}
+
+/* horizontal thumbnails */
+#componentWrapper .thumbInnerContainer{
+	position:absolute;
+	height:80px;
+	/*width set in jquery*/
+	top:0px;
+	left:0px;
+	/*background:#6C9;*/
+}
+
+/* vertical thumbnails */
+#componentWrapper .thumbInnerContainer_v{
+	position:absolute;
+	width:120px;
+	/*height set in jquery*/
+	top:0px;
+	left:0px;
+	/*background:#6C9;*/
+}
+
+/* horizontal thumbnails mob */
+#componentWrapper .thumbInnerContainer_mob{
+	position:absolute;
+	height:67px;
+	/*width set in jquery*/
+	top:0px;
+	left:0px;
+	/*background:#6C9;*/
+}
+
+/* vertical thumbnails mob */
+#componentWrapper .thumbInnerContainer_v_mob{
+	position:absolute;
+	width:100px;
+	/*height set in jquery*/
+	top:0px;
+	left:0px;
+	/*background:#6C9;*/
+}
+
+/* horizontal thumbnails */
+#componentWrapper .thumbBackward{
+	position:absolute;
+	width:50px;
+	height:100px;
+	top:40px;
+	left:0px;
+	background: rgb(0, 0, 0) url('../data/icons/prev.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/prev.png') no-repeat center center;
+	display:none;
+}
+
+/* vertical thumbnails */
+#componentWrapper .thumbBackward_v{
+	position:absolute;
+	height:50px;
+	width:140px;
+	left:40px;
+	top:0px;
+	background: rgb(0, 0, 0) url('../data/icons/prev_v.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/prev_v.png') no-repeat center center;
+	display:none;
+}
+
+/* horizontal thumbnails mob */
+#componentWrapper .thumbBackward_mob{
+	position:absolute;
+	width:60px;
+	height:67px;
+	top:40px;
+	left:0px;
+	background: rgb(0, 0, 0) url('../data/icons/prev.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/prev.png') no-repeat center center;
+	display:none;
+}
+
+/* vertical thumbnails mob */
+#componentWrapper .thumbBackward_v_mob{
+	position:absolute;
+	height:50px;
+	width:100px;
+	left:40px;
+	top:0px;
+	background: rgb(0, 0, 0) url('../data/icons/prev_v.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/prev_v.png') no-repeat center center;
+	display:none;
+}
+
+/* horizontal thumbnails */
+#componentWrapper .thumbForward{
+	position:absolute;
+	width:50px;
+	height:100px;
+	top:40px;
+	right:0px;
+	background: rgb(0, 0, 0) url('../data/icons/next.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/next.png') no-repeat center center;
+	display:none;
+}
+
+/* vertical thumbnails */
+#componentWrapper .thumbForward_v{
+	position:absolute;
+	height:50px;
+	width:140px;
+	left:40px;
+	bottom:0px;
+	background: rgb(0, 0, 0) url('../data/icons/next_v.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/next_v.png') no-repeat center center;
+	display:none;
+}
+
+/* horizontal thumbnails mob */
+#componentWrapper .thumbForward_mob{
+	position:absolute;
+	width:60px;
+	height:67px;
+	top:40px;
+	right:0px;
+	background: rgb(0, 0, 0) url('../data/icons/next.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/next.png') no-repeat center center;
+	display:none;
+}
+
+/* vertical thumbnails mob */
+#componentWrapper .thumbForward_v_mob{
+	position:absolute;
+	height:50px;
+	width:100px;
+	left:40px;
+	bottom:0px;
+	background: rgb(0, 0, 0) url('../data/icons/next_v.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/next_v.png') no-repeat center center;
+	display:none;
+}
+
+/* horizontal thumbnails */
+#componentWrapper .thumbs{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:120px;
+	height:80px;
+	margin-right:10px;
+	float:left;
+	background:#111;
+	overflow:hidden;
+}
+
+/* vertical thumbnails */
+#componentWrapper .thumbs_v{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:120px;
+	height:80px;
+	margin-bottom:10px;
+	background:#111;
+	overflow:hidden;
+}
+
+/* horizontal thumbnails mob */
+#componentWrapper .thumbs_mob{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:100px;
+	height:67px;
+	margin-right:5px;
+	float:left;
+	background:#111;
+	overflow:hidden;
+}
+
+/* vertical thumbnails mob */
+#componentWrapper .thumbs_v_mob{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:100px;
+	height:67px;
+	margin-bottom:5px;
+	background:#111;
+	overflow:hidden;
+}
+
+/* thumb images */
+#componentWrapper .thumb_img{
+	position:relative;
+	display:block;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+}
+
+#componentWrapper .thumb_title{
+	position:absolute;
+	left:0px;
+	/*same width as the thumbs, top set in jquery to the height of the thumbs */
+	width:120px;
+	color:#e5e5e5;
+	padding: 5px; 
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+/*horizontal thumbnails*/
+#componentWrapper .playlistControls{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:40px;
+	background:#111;
+}
+
+/*vertical thumbnails*/
+#componentWrapper .playlistControls_v{
+	position:absolute;
+	left:0px;
+	top:0px;
+	height:100%;
+	width:40px;
+	background:#111;
+}
+
+/*horizontal thumbnails*/
+#componentWrapper .playlist_prev{
+	position:absolute;
+	width:30px;
+	height:40px;
+	left:50%;
+	top:0px;
+	margin-left:-71px;
+	background: #111 url('../data/icons/prev.png') no-repeat center center;
+}
+
+/*vertical thumbnails*/
+#componentWrapper .playlist_prev_v{
+	position:absolute;
+	height:30px;
+	width:40px;
+	top:50%;
+	left:0px;
+	margin-top:-71px;
+	background: #111 url('../data/icons/prev_v.png') no-repeat center center;
+}
+
+/*horizontal thumbnails*/
+#componentWrapper .playlist_prev_small{
+	position:relative;
+	width:25%;
+	height:40px;
+	left:0px;
+	top:0px;
+	float:left;
+	background: #111 url('../data/icons/prev.png') no-repeat center center;
+}
+
+/*vertical thumbnails*/
+#componentWrapper .playlist_prev_v_small{
+	position:relative;
+	height:25%;
+	width:40px;
+	left:0px;
+	top:0px;
+	background: #111 url('../data/icons/prev_v.png') no-repeat center center;
+}
+
+/*horizontal thumbnails*/
+#componentWrapper .playlist_toggle{
+	position:absolute;
+	width:30px;
+	height:40px;
+	left:50%;
+	top:0px;
+	margin-left:-15px;
+	background: #111 url('../data/icons/prev_v.png') no-repeat center center;
+}
+
+/*vertical thumbnails*/
+#componentWrapper .playlist_toggle_v{
+	position:absolute;
+	height:30px;
+	width:40px;
+	top:50%;
+	left:0px;
+	margin-top:-15px;
+	background: #111 url('../data/icons/prev.png') no-repeat center center;
+}
+
+/*horizontal thumbnails*/
+#componentWrapper .playlist_toggle_small{
+	position:relative;
+	width:25%;
+	height:40px;
+	left:0px;
+	top:0px;
+	float:left;
+	background: #111 url('../data/icons/prev_v.png') no-repeat center center;
+}
+
+/*vertical thumbnails*/
+#componentWrapper .playlist_toggle_v_small{
+	position:relative;
+	height:25%;
+	width:40px;
+	left:0px;
+	top:0px;
+	background: #111 url('../data/icons/prev.png') no-repeat center center;
+}
+
+/*horizontal thumbnails*/
+#componentWrapper .playlist_next{
+	position:absolute;
+	width:30px;
+	height:40px;
+	left:50%;
+	top:0px;
+	margin-left:41px;
+	background: #111 url('../data/icons/next.png') no-repeat center center;
+}
+
+/*vertical thumbnails*/
+#componentWrapper .playlist_next_v{
+	position:absolute;
+	height:30px;
+	width:40px;
+	top:50%;
+	left:0px;
+	margin-top:41px;
+	background: #111 url('../data/icons/next_v.png') no-repeat center center;
+}
+
+/*horizontal thumbnails*/
+#componentWrapper .playlist_next_small{
+	position:relative;
+	width:25%;
+	height:40px;
+	left:0px;
+	top:0px;
+	float:left;
+	background: #111 url('../data/icons/next.png') no-repeat center center;
+}
+
+/*vertical thumbnails*/
+#componentWrapper .playlist_next_v_small{
+	position:relative;
+	height:25%;
+	width:40px;
+	top:0px;
+	left:0px;
+	background: #111 url('../data/icons/next_v.png') no-repeat center center;
+}
+
+/*horizontal thumbnails*/
+#componentWrapper .playlist_switch{
+	position:absolute;
+	width:30px;
+	height:40px;
+	right:20px;
+	top:0px;
+	background: #111 url('../data/icons/switch.png') no-repeat center center;
+}
+
+/*vertical thumbnails*/
+#componentWrapper .playlist_switch_v{
+	position:absolute;
+	height:30px;
+	width:40px;
+	top:20px;
+	left:0px;
+	background: #111 url('../data/icons/switch.png') no-repeat center center;
+}
+
+/*horizontal thumbnails*/
+#componentWrapper .playlist_switch_small{
+	position:relative;
+	width:25%;
+	height:40px;
+	right:0px;
+	top:0px;
+	float:left;
+	background: #111 url('../data/icons/switch.png') no-repeat center center;
+}
+
+/*vertical thumbnails*/
+#componentWrapper .playlist_switch_v_small{
+	position:relative;
+	height:25%;
+	width:40px;
+	top:0px;
+	left:0px;
+	background: #111 url('../data/icons/switch.png') no-repeat center center;
+}
+
+
+
+
+
+
+#componentWrapper .mediaPreloader{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-25px 0px 0px -25px;
+	background:#000 url('../data/loader.gif') no-repeat center center;
+	width:50px;
+	height:50px;
+	z-index:999;
+	opacity:0.7;
+}
+
+
+
+
+
+/* public functions */	
+#publicFunctions{
+	position: absolute;
+	padding: 10px 25px 20px 20px;
+	background:#555;
+	left:50px;
+	top:50px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color:#fff;
+	list-style:circle;
+	
+	-moz-box-shadow: 2px 2px 5px #222;
+	-webkit-box-shadow: 2px 2px 5px #222;
+	box-shadow: 2px 2px 5px #222;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222');
+	
+	display:none;
+}
+
+#publicFunctions li a{
+	color:#fff;
+}
+
+#publicFunctions li a:hover, #publicFunctions li .current{
+	text-decoration: underline;
+}

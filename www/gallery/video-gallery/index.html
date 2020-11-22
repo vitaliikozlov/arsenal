@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="author" content="dCodes Framework">
+        <meta name="description" content="Video Gallery" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Youtube/Vimeo Gallery (Responsive)</title>
+        <link rel="stylesheet" type="text/css" href="css/videoGallery.css" />
+        <!--[if lte IE 8 ]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.js"></script>
+        <script type="text/javascript">jQuery.noConflict();</script>
+        <script type="text/javascript" src="js/jquery.address-1.5.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+        <script type="text/javascript" src="js/froogaloop.js"></script>
+        <script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+        <script type="text/javascript" src="js/jquery.apPlaylistManager.min.js"></script>
+        <script type="text/javascript" src="js/jquery.apYoutubePlayer.min.js"></script>
+        <script type="text/javascript" src="js/jquery.apVimeoPlayer.min.js"></script>
+        <script type="text/javascript" src="js/jquery.videoGallery.min.js"></script>
+        <script type="text/javascript">
+			
+			jQuery(document).ready(function() {
+				 //init component
+				 jQuery('#componentWrapper').videoGallery({	
+				 	/* REQUIRED */
+					/* componentFixedSize: true/false. Responsive = false, fixed = true */
+					componentFixedSize: false,
+					<!-- defaultGallerySide: bottom/right/autoselect (default thumbnail position) -->
+					defaultGallerySide:'autoselect',
+					<!-- flipGallerySides: true/false (flip thumbnail position) -->
+					flipGallerySides:true,
+					
+					<!-- DEEPLINKING SETTINGS -->
+				  <!-- useDeeplink: true/false - creates direct urls for each image for easier sharing. Each image *must have* unique filenames or images will fail to load. -->
+					useDeeplink:true,
+					<!-- startUrl: deeplink start url, enter 'ul' data-address/'li' data-address (two levels). Or just 'ul' data-address (single level). -->
+					startUrl: 'playlist9/youtube_user_uploads1',
+					
+					<!-- NO DEEPLINKING SETTINGS -->
+					/*activePlaylist: enter element 'id' attributte */
+					activePlaylist:'playlist7',
+					
+					/* DEFAULTS */
+					/*defaultVolume: 0-1 */
+					defaultVolume:0.5,
+					/*autoPlay: true/false (video autoplay). Default false on mobile. */
+					autoPlay:false,
+					/* loopingOn: loop playlist on end, true/false */
+					loopingOn:true,
+					/* randomPlay: random play in playlist, true/false */
+					randomPlay:false,
+					/*autoAdvanceToNextVideo: true/false */
+					autoAdvanceToNextVideo:true,
+					/* autoOpenPlaylist: open playlist on start (true/false) */
+					autoOpenPlaylist: true,
+					/* closePlaylistOnVideoSelect: close playlist on video select */
+					closePlaylistOnVideoSelect: false,
+					/* outputDeeplinkData: console.log out playlist deeplink data */
+					outputDeeplinkData:false,
+					
+					videoGallerySetupDone:function() {
+						//console.log('videoGallerySetupDone');
+					}
+				});		
+			
+			 });
+		
+        </script>
+        </head>
+        <body>
+
+<!-- wrapper for the whole component -->
+<div id="componentWrapper"> 
+          
+          <!-- video holders -->
+          <div class="mediaWrapper">
+    <div class="youtubeHolder"></div>
+    <div class="vimeoHolder"></div>
+  </div>
+          
+          <!-- holder for thumbnails (delete this whole div completely to hide the playlist!) -->
+          <div class="thumbHolder">
+    <div class="playlistControls">
+              <div class="playlist_prev"></div>
+              <div class="playlist_toggle"></div>
+              <div class="playlist_next"></div>
+              <div class="playlist_switch"></div>
+            </div>
+    <div class="thumbContainer">
+              <div class="thumbInnerContainer"></div>
+            </div>
+    <div class="thumbBackward"></div>
+    <div class="thumbForward"></div>
+  </div>
+          
+          <!-- media preloader for thumbs -->
+          <div class="mediaPreloader"></div>
+          
+          <!-- this just holds the data, this is didden -->
+          <div class="componentPlaylist"> 
+    <!-- 'ul' 'id' attributte and 'data-address' attributte do not have to be the same! --> 
+    
+    <!-- 
+                  VIMEO EXAMPLES 
+                  http://vimeo.com/api/docs/simple-api
+                  Append ?page=1/?page=2/?page=3 to get more results (simple api cannot handle more than 3 pages or results)
+                  -->
+    
+    <ul id='playlist1' data-address="playlist1">
+              <!-- ID of the video -->
+              <li data-address="vimeo_single1" data-type='vimeo_single' data-path="http://vimeo.com/api/v2/video/36916818.json" ></li>
+              <li data-address="vimeo_single2" data-type='vimeo_single' data-path="http://vimeo.com/api/v2/video/14665315.json" ></li>
+              <li data-address="vimeo_single3" data-type='vimeo_single' data-path="http://vimeo.com/api/v2/video/10287453.json" ></li>
+            </ul>
+    <ul id='playlist2' data-address="playlist2">
+              <!-- ID of the user -->
+              <li data-address="vimeo_user" data-type='vimeo_user' data-path="http://vimeo.com/api/v2/user1089639/videos.json?page=1" ></li>
+            </ul>
+    <ul id='playlist3' data-address="playlist3">
+              <!-- ID of the group -->
+              <li data-address="vimeo_group" data-type='vimeo_group' data-path="http://vimeo.com/api/v2/group/artinfx/videos.json?page=1" ></li>
+            </ul>
+    <ul id='playlist4' data-address="playlist4">
+              <!-- ID of the channel -->
+              <li data-address="vimeo_channel" data-type='vimeo_channel' data-path="http://vimeo.com/api/v2/channel/mountainbiking/videos.json?page=1" ></li>
+            </ul>
+    <ul id='playlist5' data-address="playlist5">
+              <!-- The ID of the album -->
+              <li data-address="vimeo_album" data-type='vimeo_album' data-path="http://vimeo.com/api/v2/album/1705896/videos.json?page=1" ></li>
+            </ul>
+    
+    <!-- VIMEO EXAMPLES MIXED -->
+    <ul id='playlist1_0' data-address="playlist1_0">
+              <!-- ID of the video -->
+              <li data-address="vimeo_single" data-type='vimeo_single' data-path="http://vimeo.com/api/v2/video/36916818.json" ></li>
+              <!-- ID of the user -->
+              <li data-address="vimeo_user" data-type='vimeo_user' data-path="http://vimeo.com/api/v2/user1089639/videos.json?page=1" ></li>
+              <!-- The ID of the album -->
+              <li data-address="vimeo_album" data-type='vimeo_album' data-path="http://vimeo.com/api/v2/album/1705896/videos.json?page=1" ></li>
+            </ul>
+    <ul id='playlist1_1' data-address="playlist1_1">
+              <!-- ID of the group -->
+              <li data-address="vimeo_group1" data-type='vimeo_group' data-path="http://vimeo.com/api/v2/group/28082/videos.json?page=1" ></li>
+              <li data-address="vimeo_group2" data-type='vimeo_group' data-path="http://vimeo.com/api/v2/group/28082/videos.json?page=2" ></li>
+              <li data-address="vimeo_group3" data-type='vimeo_group' data-path="http://vimeo.com/api/v2/group/28082/videos.json?page=3" ></li>
+            </ul>
+    <ul id='playlist1_2' data-address="playlist1_2">
+              <!-- ID of the group -->
+              <li data-address="vimeo_group" data-type='vimeo_group' data-path="http://vimeo.com/api/v2/group/28082/videos.json?page=1" ></li>
+              <!-- ID of the channel -->
+              <li data-address="vimeo_channel" data-type='vimeo_channel' data-path="http://vimeo.com/api/v2/channel/mountainbiking/videos.json?page=1" ></li>
+            </ul>
+    
+    <!-- 
+                  YOUTUBE EXAMPLES
+                  https://developers.google.com/youtube/2.0/developers_guide_protocol_audience
+                  Append &amp;start-index=1&amp;max-results=50 to get more results (from start-index (min=1), to max-results (max=50))
+                  -->
+    <ul id='playlist6' data-address="playlist6" >
+              <!-- ID of the video -->
+              <li data-address="youtube_single1" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/eJcIS_pDkX0?v=2&amp;alt=jsonc" ></li>
+              <li data-address="youtube_single2" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/6uIB41dfxyw?v=2&amp;alt=jsonc" ></li>
+              <li data-address="youtube_single3" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/i2d19AYsz4g?v=2&amp;alt=jsonc" ></li>
+            </ul>
+    <ul id='playlist7' data-address="playlist7">
+              <!-- ID of the playlist
+                     Note: sometimes playlist id contains 'PL' infront of actual id, so remove this 'PL' -->
+              <li data-address="youtube_playlist" data-type='youtube_playlist' data-path="http://gdata.youtube.com/feeds/api/playlists/PL8A4E5B0A543E5710?&amp;start-index=1&amp;max-results=5&amp;v=2&amp;alt=jsonc" ></li>
+            </ul>
+    <ul id='playlist8' data-address="playlist8">
+              <!-- ID of the user -->
+              <li data-address="youtube_user_favourites" data-type='youtube_user_favourites' data-path="http://gdata.youtube.com/feeds/api/users/Antoine1223/favorites?&amp;start-index=1&amp;max-results=50&amp;v=2&amp;alt=jsonc" ></li>
+            </ul>
+    <ul id='playlist9' data-address="playlist9">
+              <!-- ID of the user -->
+              <li data-address="youtube_user_uploads" data-type='youtube_user_uploads' data-path="http://gdata.youtube.com/feeds/api/users/goprocamera/uploads?&amp;start-index=1&amp;max-results=50&amp;v=2&amp;alt=jsonc" ></li>
+            </ul>
+    <ul id='playlist_ch' data-address="playlist10">
+              <!-- channel query -->
+              <li data-address="youtube_video_query" data-type='youtube_channel_query' data-path="https://gdata.youtube.com/feeds/api/channels?q=fashion&amp;start-index=1&amp;max-results=10&amp;v=2"></li>
+            </ul>
+    <ul id='playlist10' data-address="playlist10">
+              <!-- videos query -->
+              <li data-address="youtube_video_query" data-type='youtube_video_query' data-path="http://gdata.youtube.com/feeds/api/videos?q=mtb+dh&amp;orderby=viewCount&amp;start-index=1&amp;max-results=50&amp;v=2&amp;alt=jsonc" ></li>
+            </ul>
+    <ul id='playlist11' data-address="playlist11">
+              <!-- playlists query
+                    WARNING! Every playlist found will be processed individually so be aware of number of results returned (max 50 per playlist currently hardcoded). 
+                    -->
+              <li data-address="youtube_playlist_query" data-type='youtube_playlist_query' data-path="https://gdata.youtube.com/feeds/api/playlists/snippets?q=mtb+dh&amp;start-index=1&amp;max-results=3&amp;v=2&amp;alt=json" ></li>
+            </ul>
+    <ul id='playlist12' data-address="playlist12">
+              <!-- 
+                     standard feeds 
+                     https://developers.google.com/youtube/2.0/developers_guide_protocol#Standard_feeds
+                     -->
+              <li data-address="youtube_standard_feed" data-type='youtube_standard_feed' data-path="https://gdata.youtube.com/feeds/api/standardfeeds/top_rated?v=2&amp;alt=jsonc" ></li>
+            </ul>
+    
+    <!-- YOUTUBE EXAMPLES MIXED -->
+    <ul id='playlist6_0' data-address="playlist6_0" >
+              <!-- ID of the video -->
+              <li data-address="youtube_single1" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/eJcIS_pDkX0?v=2&amp;alt=jsonc" ></li>
+              <li data-address="youtube_single2" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/6uIB41dfxyw?v=2&amp;alt=jsonc" ></li>
+              <!-- standard feed -->
+              <li data-address="youtube_standard_feed" data-type='youtube_standard_feed' data-path="https://gdata.youtube.com/feeds/api/standardfeeds/top_rated?v=2&amp;alt=jsonc" ></li>
+            </ul>
+    <ul id='playlist6_1' data-address="playlist6_1" >
+              <!-- ID of the user -->
+              <li data-address="youtube_user_uploads" data-type='youtube_user_uploads' data-path="http://gdata.youtube.com/feeds/api/users/goprocamera/uploads?&amp;start-index=1&amp;max-results=10&amp;v=2&amp;alt=jsonc" ></li>
+              <!-- ID of the user -->
+              <li data-address="youtube_user_favourites" data-type='youtube_user_favourites' data-path="http://gdata.youtube.com/feeds/api/users/Antoine1223/favorites?&amp;start-index=1&amp;max-results=5&amp;v=2&amp;alt=jsonc" ></li>
+            </ul>
+    <ul id='playlist6_2' data-address="playlist6_2">
+              <!-- videos query -->
+              <li data-address="youtube_video_query" data-type='youtube_video_query' data-path="http://gdata.youtube.com/feeds/api/videos?q=mtb+dh&amp;orderby=viewCount&amp;start-index=1&amp;max-results=5&amp;v=2&amp;alt=jsonc" ></li>
+              <li data-address="youtube_playlist_query" data-type='youtube_playlist_query' data-path="https://gdata.youtube.com/feeds/api/playlists/snippets?q=mtb+dh&amp;start-index=1&amp;max-results=3&amp;v=2&amp;alt=jsonc" ></li>
+            </ul>
+    <ul id='playlist6_3' data-address="playlist6_3">
+              <!-- ID of the video -->
+              <li data-address="youtube_single" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/eJcIS_pDkX0?v=2&amp;alt=jsonc" ></li>
+              <!-- ID of the playlist -->
+              <li data-address="youtube_playlist" data-type='youtube_playlist' data-path="http://gdata.youtube.com/feeds/api/playlists/PLAF9558049D5D4A5A?&amp;start-index=1&amp;max-results=25&amp;v=2&amp;alt=jsonc" ></li>
+              <!-- ID of the video -->
+              <li data-address="youtube_single" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/i2d19AYsz4g?v=2&amp;alt=jsonc" ></li>
+            </ul>
+    
+    <!-- YOUTUBE / VIMEO EXAMPLES MIXED -->
+    <ul id='playlist7_0' data-address="playlist7_0">
+              <!-- ID of the video -->
+              <li data-address="youtube_single1" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/eJcIS_pDkX0?v=2&amp;alt=jsonc" ></li>
+              <li data-address="youtube_single2" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/6uIB41dfxyw?v=2&amp;alt=jsonc" ></li>
+              <li data-address="youtube_single3" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/i2d19AYsz4g?v=2&amp;alt=jsonc" ></li>
+              <!-- ID of the video -->
+              <li data-address="vimeo_single1" data-type='vimeo_single' data-path="http://vimeo.com/api/v2/video/36916818.json" ></li>
+              <li data-address="vimeo_single2" data-type='vimeo_single' data-path="http://vimeo.com/api/v2/video/14665315.json" ></li>
+              <li data-address="vimeo_single3" data-type='vimeo_single' data-path="http://vimeo.com/api/v2/video/10287453.json" ></li>
+            </ul>
+    
+    <!-- NOTE: This is a big playlist and will take a while to load! -->
+    <ul id='playlist7_1' data-address="playlist7_1">
+              <!-- standard feed -->
+              <li data-address="youtube_standard_feed" data-type='youtube_standard_feed' data-path="https://gdata.youtube.com/feeds/api/standardfeeds/top_rated?v=2&amp;alt=jsonc" ></li>
+              <!-- ID of the group -->
+              <li data-address="vimeo_group" data-type='vimeo_group' data-path="http://vimeo.com/api/v2/group/28082/videos.json?page=1" ></li>
+              <!-- ID of the channel -->
+              <li data-address="vimeo_channel" data-type='vimeo_channel' data-path="http://vimeo.com/api/v2/channel/mountainbiking/videos.json?page=1" ></li>
+            </ul>
+    
+    <!-- NOTE: This is a big playlist and will take a while to load! -->
+    <ul id='playlist7_2' data-address="playlist7_2" >
+              <!-- ID of the video -->
+              <li data-address="youtube_single" data-type='youtube_single' data-path="http://gdata.youtube.com/feeds/api/videos/eJcIS_pDkX0?v=2&amp;alt=jsonc" ></li>
+              <!-- standard feed -->
+              <li data-address="youtube_standard_feed" data-type='youtube_standard_feed' data-path="https://gdata.youtube.com/feeds/api/standardfeeds/top_rated?v=2&amp;alt=jsonc" ></li>
+              <!-- ID of the group -->
+              <li data-address="vimeo_group" data-type='vimeo_group' data-path="http://vimeo.com/api/v2/group/28082/videos.json?page=1" ></li>
+              <!-- ID of the channel -->
+              <li data-address="vimeo_channel" data-type='vimeo_channel' data-path="http://vimeo.com/api/v2/channel/mountainbiking/videos.json?page=1" ></li>
+              <!-- ID of the video -->
+              <li data-address="vimeo_single" data-type='vimeo_single' data-path="http://vimeo.com/api/v2/video/14665315.json" ></li>
+              <!-- ID of the user -->
+              <li data-address="youtube_user_favourites" data-type='youtube_user_favourites' data-path="http://gdata.youtube.com/feeds/api/users/Antoine1223/favorites?&amp;start-index=1&amp;max-results=5&amp;v=2&amp;alt=jsonc" ></li>
+            </ul>
+    <div id='feedParser'></div>
+  </div>
+        </div>
+
+<!-- public function calls -->
+<div id='publicFunctions'>
+          <p>PUBLIC METHODS</p>
+          <br/>
+          <ul>
+    <!-- play active media (if exist) -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.playMedia(); return false;">Play current media</a></li>
+    
+    <!-- pause active media (if exist) -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.pauseMedia(); return false;">Pause current media</a></li>
+    
+    <!-- play next media -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.nextMedia(); return false;">Play next</a></li>
+    
+    <!-- play previous media -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.previousMedia(); return false;">Play previous</a></li>
+    
+    <!-- destroy media -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.destroyMedia(); return false;">Destroy media</a></li>
+    
+    <!-- toggle playlist (open/close) -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.togglePlaylist(); return false;">Toggle playlist</a></li>
+    
+    <!-- switch playlist layout -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.switchLayout(); return false;">Switch layout</a></li>
+    
+    <!-- set volume (0-1) -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.setVolume(0.5); return false;">Set volume (0.5)</a></li>
+    
+    <!-- load media/playlist:
+                if useDeeplink: 
+                	pass deeplink url as string (single or two level), just like in 'startUrl' html setting.
+                    load playlist example (single level): jQuery.fn.videoGallery.loadMedia('playlist0'), 
+                    load media example (two level): jQuery.fn.videoGallery.loadMedia('playlist4/youtube_single1').
+                no Deeplink: 
+                	for media pass number, counting starts from 0,
+                    for playlist pass element 'id' attribute. 
+                    load playlist example: jQuery.fn.videoGallery.loadMedia('playlist4'), 
+                    load media example: jQuery.fn.videoGallery.loadMedia(3) -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.loadMedia('playlist8'); return false;">load media</a></li>
+    
+    <!-- get description :
+                if useDeeplink: 
+                	pass deeplink url as string (two level), just like in 'startUrl' html setting.
+                    example: jQuery.fn.videoGallery.getDescription('playlist4/youtube_single1').
+                no Deeplink: 
+                	pass number, counting starts from 0 (0 = first video, 1 = second video...etc),
+                    example: jQuery.fn.videoGallery.getDescription(3) -->
+    <li><a href='#' onClick="jQuery.fn.videoGallery.getDescription(0); return false;">Get description from media number #</a></li>
+  </ul>
+        </div>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="dCodes Framework">
+<meta name="description" content="Multimedia Gallery Scroll" />
+
+<title>Multimedia Gallery Scroll (Responsive)</title>
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="css/skeleton.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen"  />
+<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.scroll_vertical_full.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/index_scroll_vertical_full.css" />
+<link rel="stylesheet" type="text/css" href="css/autoSlideMenu.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="js/jquery.apPlaylistManager.min.js"></script>
+<script type="text/javascript" src="js/soundmanager2-nodebug-jsmin.js" ></script>
+<script type="text/javascript" src="js/jquery.slide.js"></script>
+<script type="text/javascript" src="js/jquery.touchSwipe.js"></script>
+<script type="text/javascript">
+			
+			function autoSlideReady(){
+				//function called when component is ready to receive public method calls
+				//console.log('autoSlideReady');
+			}
+			
+			function detailActivated(){
+				//function called when prettyphoto (in this case) is being triggered (in which case slideshow if is on, automatically stops, then later when prettyphoto is closed, slideshow is resumed)
+				//console.log('detailActivated');
+			}
+			
+			function detailClosed(){
+				//function called when prettyphoto (in this case) is closed
+				//console.log('detailClosed');
+			}
+			
+			var autoSlide_settings = {
+				/* componentFixedSize: true/false. If you use 100% for width/height, or both on componentWrapper, set this to false! */
+				componentFixedSize: false,
+				/* margins between images */
+				verticalMarginSpace:5,
+				horizontalMarginSpace: 5,
+				/* activePlaylist: playlist to be loaded on beginning (pass element 'id' attribute) */
+				activePlaylist: 'playlist1',
+				/* orientation: horizontal/vertical */
+				orientation: 'vertical',
+				/* type: timer/scroll/thumbs (driven by timer, manual scroll, or thumbnails) */
+				type: 'scroll',
+				/* showTitleOnRollover: true/false, show image title on rollover or always (on mobile always by default)  */
+				showTitleOnRollover: false,
+				/* showDetailOnRollover: true/false, show image details (link/lightbox buttons) on rollover or always (on mobile always by default)  */
+				showDetailOnRollover: false,
+				/* useMusic: true/false */
+				useMusic: false
+				
+			}
+			
+			/* music settings, delete if you dont use audio */
+			var autoSlide_music_settings = {
+				/* autoPlay: true/false, (false on mobile by default)  */
+				autoPlay: false,
+				/* activePlaylist: playlist to be loaded on beginning (pass element 'id' attribute) */
+				activePlaylist: 'audio_playlist2',
+				/*defaultVolume: 0-1 */
+				defaultVolume:1,
+				/*randomPlay: true/false */
+				randomPlay:false,
+				/*loopingOn: true/false (loop on the end of the playlist) */
+				loopingOn:true
+			}
+			
+			/* sound manager settings, delete if you dont use audio */
+			soundManager.allowScriptAccess = 'always';
+			soundManager.debugMode = false;
+			soundManager.noSWFCache = true;
+			soundManager.useConsole = false;
+			soundManager.waitForWindowLoad = true;
+			soundManager.url = 'swf/';//the path to flash files
+			soundManager.flashVersion = 9;//min flash version required
+			soundManager.preferFlash = false; // use HTML5 audio for MP3/MP4, if available
+			soundManager.useHTML5Audio = true;
+			
+			var audio = document.createElement('audio'), mp3Support, oggSupport;
+			if (audio.canPlayType) {
+			   mp3Support = !!audio.canPlayType && "" != audio.canPlayType('audio/mpeg');
+			   oggSupport = !!audio.canPlayType && "" != audio.canPlayType('audio/ogg; codecs="vorbis"');
+			}else{
+				//for IE<9
+				mp3Support = true;
+				oggSupport = false;
+			}
+			//console.log('mp3Support = ', mp3Support, ' , oggSupport = ', oggSupport);
+			
+			/*
+			FF - false, true
+			OP - false, true
+			
+			IE9 - true, false 
+			SF - true, false 
+			
+			CH - true, true
+			*/
+			
+		    soundManager.audioFormats = {
+			  'mp3': {
+				'type': ['audio/mpeg; codecs="mp3"', 'audio/mpeg', 'audio/mp3', 'audio/MPA', 'audio/mpa-robust'],
+				'required': mp3Support
+			  },
+			  'mp4': {
+				'related': ['aac','m4a'], // additional formats under the MP4 container
+				'type': ['audio/mp4; codecs="mp4a.40.2"', 'audio/aac', 'audio/x-m4a', 'audio/MP4A-LATM', 'audio/mpeg4-generic'],
+				'required': false
+			  },
+			  'ogg': {
+				'type': ['audio/ogg; codecs=vorbis'],
+				'required': oggSupport
+			  },
+			  'wav': {
+				'type': ['audio/wav; codecs="1"', 'audio/wav', 'audio/wave', 'audio/x-wav'],
+				'required': false
+			  }
+			};
+			
+			jQuery(window).load(function() {
+				jQuery.noConflict();
+				
+					  //init component
+					  jQuery.autoSlide('#componentWrapper', autoSlide_settings, autoSlide_music_settings);
+					  autoSlide_settings = null;
+					  autoSlide_music_settings=null;
+				
+			});
+
+        </script>
+<style type="text/css">
+.taheader {
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 10px;
+	width: 100px;
+}
+.taheader:hover {
+	opacity: 0.9;
+}
+.taheader a {
+	text-decoration: none;
+	line-height: 18px;
+	padding: 0 4px;
+	color: #ddd;
+}
+.taheader a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+.taheader a span {
+	font-weight: bold;
+}
+.right_ab {
+	float: right;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	padding: 8px;
+	text-shadow: 1px 1px 2px #333333;
+	filter: dropshadow(color=#333333, offx=1, offy=1);
+	margin-right: 50px;
+}
+.right_ab a {
+	float: right;
+	color: #fff;
+}
+</style>
+</head>
+<body>
+
+<!-- wrapper for the whole component -->
+<div id="componentWrapper"> 
+  
+  <!-- music playlist -->
+  <div class="musicPlaylist"> 
+    
+    <!-- NO EXTENSION for music file names!! -->
+    
+    <div id='audio_playlist1'>
+      <ul>
+        <li class= "audio_playlistItem" data-path="data/audio/1/add_your_songs_here"></li>
+        <li class= "audio_playlistItem" data-path="data/audio/1/add_your_songs_here"></li>
+        <li class= "audio_playlistItem" data-path="data/audio/1/add_your_songs_here"></li>
+      </ul>
+    </div>
+    <div id='audio_playlist2'>
+      <ul>
+        <li class= "audio_playlistItem" data-path="data/audio/2/add_your_songs_here"></li>
+        <li class= "audio_playlistItem" data-path="data/audio/2/add_your_songs_here"></li>
+        <li class= "audio_playlistItem" data-path="data/audio/2/add_your_songs_here"></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- gallery playlist -->
+  <div class="componentPlaylist"> 
+    
+    <!-- 
+                          data-path: path to the image (required, all other parameters optional),
+                          data-title: title for image, optional, empty for none like this: data-title='' or delete whole attribute,
+                      	  data-link: href address, optional, empty for none like this: data-link='' or delete whole attribute,
+                          data-target: '_blank' (open in new window) or '_parent' (open in same window), optional (_blank by default), empty for none like this: data-target='' or delete whole attribute,
+                          -to add prettyphoto content example, place this INTO 'li' item:
+                          <a class="pp_content" href="http://vimeo.com/49224248" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Vimeo Video" /></a>
+                          class has to be 'pp_content' for my jquery code to recognize it. a 'title' = description, img 'alt' = title as per prettyphoto documentation.
+                          
+                          if 'orientation' == 'horizontal'
+                          <ul class="section"> => this is a 'column'
+                          <li class='sub_section'> => this is a 'row'
+                          
+                          if 'orientation' == 'vertical'
+                          <ul class="section"> => this is a 'row'
+                          <li class='sub_section'> => this is a 'column'
+                      -->
+    
+    <div id='playlist1'>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Optional title"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/700x500/999999/ffffff/pic.jpg' 
+                                     data-title="Duis lacus diam" 
+                                     data-link='http://www.dcodes.net/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/832x500/999999/ffffff/pic.jpg' 
+                                     data-title="Aliquam erat"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x500/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean varius" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x500/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam vitae est" > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Ut lectus magna" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Sed fermentum"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam aliquam"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x500/999999/ffffff/pic.jpg' 
+                                     data-title="YouTube Video" 
+                                     data-link='http://www.dcodes.net/' 
+                                     data-target='_blank' > <a class="pp_content" href="hhttp://www.youtube.com/watch?v=JYKpIr1lSG0" data-rel="prettyPhoto[gallery1]" title="Sample YouTube Video"><img src="data/icons/detail.png" width="30" height="30" alt="Youtube Video" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x500/999999/ffffff/pic.jpg' 
+                                     data-title="Nulla facilisi" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/700x488/999999/ffffff/pic.jpg' 
+                                     data-title="Integer venenatis" > <a class="pp_content" href="http://vimeo.com/49224248" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/788x500/999999/ffffff/pic.jpg' 
+                                     data-title="Duis lacus diam" > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x500/999999/ffffff/pic.jpg' 
+                                     data-title="Nulla facilisi" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/802x500/999999/ffffff/pic.jpg' 
+                                     data-title="Sed fermentum"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam justo"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Ut lectus magna"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/802x500/999999/ffffff/pic.jpg' 
+                                     data-title="Duis auctor" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/830x500/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam pulvinar"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/780x500/999999/ffffff/pic.jpg' 
+                                     data-title="Nulla facilisi" 
+                                     data-link='http://www.dcodes.net/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/817x500/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam aliquam" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/754x500/999999/ffffff/pic.jpg' 
+                                     data-title="Ut lectus magna"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/755x500/999999/ffffff/pic.jpg' 
+                                     data-title="Integer sit amet" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean varius"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Donec non purus" 
+                                     data-link='http://www.dcodes.net/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/842x600/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam vitae est"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/900x600/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam justo" 
+                                     data-link='http://www.dcodes.net/' 
+                                     data-target='_blank' > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/719x500/999999/ffffff/pic.jpg' 
+                                     data-title="Sed fermentum" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title=""Optional description"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/832x500/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/750x500/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" 
+                                     data-link='http://www.dcodes.net/' 
+                                     data-target='_blank' > </li>
+      </ul>
+    </div>
+    <div id='playlist2'>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Ut porta dolor"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/757x500/999999/ffffff/pic.jpg' 
+                                     data-title="Optional title"  > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Ut lectus magna"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1046x700/999999/ffffff/pic.jpg' 
+                                     data-title="Integer sit amet" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1046x700/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean varius"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam vitae est"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam justo" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Sed fermentum"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Aliquam erat"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1046x700/999999/ffffff/pic.jpg' 
+                                     data-title="Integer sit amet" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1046x700/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean varius"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Aliquam erat"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1046x700/999999/ffffff/pic.jpg' 
+                                     data-title="Integer sit amet" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1046x700/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean varius"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Aliquam erat"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1046x700/999999/ffffff/pic.jpg' 
+                                     data-title="Integer sit amet" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1046x700/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean varius"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/747x500/999999/ffffff/pic.jpg' 
+                                     data-title="Aliquam erat"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery2]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+    </div>
+    <div id='playlist3'>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1050x700/999999/ffffff/pic.jpg' 
+                                     data-title="Optional title"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Optional image title" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1050x700/999999/ffffff/pic.jpg' 
+                                     data-title="Ut porta dolor"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/333x500/999999/ffffff/pic.jpg' 
+                                     data-title="Integer sit amet"  > <a class="pp_content" href=http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/375x500/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean varius"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/333x500/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam vitae est"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1050x700/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam justo" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Optional image title" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1050x700/999999/ffffff/pic.jpg' 
+                                     data-title="Sed fermentum" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/533x400/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/533x400/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/300x400/999999/ffffff/pic.jpg' 
+                                     data-title="Aliquam erat" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/300x400/999999/ffffff/pic.jpg' 
+                                     data-title="Duis lacus diam" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Optional image title" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/933x700/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam pulvinar" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Optional image title" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/1050x700/999999/ffffff/pic.jpg' 
+                                     data-title="Duis auctor" > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/533x400/999999/ffffff/pic.jpg' 
+                                     data-title="Ut porta dolor" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/635x500/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam aliquam" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/667x500/999999/ffffff/pic.jpg' 
+                                     data-title="Ut lectus magna"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/667x500/999999/ffffff/pic.jpg' 
+                                     data-title="Integer sit amet" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/666x500/999999/ffffff/pic.jpg' 
+                                     data-title="Aenean varius" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Optional image title" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/548x500/999999/ffffff/pic.jpg' 
+                                     data-title="Nullam vitae est"  > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/533x400/999999/ffffff/pic.jpg' 
+                                     data-title="Etiam justo" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/533x400/999999/ffffff/pic.jpg' 
+                                     data-title="Sed fermentum"  > </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/533x400/999999/ffffff/pic.jpg' 
+                                     data-title="Vivamus dapibus" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/533x400/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" > </li>
+      </ul>
+      <ul class="section">
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/375x500/999999/ffffff/pic.jpg' 
+                                     data-title="Aliquam erat" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Optional image title" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/667x500/999999/ffffff/pic.jpg' 
+                                     data-title="Duis lacus diam"  > <a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery3]" title="Optional description in lightbox"><img src="data/icons/detail.png" width="30" height="30" alt="Image" /></a> </li>
+        <li class='sub_section' 
+                                     data-path='http://cdn.pimg.co/p/667x500/999999/ffffff/pic.jpg' 
+                                     data-title="Fusce ultricies" 
+                                     data-link='http://www.dcodes.net' 
+                                     data-target='_blank' > </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- content holder, dont touch! -->
+  <div class="componentScrollWrapper">
+    <div class="componentContent"></div>
+  </div>
+  
+  <!-- header at the top for menu and navigation -->
+  <div class="componentHeader"> 
+    <div class="taheader"> >> <a href="javascript:history.go(-1)" title="Go Back"><span>Back</span></a></div>
+    <span class="right_ab"> 
+    <!-- TA Style Switcher: This code can be safely removed --> 
+    <strong>Switch to:</strong> &nbsp; <a href="index.html" title="Switch to Slide View">Slide View</a> &nbsp; 
+    <!-- /TA Style Switcher --> 
+    </span>   	
+    
+    <!-- You need to have one menu item for every category in the gallery (in the order categoies appear) -->
+    <div class="componentMenu">
+      <div class="menuPlus"><img src="data/icons/fullscreen_enter.png" width="30" height="30" alt="Select Category" title="Select Category" /></div>
+      <div class="currentCategory"></div>
+      <ul class="subMenu">
+        <li><a href="#">Gallery: Buildings</a></li>
+        <li><a href="#">Gallery: Communications</a></li>
+        <li><a href="#">Gallery: Transport</a></li>
+      </ul>
+    </div>
+    
+    <!-- controls -->
+    <div class="component_controls">
+      <ul>
+        <!-- music button is automatically removed if music is not used -->
+        <li><img src="data/icons/music_on.png" width="30" height="30" alt="music_on" class="controls_music" /></li>
+        <!-- fullscreen button is automatically removed if browser doesnt support fullscreen -->
+        <li><img src="data/icons/fullscreen_enter.png" width="30" height="30" alt="Fullscreen" title="Fullscreen" class="controls_fullscreen" /></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- public function calls -->
+<div id='publicFunctions'>
+  <p>PUBLIC API</p>
+  <br/>
+  <p>GALLERY SETTINGS</p>
+  <br/>
+  <ul>
+    <!-- Toggle slideshow (pass true (play), false (stop) as parameter, or none for simple toggle). 
+                    This is for autoSlide and thumbs version, scroll doesnt have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.toggleSlideshow(); return false;">Toggle slideshow</a></li>
+    
+    <!-- Play next media,
+                    This is for thumbs version, autoSlide and scroll dont have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.nextMedia(); return false;">Play next media</a></li>
+    
+    <!-- Play previous media,
+                    This is for thumbs version, autoSlide and scroll dont have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.previousMedia(); return false;">Play previous media</a></li>
+    
+    <!-- Open media number,
+                    This is for thumbs version, autoSlide and scroll dont have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.openMedia(2); return false;">Open media number 2</a></li>
+    
+    <!-- Toggle direction, 
+                    This is for autoSlide and thumbs version, scroll doesnt have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.toggleDirection(); return false;">Toggle direction</a></li>
+    
+    <!-- Toggle playlist (pass true (open), false (close) as parameter, or none for simple toggle). 
+                    This is for thumbs version, autoSlide and scroll dont have this feature. -->
+    <li><a href='#' onClick="jQuery.autoSlide.togglePlaylist(); return false;">Toggle playlist</a></li>
+    
+    <!-- Load new playlist (pass element 'id' attribute) -->
+    <li><a href='#' onClick="jQuery.autoSlide.inputPlaylist('playlist2'); return false;">Load playlist number 2</a></li>
+  </ul>
+  <br/>
+  <p>MUSIC SETTINGS</p>
+  <br/>
+  <ul>
+    <!-- Toggle audio (pass true (play), false (stop) as parameter, or none for simple toggle). -->
+    <li><a href='#' onClick="jQuery.autoSlide.toggleAudio(); return false;">Toggle audio</a></li>
+    
+    <!-- Play next audio -->
+    <li><a href='#' onClick="jQuery.autoSlide.nextAudio(); return false;">Play next audio</a></li>
+    
+    <!-- Play previous audio -->
+    <li><a href='#' onClick="jQuery.autoSlide.previousAudio(); return false;">Play previous audio</a></li>
+    
+    <!-- Load audio number -->
+    <li><a href='#' onClick="jQuery.autoSlide.loadAudio(2); return false;">Load audio number 2</a></li>
+    
+    <!-- Set volume (0-1) -->
+    <li><a href='#' onClick="jQuery.autoSlide.setAudioVolume(0.5); return false;">Set volume (0.5)</a></li>
+    
+    <!-- Load audio playlist (pass element 'id' attribute) -->
+    <li><a href='#' onClick="jQuery.autoSlide.inputAudioPlaylist('audio_playlist2'); return false;">Load audio playlist 2</a></li>
+    
+    <!-- destroy audio -->
+    <li><a href='#' onClick="jQuery.autoSlide.destroyAudio(); return false;">Destroy audio</a></li>
+  </ul>
+</div>
+</body>
+</html>

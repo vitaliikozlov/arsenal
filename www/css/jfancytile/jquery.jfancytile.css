@@ -1,0 +1,164 @@
+/* dCodes Framework: (c) TemplateAccess */
+
+.dc_clear {
+	clear: both;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	font-size: 0px;
+	line-height: 0px;
+}
+#slide img { max-width: none !important; }
+#slide {
+	
+	margin: 0px auto 0;
+	position: relative;
+	width: 100%;
+	z-index: 95;
+}
+header, nav, section, article, aside, footer {
+	display: block;
+}
+.jfancybg-mask {
+	background: url("../../images/jfancytile/mask.png") no-repeat scroll 0 0 transparent; background-size: contain;
+	height: 457px;
+	left: 0;
+	position: absolute;
+	top: -6px;
+	width: 960px;
+	z-index: 9;
+}
+#fancytile-slide {
+	margin: 0px 0 42px 0;
+}
+.jfancytileContainer {
+	padding: 7px 0px 0 7px;
+	position: relative;
+	z-index: 99;
+}
+.jfancytileTitle {
+	position: absolute;
+	z-index: 999;
+	left: 20px;
+	bottom: 21px;
+	color: #000;
+	width: 435px;
+}
+.jfancytilenav {
+	width: 30px;
+	height: 41px;
+	z-index: 2999;
+	cursor: pointer;
+}
+.navig-fancytile:after {
+	clear: both;
+	content: "";
+	display: block;
+	height: 0;
+}
+.navig-fancytile {
+
+	top: 190px;
+	height: 0;
+	margin: 0 auto;
+	position: relative;
+	z-index: 1099;
+}
+.jfancytileForward {
+	background: url("../../images/jfancytile/arrow-r.png") no-repeat right 0;
+	float: right;
+	-o-transition: margin-right 0.3s;
+	-moz-transition: margin-right 0.3s;
+	-webkit-transition: margin-right 0.3s;
+	transition: margin-right 0.3s;
+	margin: 0 0px 0 0;
+}
+.jfancytileBack {
+	background: url("../../images/jfancytile/arrow-l.png") no-repeat 0 0;
+	float: left;
+
+	-o-transition: margin-left 0.3s;
+	-moz-transition: margin-left 0.3s;
+	-webkit-transition: margin-left 0.3s;
+	transition: margin-left 0.3s;
+}
+.jfancytileForward:hover, .jfancytileBack:hover {
+}
+.jfancytileForward:hover {
+	
+	background-position: right -41px;
+	
+}
+.jfancytileBack:hover {
+	
+	background-position: 0 -41px;
+	
+}
+.caption-head {
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 3px 3px 3px 3px;
+	color: #FFFFFF;
+	float: left;
+	font-size: 18px;
+	margin: 0 0 0;
+	padding: 10px 15px;
+	position: relative;
+}
+.text-capt {
+	border-radius: 3px 3px 3px 3px;
+	display: block;
+	float: left;
+	margin: 10px 0 0;
+	padding: 10px 20px 10px 15px;
+	background-color: rgba(252, 252, 252, 0.7);
+	text-shadow: none;
+}
+#jFancyTile { height: 430px; }
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+	.jfancybg-mask { width: 748px; height: 312px; background: url("../../images/jfancytile/mask1.png") no-repeat scroll 0 0 transparent; background-size: contain; }
+	.navig-fancytile { top: 117px; }
+	#jFancyTile { height: 280px; }
+	#jFancyTile { margin-bottom: 20px !important; }
+	.jfancytileForward { margin: 0px; }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	
+	
+	}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+	.jfancybg-mask { width: 400px; height: 312px; background: url("../../images/jfancytile/mask2.png") no-repeat scroll 0 0 transparent; background-size: contain; }
+	.navig-fancytile { top: 117px; }
+	#jFancyTile { height: 200px; }
+	.navig-fancytile { top: 64px; }
+	.text-capt { margin-top: 2px; padding: 0px 5px 0px 5px; width: 350px; }
+	.text-capt p { font-size: 9px; line-height: 12px; }
+	.caption-head { padding: 0 5px; font-size: 9px; line-height: 12px; }
+	.caption-head { padding: 5px 5px 5px 5px; }
+	.jfancytileTitle { left: 4px; bottom: 4px; width: 383px; }
+	.jfancytileForward { margin: 0px; }
+	}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+	#jFancyTile { height: 160px; }
+	.jfancybg-mask { width:298px; height: 170px; background: url("../../images/jfancytile/mask3.png") no-repeat scroll 0 0 transparent; background-size: contain; }
+	.navig-fancytile { top: 117px; }
+	.navig-fancytile { top: 43px; }
+	.text-capt { margin-top: 2px; padding: 5px 5px 5px 5px; }
+	.caption-head { padding: 5px 5px 5px 5px; }
+	.jfancytileTitle { left: 4px; bottom: 4px; width: 383px; }
+	.html-caption { display: none; }
+	.jfancytileForward { margin: 0px; }
+	}
