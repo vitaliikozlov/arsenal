@@ -1,0 +1,41 @@
+.tsc_clear { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px; }
+/********************
+ * FEATURE CAROUSEL *
+ ********************/
+#slide { margin: 10px auto 0; position: relative; width: 940px; z-index: 95; }
+header,
+nav,
+section,
+article,
+aside,
+footer { display: block; }
+#carousel-container { position:relative; width:940px; padding:20px 0 0; }
+#carousel { height:367px; width:940px; position:relative; margin:-11px 0 0 -8px; }
+#carousel .carousel-image { border:0; display:block; }
+#carousel .carousel-feature { position:absolute; top:-1000px; left:-1000px; cursor:pointer; }
+#carousel .carousel-feature a img { position:relative; z-index:29; margin:6px 7px 7px 6px; }
+#carousel .mask { background:none; height: 100% !important; left: 0 !important; top: 0 !important; width: 100% !important; overflow:hidden; }
+.mask { height: 457px; left: 0; position: absolute; top: -6px; width: 1084px; z-index: 9; }
+.mask img { height: 100%; width: 100%; }
+#carousel .carousel-feature .carousel-caption { position:absolute; bottom:38px; left:21px; width:91%; z-index:9999; }
+#carousel .carousel-feature .carousel-caption p { margin:0; text-shadow:none; color:#333333; }
+#carousel .tracker-summation-container { position:absolute; right:48px; top:230px; padding:3px; margin:3px; display:none !important; }
+#carousel .tracker-individual-container { position:absolute; right:48px; top:210px; padding:0; margin:0; display:none !important; }
+#carousel .tracker-individual-container li { list-style:none; }
+#carousel .tracker-individual-container .tracker-individual-blip { margin:0 3px; padding:0 3px; color:white; text-align:center; }
+#carousel .tracker-individual-container .tracker-individual-blip-selected { color:white; font-weight:bold; }
+/********************
+ * CAPTION STYLE    *
+ ********************/
+ .caption-head { background-color: rgba(0, 0, 0, 0.7); border-radius: 3px 3px 3px 3px; color: #FFFFFF; float: left; font-size: 18px; margin: 0 0 0; padding: 10px 15px; position: relative; }
+.text-capt { border-radius: 3px 3px 3px 3px; display: block; float: left; margin: 10px 0 0; padding: 10px 20px 10px 15px; text-shadow: none; }
+.text-capt { background-color: rgba(252, 252, 252, 0.7); color: #333333; text-shadow: none; }
+/********************
+ *    NAVIGATION    *
+ ********************/
+ .navig-carousel:after { clear: both; content: ""; display: block; height: 0; }
+.navig-carousel { max-width: 1020px; top: 160px; height: 0; margin: 0 auto; min-width: 900px; position: relative; z-index: 1099; }
+#scarousel-left { -moz-transition: margin-left 0.3s ease 0s; background: url("../images/arrow-l.png") no-repeat scroll 0 0 transparent; cursor: pointer; float: left; height: 41px; margin-left: -30px; width: 30px; }
+#scarousel-right { -moz-transition: margin-right 0.3s ease 0s; background: url("../images/arrow-r.png") no-repeat scroll right 0 transparent; cursor: pointer; float: right; margin-right: -30px; height: 41px; width: 30px; }
+#scarousel-left:hover { background-position: 0 -41px; padding-right: 5px; }
+#scarousel-right:hover { background-position: right -41px; padding-left: 5px; }

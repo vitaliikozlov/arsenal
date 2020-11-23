@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="dCodes Framework">
+<meta name="description" content="Thumbnail Gallery" />
+
+<title>Thumbnail Gallery (Horizontal + Responsive)</title>
+
+<!-- Thumbnail Gallery CSS -->
+<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/index_grid_horizontal_buttons.css" />
+
+<!-- Javascript Libraries -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+
+<!-- Lightbox JS -->
+<script type="text/javascript" src="js/jquery.prettyPhoto.js" charset="utf-8"></script>
+
+<!-- Add Mousewheel Support -->
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+
+<!-- Thumbnail Gallery Script -->
+<script type="text/javascript" src="js/jquery.gallery.js"></script>
+<script type="text/javascript" src="js/jquery.touchSwipe.js"></script>
+<!-- Thumbnail Gallery Settings -->
+<script type="text/javascript">
+		
+			function thumbGallerySetupDone(){
+				//function called when component is ready to receive public function calls
+				//console.log('thumbGallerySetupDone');
+			}
+		
+			function detailActivated(){
+				//function called when prettyphoto is opened
+				//console.log('detailActivated');
+			}
+			
+			function detailClosed(){
+				//function called when prettyphoto is closed
+				//console.log('detailClosed');
+			}
+			
+			function overThumb(i,j){
+				//function called when mouse over thumb holder (plus returned item number: i = first level, j = second level)
+				//console.log('overThumb: ', i,' , ', j);
+			}
+			
+			function outThumb(i, j){
+				//function called when mouse out thumb holder (plus returned item number: i = first level, j = second level)
+				//console.log('outThumb: ', i,' , ', j);
+			}
+			
+			jQuery(window).load(function() {
+				jQuery.noConflict();
+					  
+				jQuery('#componentWrapper').thumbGallery({	
+					/*layoutType: grid/line */
+					layoutType: 'grid',
+					/*thumbOrientation: horizontal/vertical */
+					thumbOrientation: 'horizontal',
+					/*moveType: scroll/buttons */
+					moveType: 'buttons',
+					/*scrollOffset: how much to move scrollbar and scrolltrack off the content (enter 0 or above) */
+					scrollOffset: 25,
+					
+					/* SIZE RESTRAIN */
+					/*maxWidth:(enter 0 for none, or higher)  */
+					maxWidth: 0,
+					/*maxHeight: (enter 0 for none, or higher) */
+					maxHeight: 0,
+					
+					/* GRID SETTINGS */
+					/*verticalSpacing:  */
+					verticalSpacing: 10,
+					/*horizontalSpacing:  */
+					horizontalSpacing: 10,
+					/*buttonSpacing: button spacing from the grid itself */
+					buttonSpacing: 10,
+					
+					/* LINE SETTINGS */
+					/* thumbsScrollValue: speed of the thumb scroll on button down (number higher than 0) */
+					thumbsScrollValue: 150,
+					
+					/*innerSlideshowDelay: slideshow delay for inner items in seconds, random value between: 'min, max', 
+					enter both number the same for equal time delay like for example 2 seconds: '2,2' */
+					innerSlideshowDelay:[2,4],
+					/*innerSlideshowOn: autoplay inner slideshow, true/false */
+					innerSlideshowOn:false,
+					
+					/*containerWidthAddOn: add on container wrapper width if needed (enter 0 or above) */
+					containerWidthAddOn:0,
+					/*containerHeightAddOn: add on container wrapper height if needed (enter 0 or above) */
+					containerHeightAddOn:0
+				});		
+		   
+		   });
+		
+        </script>
+
+<style type="text/css">
+.thumbContainer{cursor:move;}
+.taheader {
+	font-family: Calibri, "Arial", "Trebuchet MS", Helvetica, sans-serif;
+	text-decoration: none;
+	font-size: 18px;
+	color: #fff;
+	background: #252525;
+	padding: 6px;
+	opacity: 0.9;
+	-moz-box-shadow: 1px 0px 5px #000;
+	-webkit-box-shadow: 1px 0px 5px #000;
+	box-shadow: 1px 0px 5px #000;
+}
+.taheader:hover {
+	opacity: 0.9;
+}
+.taheader a {
+	text-decoration: none;
+	line-height: 18px;
+	padding: 0 4px;
+	color: #ddd;
+}
+.taheader a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+.taheader a span {
+	font-weight: bold;
+}
+.taheader span.right_ab {
+	float: right;
+}
+</style>
+
+</head>
+<body>
+	
+<!-- Top Navigation -->
+<div class="taheader"> >> <a href="javascript:history.go(-1)" title="Go Back"><span>Back</span></a> &nbsp; (Responsive + Lightbox + Mouse Scroll) <span class="right_ab"> 
+  <!-- TA Style Switcher: This code can be safely removed --> 
+  <strong>Switch:</strong> <a href="index2.html" title="Switch to Vertical View">Vertical View</a>&nbsp;
+  <!-- /TA Style Switcher --> 
+  </span>
+  <div class="clr"></div>
+</div>
+<!-- /Top Navigation -->
+
+<!-- wrapper for the whole component -->
+<div id="componentWrapper">
+  <div class="thumbContainer"> 
+    
+    <!--
+                  data-title: optional title , if used it will show on hover, empty for none like this: data-title='' or delete whole attribute,
+                  
+                  -to add prettyphoto content example, place this:
+                  <a class="pp_content" href="link/to/big/image" data-rel="prettyPhoto[gallery1]" title="Optional description."><img class="thumb_hidden" src="link/to/small/image" width="200" height="140" alt="Optional title" /></a>
+                  class has to be 'pp_content' for my jquery code to recognize it. a 'title' = description, img 'alt' = title as per prettyphoto documentation.
+                  -->
+    
+    <div class="thumbInnerContainer">
+      <div class='thumbHolder' data-title="YouTube Video">
+      	<a class="pp_content" href="http://www.youtube.com/watch?v=JYKpIr1lSG0" data-rel="prettyPhoto[gallery1]" title="Sample YouTube Video">
+      	<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="YouTube Video" /></a>
+      </div>
+      
+      <div class='thumbHolder' data-title="Pellentesque aliquam">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a>
+      </div>
+      <div class='thumbHolder' data-title="Fusce lobortis">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src=http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a>
+      </div>
+      <div class='thumbHolder' data-title="Aliquam erat volutpat">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a>
+      </div>
+      <div class='thumbHolder' data-title="Ut porta dolor">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a>
+      </div>
+      <div class='thumbHolder' data-title="Proin magna nunc">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a>
+      </div>
+      <div class='thumbHolder' data-title="External Link">
+      	<a href="http://www.bing.com" target="_blank" title="Sample External Link">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="External Link" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Vivamus in nulla">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a>
+      </div>
+      <div class='thumbHolder' data-title="Vimeo Video">
+      	<a class="pp_content" href="http://vimeo.com/49224248" data-rel="prettyPhoto[gallery1]" title="Sample Vimeo Video">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Vimeo Video" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Pellentesque aliquam">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a>
+      </div>
+      <div class='thumbHolder' data-title="Fusce lobortis">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Ut porta dolor">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Nullam aliquam">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Aliquam erat volutpat">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Vivamus in nulla">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Proin magna nunc">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="PDF File">
+      	<a class="pp_content" href="http://docs.google.com/viewer?url=http://cdn.dcodes.net/sc-samples/sample.pdf&embedded=true?iframe=true&width=800&height=450" data-rel="prettyPhoto[iframes]" title="Sample PDF File">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="PDF File" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Pellentesque aliquam">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Ut porta dolor">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Ut porta dolor">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Vivamus in nulla">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Nullam aliquam">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Fusce lobortis">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Donec non purus">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Aliquam erat volutpat">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      	<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+     </div>
+      <div class='thumbHolder' data-title="Ut porta dolor">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Vivamus in nulla">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Optional title">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Pellentesque aliquam">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Optional title">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Proin magna nunc">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Nullam aliquam">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Donec non purus">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Fusce lobortis">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Optional title">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Aliquam erat volutpat">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Ut porta dolor">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Donec non purus">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Pellentesque aliquam">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Fusce lobortis">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Vivamus in nulla">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Proin magna nunc">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Donec non purus">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Nullam aliquam">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Vivamus in nulla">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Aliquam erat volutpat">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Optional title">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+      <div class='thumbHolder' data-title="Proin magna nunc">
+      	<a class="pp_content" href="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-rel="prettyPhoto[gallery1]" title="Optional description">
+      		<img class="thumb_hidden" src="http://cdn.pimg.co/p/240x155/999999/ffffff/pic.jpg" width="240" height="155" alt="Image" /></a> 
+      </div>
+    </div> <!-- /thumbInnerContainer -->
+  </div> <!-- /thumbContainer -->
+  
+  <!-- navigation back/forward controls -->
+  <div class="thumbBackward thumb_hidden"><img src="data/icons/thumb_backward.png" alt="" width="21" height="31" /></div>
+  <div class="thumbForward thumb_hidden"><img src="data/icons/thumb_forward.png" alt="" width="21" height="31" /></div>
+  
+</div> <!-- /componentWrapper -->
+
+<!-- public function calls -->
+<div id='publicFunctions'>
+  <p>PUBLIC METHODS</p>
+  <br/>
+  <ul>
+    <!-- start/stop all inner slideshows (true = start, false = stop) -->
+    <li><a href='#' onClick="jQuery.fn.thumbGallery.toggleInnerslideShow(true); return false;">start/stop all inner slideshows</a></li>
+    
+    <!-- start/stop specific inner slideshow (i = item number in html order starting from 0, true = start, false = stop) -->
+    <li><a href='#' onClick="jQuery.fn.thumbGallery.toggleInnerslideShowNum(0, true); return false;">start/stop specific inner slideshow number #</a></li>
+    
+    <!-- get Thumb Holder (retrun thumb holder, i = item number in html order starting from 0) -->
+    <li><a href='#' onClick="jQuery.fn.thumbGallery.getThumbHolder(0); return false;">get thumb holder number #</a></li>
+  </ul>
+</div>
+
+
+</body>
+</html>

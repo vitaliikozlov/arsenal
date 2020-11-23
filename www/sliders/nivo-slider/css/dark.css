@@ -1,0 +1,28 @@
+/*
+Skin Name: Nivo Slider Dark Theme
+Skin URI: http://nivo.dev7studios.com
+Description: A dark skin for the Nivo Slider.
+Version: 1.0
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+Supports Thumbs: true
+*/
+
+.slider-wrapper { background: #222; padding: 10px; }
+.nivoSlider { position:relative; background:url(../images/loading.gif) no-repeat 50% 50%; overflow: visible; }
+.nivoSlider img { position:absolute; top:0px; left:0px; display:none; }
+.nivoSlider a { border:0; display:block; }
+.nivo-controlNav { text-align: left; padding: 0; position: relative; z-index: 10; }
+.nivo-controlNav a { display:inline-block; width:10px; height:10px; background: url(../images/bullets.png) no-repeat 0 2px; text-indent:-9999px; border:0; margin: 0 2px; }
+.nivo-controlNav a.active { background-position:0 100%; }
+.nivo-directionNav a { display:block; width:68px; height:76px; background: url(../images/arrows.png) no-repeat; text-indent:-9999px; border:0;  z-index: 11; }
+.nivo-directionNav a.nivo-prevNav:hover { background: url(../images/arrows_a.png) no-repeat; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+.nivo-directionNav a.nivo-nextNav:hover { background: url(../images/arrows_a.png) no-repeat; background-position:-68px 50%; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+a.nivo-nextNav { background-position:-68px 50%; right:0px; }
+a.nivo-prevNav { background-position:0px 50%; left: 0px;  }
+.nivo-caption { font-family: Helvetica, Arial, sans-serif; }
+.nivo-caption a { color:#fff; border-bottom:1px dotted #fff; }
+.nivo-caption a:hover { color:#fff; }
+.nivo-controlNav.nivo-thumbs-enabled { width: 80%; }
+.nivo-controlNav.nivo-thumbs-enabled a { width: auto; height: auto; background: none; margin-bottom: 5px; }
+.nivo-controlNav.nivo-thumbs-enabled img { display: block; width: 120px; height: auto; }

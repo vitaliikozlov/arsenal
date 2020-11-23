@@ -1,0 +1,492 @@
+/* dCodes Framework */
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+}
+
+a{ 
+	text-decoration: none; 
+}
+
+ul{
+	list-style: none;
+}
+
+body {
+	background:#333;
+}
+
+
+
+/* wrapper for the whole component */
+#componentWrapper{
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:900px;
+	height:600px;
+	margin-left:-450px;
+	margin-top:-300px;
+	background:#111;
+	overflow:hidden; 
+}
+
+
+
+
+
+/* image pan holder */
+#componentWrapper .panHolder{
+	position:absolute;
+	top:0px;
+	left:0px;
+	/* size set with jquery */
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	overflow:hidden; 
+	/*background:red;*/
+}
+
+/* THUMBNAILS */
+#componentWrapper .thumbWrapper{
+	position:absolute;
+	bottom:0px;
+	overflow:hidden;
+	/*background:yellow;*/
+	/*display:none;*/
+}
+
+/* vertical thumbnails */
+#componentWrapper .thumbWrapper_v{
+	position:absolute;
+	right:0px;
+	overflow:hidden;
+	/*background:white;*/
+	/*display:none;*/
+}
+
+#componentWrapper .thumbHolder{
+	position:absolute;
+	/*background:green;*/
+}
+
+#componentWrapper .thumbs{
+	position:relative;
+	float:left;
+	list-style:none;
+}
+
+/* vertical thumbnails */
+#componentWrapper .thumbs_v{
+	position:relative;
+	float:right;
+	list-style:none;
+	clear:both;
+}
+
+/* gallery category data */
+#componentWrapper .thumbHolder .category{
+	display:none;
+}
+
+/* thumbs backward */
+#componentWrapper .thumb_backward{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:60px;
+	/* height set in jquery to correspond thumb height */
+	display:none;
+	background: rgb(0, 0, 0) url('../data/icons/thumb_backward_h.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/thumb_backward_h.png') no-repeat center center;
+}
+
+/* thumbs forward */
+#componentWrapper .thumb_forward{
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	width:60px;
+	/* height set in jquery to correspond thumb height */
+	display:none;
+	background: rgb(0, 0, 0) url('../data/icons/thumb_forward_h.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/thumb_forward_h.png') no-repeat center center;
+}
+
+/* thumbs backward, vertical thumbnails */
+#componentWrapper .thumb_backward_v{
+	position:absolute;
+	top:0px;
+	right:0px;
+	height:50px;
+	/* width set in jquery to correspond thumb width */
+	display:none;
+	background: rgb(0, 0, 0) url('../data/icons/thumb_backward_v.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/thumb_backward_v.png') no-repeat center center;
+}
+
+/* thumbs forward, vertical thumbnails */
+#componentWrapper .thumb_forward_v{
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	height:50px;
+	/* width set in jquery to correspond thumb width */
+	display:none;
+	background: rgb(0, 0, 0) url('../data/icons/thumb_forward_v.png') no-repeat center center;
+	background: rgba(0, 0, 0, 0.6) url('../data/icons/thumb_forward_v.png') no-repeat center center;
+}
+
+
+
+
+
+
+
+
+
+/* .menuWrapper, outer container for menu, transparent background, simulates 10px border around menu */
+#componentWrapper .menuWrapper{
+	position:absolute;
+	width:620px;
+	height:320px;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+	display:none;
+}
+
+/* .menuHolder, inner container for menu, 
+needs to be the width of the menu thumb image x the number of visible thumb images in menu, 
+height is the same as image menu thumb */
+#componentWrapper .menuHolder{
+	position:absolute;
+	width:600px;
+	height:300px;
+	top:10px;
+	left:10px;
+}
+
+/* .menuRowMasker: needs to be the same width and height of the menu thumb images */
+#componentWrapper .menuRowMasker{
+	position:relative;
+	width:200px;
+	height:300px;
+	top:0px;
+	left:0px;
+	float:left;
+	overflow:hidden;
+	/*background:red;*/
+}
+
+/* .menuRowHolder: needs to be twice the width of .menuRowMasker and the same height 
+(or in other words, twice the width of the menu thumb image and the same height as menu thumb image) */
+#componentWrapper .menuRowHolder{
+	position:absolute;
+	width:400px;
+	height:300px;
+	top:0px;
+	left:0px;
+	/*background:green;*/
+}
+
+/* menu controls */
+#componentWrapper .menu_backward{
+	position:absolute;
+	width:40px;
+	height:40px;
+	display:none;
+}
+
+#componentWrapper .menu_forward{
+	position:absolute;
+	width:40px;
+	height:40px;
+	display:none;
+}
+
+#componentWrapper .menu_close{
+	position:absolute;
+	width:40px;
+	height:40px;
+	display:none;
+}
+
+/* captions for menu items */
+#componentWrapper .menu_title{
+	position:absolute;
+	width:100%;
+	left:0px;
+	color:#fff;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	color:#fff;
+	padding: 5px 20px 5px 20px;
+}
+
+/* captions for menu items */
+@media only screen and (max-width: 480px), screen and (max-height: 300px) {
+#componentWrapper .menu_title{
+	position:absolute;
+	width:100%;
+	left:0px;
+	color:#fff;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	color:#fff;
+	padding: 5px 5px 5px 10px;
+}
+}
+
+
+
+
+
+
+/* description */
+#componentWrapper .info_wrapper{
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+/*hit area for scrollbar*/
+#componentWrapper .info_bg{
+	position:absolute;
+	/*size set in jquery*/
+	top:40px;
+	left:0px;
+	display:none;
+	/*background:green;*/
+}
+
+#componentWrapper .info_toggle{
+	position:absolute;
+	width:40px;
+	height:40px;
+	top:0px;
+	left:0px;
+	display:none;
+}
+
+#componentWrapper .info_holderMasker{
+	position:absolute;
+	left:0px;
+	top:40px;
+	width:300px;/* description width, height set in jquery */
+	overflow:hidden;
+	height:0px;
+}
+
+
+#componentWrapper .info_holder{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:100%;
+}
+
+#componentWrapper .info_content a{
+    font-size:20px;
+	color:#FF0;
+}
+
+#componentWrapper .info_content a:hover, a:active{
+   text-decoration:underline;
+}
+
+#componentWrapper .image_description{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	background:#111;
+	color:#e5e5e5;
+	padding: 10px 15px 20px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* gallery controls (menu toggle, slideshow toggle) */
+#componentWrapper .galleryControls{
+	position:absolute;
+	width:85px;
+	height:40px;
+	top:0px;
+	left:50%;
+	margin-left: -42px;
+	/*background:green;*/
+	display:none;
+}
+
+/* center play btn when menu btn is removed if only single category */
+#componentWrapper .galleryControls_noMenu{
+	position:absolute;
+	width:40px;
+	height:40px;
+	top:0px;
+	left:50%;
+	margin-left: -20px;
+	display:none;
+}
+
+#componentWrapper .menu_toggle{
+	position:relative;
+	width:40px;
+	height:40px;
+	left:0px;
+	float:left;
+	margin-right:5px;
+}
+
+#componentWrapper .slideshow_toggle{
+	position:relative;
+	width:40px;
+	height:40px;
+	left:0px;
+	float:left;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* image preloader */
+#componentWrapper .imagePreloader{
+	display:none;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-25px 0px 0px -25px;
+	/* + moved up in jquery by half height of the thumbs because of thumbs at the bottom */
+	background:#000 url('../data/loader.gif') no-repeat center center;
+	width:50px;
+	height:50px;
+	z-index:999;
+	opacity:0.7;
+}
+
+/* vertical thumbnails */
+#componentWrapper .imagePreloader_v{
+	display:none;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-25px 0px 0px -25px;
+	/* + moved left in jquery by half width of the thumbs because of thumbs at the right */
+	background:#000 url('../data/loader.gif') no-repeat center center;
+	width:50px;
+	height:50px;
+	z-index:999;
+	opacity:0.7;
+}
+
+
+
+
+
+
+
+/* image backward, centered at y axis */
+#componentWrapper .image_backward{
+	position:absolute;
+	width:40px;
+	height:40px;
+	left:0px;
+	display:none;
+}
+
+/* image forward, centered at y axis */
+#componentWrapper .image_forward{
+	position:absolute;
+	width:40px;
+	height:40px;
+	right:0px;
+	display:none;
+}
+
+/* image forward, centered at y axis, vertical thumbnails */
+#componentWrapper .image_forward_v{
+	position:absolute;
+	width:40px;
+	height:40px;
+	left:50px;
+	display:none;
+}
+
+/* image size toggle, horizontal thumbnails */
+#componentWrapper .image_sizeToggle{
+	position:absolute;
+	width:40px;
+	height:40px;
+	top:0px;
+	right:0px;
+	display:none;
+}
+
+/* image size toggle, vertical thumbnails  */
+#componentWrapper .image_sizeToggle_v{
+	position:absolute;
+	width:40px;
+	height:40px;
+	left:0px;
+	bottom:0px;
+	display:none;
+}
+
+
+
+
+
+
+
+
+
+/* public functions */	
+#publicFunctions{
+	position: absolute;
+	padding: 10px 25px 20px 20px;
+	background:#444;
+	left:100px;
+	top:100px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color:#fff;
+	list-style:circle;
+	
+	-moz-box-shadow: 2px 2px 5px #222;
+	-webkit-box-shadow: 2px 2px 5px #222;
+	box-shadow: 2px 2px 5px #222;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222');
+	
+	display:none;
+}
+
+#publicFunctions li a{
+	font-size: 16px;
+	color:#fff;
+}
+
+#publicFunctions li a:hover, #publicFunctions li .current{
+	text-decoration: underline;
+}

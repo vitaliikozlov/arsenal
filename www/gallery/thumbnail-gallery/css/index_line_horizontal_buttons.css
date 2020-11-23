@@ -1,0 +1,218 @@
+/* dCodes Framework */
+/**********************
+	-	RESET	-
+************************/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { 
+    margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; 
+}
+
+html {
+	padding: 0;
+	margin:0px;
+}
+
+ol, ul {  list-style: none; }
+
+a{	text-decoration:none;}
+
+body{
+	background:#181818;
+}
+
+
+
+
+
+/* wrapper for component */
+#componentWrapper{
+	position:absolute;
+	height:170px;
+	width:100%;
+	top:50%;
+	margin-top:-85px;
+	left:0px;
+	/*background:red;*/
+}
+
+#componentWrapper .thumbContainer{
+	position:absolute;
+	height:170px;
+	top:0px;
+	left:50%;
+	/*background:green;*/
+	overflow:hidden;
+}
+
+#componentWrapper .thumbInnerContainer{
+	position:relative;
+	top:0px;
+	left:0px;
+	display:none;
+}
+
+#componentWrapper .thumb_hidden{
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+
+#componentWrapper .thumbHolder{
+	position:relative;
+	top:0px;
+	left:0px;
+	width:220px;
+	height:170px;
+	margin-right:5px;
+	float:left;
+	background:#242424;
+	overflow:hidden;
+	
+	-moz-box-shadow: 2px 2px 2px #111;
+	-webkit-box-shadow: 2px 2px 2px #111;
+	box-shadow: 2px 2px 3px #111;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#111111')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#111111');
+}
+
+#componentWrapper .thumbHolder a img{
+	position:absolute;
+	display:block;
+	top:10px;
+	left:20px;
+	width:180px;
+	height:120px;
+}
+
+#componentWrapper .innerThumbHolder{
+	position:absolute;
+	width:220px;
+	height:170px;
+	overflow:hidden;
+}
+
+#componentWrapper .innerThumbHolder a img{
+	position:absolute;
+	display:block;
+	top:10px;
+	left:20px;
+	width:180px;
+	height:120px;
+}
+
+#componentWrapper .thumbBackward{
+	position:absolute;
+	width:40px;
+	height:170px;
+	top:50%;
+	margin-top:-85px;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+	display:none;
+}
+
+#componentWrapper .thumbBackward img{
+	position:absolute;
+	display:block;
+	width:21px;
+	height:31px;
+	top:50%;
+	left:50%;
+	margin-left:-12px;
+	margin-top:-15px;
+}
+
+#componentWrapper .thumbForward{
+	position:absolute;
+	width:40px;
+	height:170px;
+	top:50%;
+	margin-top:-85px;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.6);
+	display:none;
+}
+
+#componentWrapper .thumbForward img{
+	position:absolute;
+	display:block;
+	width:21px;
+	height:31px;
+	top:50%;
+	left:50%;
+	margin-left:-8px;
+	margin-top:-15px;
+}
+
+/* title */
+#componentWrapper .title{
+	position:absolute;
+	left:22px;
+	top:134px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#ccc;
+}
+
+#componentWrapper .info{
+	position:absolute;
+	left:22px;
+	bottom:4px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color:#777;
+}	
+
+
+		  
+		  
+		  
+		  
+	
+	
+		  
+		  
+		  
+		  
+			
+			
+					  
+
+/* public functions */	
+#publicFunctions{
+	position: absolute;
+	padding: 10px 25px 20px 20px;
+	background:#444;
+	left:200px;
+	top:100px;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	color:#fff;
+	list-style:circle;
+	
+	-moz-box-shadow: 2px 2px 5px #222;
+	-webkit-box-shadow: 2px 2px 5px #222;
+	box-shadow: 2px 2px 5px #222;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222');
+	
+	display:none;
+}
+
+#publicFunctions li a{
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	color:#fff;
+}
+
+#publicFunctions li a:hover, #publicFunctions li .current{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+

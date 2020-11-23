@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="dCodes Framework">
+<meta name="description" content="Respo Image Gallery" />
+<title>Respo Image Gallery (Responsive)</title>
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link href="css/skeleton.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+
+<!-- Render with Google Chrome Engine if available -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- Render with Google Chrome Engine if available -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Gallery CSS -->
+
+<!-- Dark Theme: Replace with "style-light.css" to use light theme permanently -->
+<link rel="stylesheet" type="text/css" href="css/style-dark.css" title="default" />
+
+<!-- Light Theme -->
+<link rel="alternate stylesheet" type="text/css" href="css/style-light.css" title="alternate" />
+
+<!-- TA Style Switcher: This code can be removed safely -->
+<script type="text/javascript" src="js/styleswitcher.js"></script>
+
+<!-- Google Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&v1' rel='stylesheet' type='text/css' />
+<!-- /Google Fonts -->
+
+<noscript>
+<style>
+.dream-carousel ul {
+	display:block;
+}
+
+</style>
+</noscript>
+
+<!-- Gallery Navigation -->
+<script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">	
+			<div class="rg-image-wrapper">
+				{{if itemsCount > 1}}
+					<div class="rg-image-nav">
+						<a href="#" class="rg-image-nav-prev">Previous Image</a>
+						<a href="#" class="rg-image-nav-next">Next Image</a>
+					</div>
+				{{/if}}
+				<div class="rg-image"></div>
+				<div class="rg-loading"></div>
+				<div class="rg-caption-wrapper">
+					<div class="rg-caption" style="display:none;">
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</script>
+<!-- /Gallery Navigation -->
+
+<!-- Gallery Scripts -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script type="text/javascript" src="js/jquery.elastislide.js"></script>
+<script type="text/javascript" src="js/gallery.js"></script>
+<script type="text/javascript" src="js/jquery.touchSwipe.js"></script>
+<!-- /Gallery Scripts -->
+
+</head><body>
+
+  <div class="taheader"> >> <a href="javascript:history.go(-1)" title="Go Back"><span>Go Back</span></a> <span class="right_ab"> 
+    <!-- TA Style Switcher: This code can be safely removed --> 
+    <strong>Switch:</strong> <a href="#" onclick="setActiveStyleSheet('default'); return false;" title="Switch to Dark Theme">Dark Theme</a> | <a href="#" onclick="setActiveStyleSheet('alternate'); return false;" title="Switch to Dark Theme">Light Theme</a> 
+    <!-- /TA Style Switcher -->
+    </span>
+    <div class="clr"></div>
+  </div>
+  <!-- header -->
+  
+  <div class="content"><br />
+    <h1>Respo Image Gallery <span>jQuery Responsive Gallery. Works on Desktop + Mobile.</span></h1>
+    <div id="rg-gallery" class="rg-gallery">
+      <div class="rg-thumbs"> 
+        <!-- Elastislide Carousel Thumbnail Viewer -->
+        <div class="dream-carousel-wrapper">
+          <div class="es-nav"> <span class="es-nav-prev">Previous</span> <span class="es-nav-next">Next</span> </div>
+          <div class="dream-carousel"> 
+            <!-- Change Thumbnails/Large Images/Image Captions Here --> 
+            <!-- Use thumbnail size: 65x65px | Large Images: Anysize -->
+            <ul>
+
+      <!-- sample local image -->
+      <!-- <li><a href="#"><img src="images/thumbs/thumb-image.jpg" data-large="images/large-image.jpg" alt="image01" data-description="Example Image Caption #1" /></a></li> -->
+      
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image01" data-description="Example Image Caption #1" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image02" data-description="Example Image Caption #2" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image03" data-description="Example Image Caption #3" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image04" data-description="Example Image Caption #4" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image05" data-description="Example Image Caption #5" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image06" data-description="Example Image Caption #6" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image07" data-description="Example Image Caption #7" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image08" data-description="Example Image Caption #8" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image09" data-description="Example Image Caption #9" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image10" data-description="Example Image Caption #10" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image11" data-description="Example Image Caption #11" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image12" data-description="Example Image Caption #12" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image13" data-description="Example Image Caption #13" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image14" data-description="Example Image Caption #14" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image15" data-description="Example Image Caption #15" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image16" data-description="Example Image Caption #16" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image17" data-description="Example Image Caption #17" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image18" data-description="Example Image Caption #18" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image19" data-description="Example Image Caption #19" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image20" data-description="Example Image Caption #20" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image21" data-description="Example Image Caption #21" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image22" data-description="Example Image Caption #22" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/999999/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/999999/ffffff/pic.jpg" alt="image23" data-description="Example Image Caption #23" /></a></li>
+              <li><a href="#"><img src="http://cdn.pimg.co/p/65x65/666666/ffffff/pic.jpg" data-large="http://cdn.pimg.co/p/1600x600/666666/ffffff/pic.jpg" alt="image24" data-description="Example Image Caption #24" /></a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- End Elastislide Carousel Thumbnail Viewer --> 
+      </div>
+      <!-- /rg-thumbs --> 
+    </div>
+    <!-- /rg-gallery -->
+    <p class="sub">All images and materials are copyright protected. <br></p>
+  </div>
+  <!-- /content --> 
+
+</body>
+</html>

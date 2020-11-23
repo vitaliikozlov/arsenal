@@ -1,0 +1,713 @@
+/*----------------------------------------------------------------------------- 
+
+	-	kenburn slider -
+
+Screen Stylesheet 
+
+version:   	1.0 
+date:      	09/18/11 
+author:		themepunch
+email:     	info@themepunch.com 
+website:   	http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+
+.tsc_clear { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
+
+/****************************
+	-	PREVIEW SETTINGS	-
+*****************************/
+
+.centerme {
+	margin-left:auto;
+	margin-right:auto;		
+}
+
+/*******************************
+	-	BANNER STYLES	-	
+********************************/
+
+creative_layer {font-size: 20px;}
+
+
+.kbpanel-bannercontainer { width: 100%; height:400px;
+	background-color:#333;
+	position:relative;
+	margin-top:0px;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}	
+
+.kbpanel-bannercontainer img {
+	margin-top:17px;
+}
+
+.kbpanel-bannercontainer ul >li {
+	display:none;
+}
+
+.bannershadow {	
+	margin-top:0px;
+	max-width:980px;
+	height:50px;
+	position:relative;
+}
+				
+
+/***********************************************
+	-	THE BACKGROUND OF THE SLIDER	-
+************************************************/
+
+
+.light .kenburn-bg{
+	background:url(../assets/bg/white25.png) repeat;	
+	padding:4px;
+	border:1px solid #fff;
+	border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;
+}
+
+.dark .kenburn-bg{
+	background:url(../assets/bg/black25.png) repeat;	
+	padding:4px;
+	border:1px solid #222;
+	border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px; 
+}
+
+
+
+
+/*************************************************
+	-	THE PRELOADER OF THE BANNER 	-
+*************************************************/
+.kenburn-preloader{
+	background:url(../assets/loader/preloader.gif) no-repeat 50% 50%;
+	width:32px;
+	height:32px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	z-index:9999;
+	background-color: #000;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	padding: 10px;
+	margin-left: -14px;
+}
+
+
+
+
+
+/**********************************************************
+	-	CAPTION SETTINGS FOR THE SLIDER	-
+**********************************************************/	
+
+.kb-fullsize .cp-right, .kb-fullsize .cp-top, .kb-fullsize .cp-left, .kb-fullsize .cp-bottom,
+.kb-smallsize .cp-right, .kb-smallsize .cp-top, .kb-smallsize .cp-left, .kb-smallsize .cp-bottom,
+.kb-mediumsize .cp-right, .kb-mediumsize .cp-top, .kb-mediumsize .cp-left, .kb-mediumsize .cp-bottom{
+	
+	color:#fff;
+	background:url(../assets/bg/black65.png);
+	position:absolute;		
+		
+}
+
+.kb-minisize .cp-right, .kb-minisize .cp-top, .kb-minisize .cp-left, .kb-minisize .cp-bottom{
+	visibility:hidden;
+	width:0px;
+	height:0px;
+}
+
+	
+/**************************
+	WIDHT >959px SIZING 
+***************************/
+
+.kb-fullsize .cp-right	{ padding:30px 30px 30px 20px; top:0px;    right:0px; height:100%; }
+.kb-fullsize .cp-left	{ padding:30px 30px 30px 20px; top:0px;    left:0px;  height:100%; }
+.kb-fullsize .cp-top	{ padding:15px 40px 5px 15px; top:0px;    left:0px;  width:100%;  }
+.kb-fullsize .cp-bottom	{ padding:15px 40px 5px 15px; bottom:0px; left:0px;  width:100%;  }
+
+.kb-fullsize .cp-title{		
+	color:#fff;
+	font-size:20px;	
+	font-family: Arial, sans-serif;
+	text-shadow: 0px 1px 0px #000000;	
+}
+
+.kb-fullsize p{
+	font-family: Arial, sans-serif;	
+	font-size:12px;
+	color:#cccccc;	
+	line-height:20px;	
+	text-shadow: 0px 1px 0px #000000;
+}
+
+
+
+/*******	VIDEO SETTINGS	********/
+.kb-fullsize .video_clip{
+	width:60%;
+	height:370px;		
+	top:0px;
+	left:0px;
+}
+
+.kb-fullsize .video_video{
+	width:100%;
+	height:370px;			
+}
+
+.kb-fullsize .video_details{	
+	width:34%;
+	padding:30px 3% 30px 3%;			
+	top:0px;
+	right:0px;
+	
+	position:absolute;
+}
+
+.kb-fullsize .video_kenburn h2{
+	color:#ccc;
+	font-size:26px;	
+	font-family: Arial, sans-serif;
+	text-shadow: 0px 1px 0px #000000;		
+	font-family: Arial, sans-serif;	
+	margin: 0;
+	line-height:1;
+}
+
+.light.kb-fullsize .video_kenburn h2{
+	color:#999;
+	text-shadow: 0px 1px 0px #eee;		
+}
+
+.light.kb-fullsize .video_kenburn .cp-title{
+	color:#999;
+	text-shadow: 0px 1px 0px #eee;		
+}
+
+.light.kb-fullsize .video_kenburn p{
+	text-shadow: 0px 1px 0px #eee;		
+}
+
+/**************************
+	WIDHT <=767px SIZING 
+***************************/
+
+.kb-mediumsize .cp-right	{ padding:15px 15px 15px 15px; top:0px;    right:0px; height:100%; }
+.kb-mediumsize .cp-left	{ padding:15px 15px 15px 15px; top:0px;    left:0px;  height:100%; }
+.kb-mediumsize .cp-top	{ padding:0px 15px 0px 15px; top:0px;    left:0px;  width:100%;  }
+.kb-mediumsize .cp-bottom	{ padding:0px 15px 0px 15px; bottom:0px; left:0px;  width:100%;  }
+
+.kb-mediumsize .cp-title{	
+	color:#ccc;
+	font-size:18px;	
+	font-family: Arial, sans-serif;
+	text-shadow: 0px 1px 0px #000000;	
+}
+
+.kb-mediumsize p{
+	font-family: Arial, sans-serif;	
+	font-size:12px;
+	color:#777;	
+	line-height:18px;		
+	text-shadow: 0px 1px 0px #000000;	
+}
+
+/*******	VIDEO SETTINGS	********/
+.kb-mediumsize .video_clip{
+	width:60%;
+	height:320px;		
+	top:0px;
+	left:0px;
+}
+
+.kb-mediumsize .video_video{
+	width:100%;
+	height:320px;			
+}
+
+.kb-mediumsize .video_details{	
+	width:34%;
+	padding:30px 3% 30px 3%;			
+	top:0px;
+	right:0px;
+	
+	position:absolute;
+}
+
+.kb-mediumsize .video_kenburn h2{
+	color:#ccc;
+	font-size:20px;	
+	font-family: Arial, sans-serif;
+	text-shadow: 0px 1px 0px #000000;		
+	font-family: Arial, sans-serif;	
+	margin: 0;
+	line-height:1;
+}
+
+.light.kb-mediumsize .video_kenburn h2{
+	color:#999;
+	text-shadow: 0px 1px 0px #eee;		
+}
+
+.light.kb-mediumsize .video_kenburn p{
+	text-shadow: 0px 1px 0px #eee;		
+}
+
+
+/**************************
+	WIDHT <=480px SIZING 
+***************************/
+
+.kb-smallsize .cp-right		{ padding:15px 15px 15px 15px; top:0px;    right:0px; height:100%; }
+.kb-smallsize .cp-left		{ padding:15px 15px 15px 15px; top:0px;    left:0px;  height:100%; }
+.kb-smallsize .cp-top		{ padding:15px 15px 15px 15px; top:0px;    left:0px;  width:100%;  }
+.kb-smallsize .cp-bottom	{ padding:15px 15px 15px 15px; bottom:0px; left:0px;  width:100%;  }
+
+.kb-smallsize .cp-title{	
+	color:#ccc;
+	font-size:14px;	
+	font-family: Arial, sans-serif;
+	text-shadow: 0px 1px 0px #000000;	
+}
+
+.kb-smallsize p{
+	font-family: Arial, sans-serif;	
+	font-size:12px;
+	color:#777;	
+	line-height:16px;		
+	text-shadow: 0px 1px 0px #000000;	
+}
+
+/*******	VIDEO SETTINGS	********/
+.kb-smallsize .video_clip{
+	width:60%;
+	height:320px;		
+	top:0px;
+	left:0px;
+}
+
+.kb-smallsize .video_video{
+	width:100%;
+	height:320px;			
+}
+
+.kb-smallsize .video_details{	
+	width:34%;
+	padding:30px 3% 30px 3%;			
+	top:0px;
+	right:0px;
+	
+	position:absolute;
+}
+
+.kb-smallsize .video_kenburn h2{
+	color:#ccc;
+	font-size:15px;	
+	font-family: Arial, sans-serif;
+	text-shadow: 0px 1px 0px #000000;		
+	font-family: Arial, sans-serif;	
+	margin: 0;
+	line-height:1;
+}
+
+.light.kb-smallsize .video_kenburn h2{
+	color:#999;
+	text-shadow: 0px 1px 0px #eee;		
+}
+
+.light.kb-smallsize .video_kenburn p{
+	text-shadow: 0px 1px 0px #eee;		
+}
+
+
+
+/**************************
+	WIDHT <=300px SIZING 
+***************************/
+
+
+
+.kb-minisize .video_clip{
+	width:100%;
+	height:320px;
+	padding-right:0px;
+	top:0px;
+	left:0px;	
+}
+
+/*******	VIDEO SETTINGS	********/
+.kb-minisize .video_clip{
+	width:100%;
+	height:320px;		
+	top:0px;
+	left:0px;
+}
+
+.kb-minisize .video_video{
+	width:100%;
+	height:320px;			
+}
+
+.kb-minisize .video_details{	
+	visibility:hidden
+}
+
+.kb-minisize .video_kenburn h2{
+	font-size:0px;		
+	margin: 0;
+	line-height:0;
+}
+
+/****************************
+	-	DECORATIONS	-
+****************************/	
+.centerme a:link, .centerme a:visited {
+	text-decoration: none;
+	color: #fff;
+}
+
+.centerme a:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #ddd;
+}
+
+.centerme a:focus { 
+    outline: none; 
+}
+
+.clear{
+	clear:both;
+}
+
+
+
+
+
+
+
+
+
+/***********************************************
+	-	ALL  VIDEO SETTINGS	-
+************************************************/
+.kenburn-video-overlay{
+	background-color:#000;
+	opacity:0.25;
+	filter: alpha(opacity=25);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+	width:100%;
+	height:100%;
+	position:relative;
+	z-index:1000;
+}
+
+.kenburn-video-button{
+	background:url(../assets/player/play.png) no-repeat;
+	width:100px;
+	height:100px;
+	position:absolute;
+	z-index:1500;
+	opacity:0.85;
+	filter: alpha(opacity=85);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+	cursor:pointer;
+}
+
+.kenburn-video-button:hover {
+	opacity:1.0;
+}
+
+/*****************************************
+	-	VIDEO BACKGROUNDS	-
+******************************************/
+.dark .video_kenburn{
+		position:absolute;
+		top: 0; bottom: 0px;
+		width: 100%;
+		background: #111;
+		font-family: Arial, sans-serif;
+		font-size:12px;
+		line-height: 20px;
+		color: #777;
+		text-shadow: #fff 1px 1px 1px;
+	}	
+	
+
+.light .video_kenburn{
+		position:absolute;
+		top: 0; bottom: 0px;
+		width: 100%;
+		background: #ddd;
+		font-family: Arial, sans-serif;
+		font-size:12px;
+		line-height: 20px;
+		color: #222;
+		text-shadow: #eee 1px 1px 1px;
+	}		
+
+
+
+
+/**************************
+	-	BUTTONS	-
+***************************/
+	
+.dark .kb-button {
+ font-family: Arial, sans-serif;	
+ float: left;
+ height: 31px;
+ line-height: 30px;
+ font-size: 12px;
+ -webkit-border-radius: 3px;
+ -moz-border-radius: 3px;
+ border-radius:3px;
+}
+
+.dark .kb-button:link, .dark .kb-button:visited {
+ color: #fff;
+ padding: 0 20px 0 20px;
+ text-align: center;
+ text-shadow: 0px 1px 0px #000000;
+ background: url('../assets/button/button_dark.png') repeat-x center top; 
+ text-decoration: none;
+ 
+}
+
+.dark .kb-button:hover, .dark .comment-reply-link:hover {
+ background-position:bottom;
+ text-decoration: none;
+}
+
+
+.light .kb-button {
+ font-family: Arial, sans-serif;	
+ float: left;
+ height: 31px;
+ line-height: 30px;
+ font-size: 12px;
+ -webkit-border-radius: 3px;
+ -moz-border-radius: 3px;
+ border-radius:3px;
+}
+
+.light .kb-button:link, .light .kb-button:visited {
+ color: #333;
+ padding: 0 20px 0 20px;
+ text-align: center;
+ text-shadow: 0px 1px 0px #ccc;
+ background: url('../assets/button/button_light.png') repeat-x center top; 
+ text-decoration: none;
+ 
+}
+
+.light .kb-button:hover, .light .comment-reply-link:hover {
+ background-position:bottom;
+ text-decoration: none;
+  color: #000;
+}
+
+
+/*********************************
+	-	VIDEO BUTTONS	-
+*********************************/	
+.dark .video_kenburn .close{
+	width:30px;
+	height:30px;
+	position:absolute;
+	background:url(../assets/button/close_dark.png) no-repeat top;	
+	right:10px;
+	top:10px;
+	cursor:pointer;
+}
+
+.dark .video_kenburn .close:hover{
+	background-position:bottom;
+	opacity:0.5;
+	filter: alpha(opacity=50);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	cursor:pointer;
+}
+
+.light .video_kenburn .close{
+	width:30px;
+	height:30px;
+	position:absolute;
+	background:url(../assets/button/close.png) no-repeat top;	
+	right:10px;
+	top:10px;
+	cursor:pointer;
+}
+
+.light .video_kenburn .close:hover{
+	background-position:bottom;
+	opacity:0.5;
+	filter: alpha(opacity=50);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	cursor:pointer;
+}
+
+.kenburn_thumb_container .video{
+	width:30px;
+	height:30px;
+	background:url(../assets/player/play_small.png) no-repeat;
+	margin-top:-15px;
+	margin-left:-15px;
+	cursor:pointer;
+	
+}
+
+
+/*************************************/
+/*		THUMBNAIL OPTIONS			*/
+/*************************************/
+
+.kenburn_thumb_container_bg {
+	background:url(../assets/bg/thumbs_bg.png);
+	padding:1px;
+	margin-top:-1px;
+	margin-left:-1px;
+	 -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 8px 2pxrgba(0, 0, 0, 0.80);
+    -moz-box-shadow:0px 0px 8px 2px rgba(0, 0, 0, 0.80);
+    -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.80);		
+}
+
+.dark .kenburn-thumbs .overlay{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background:#000;
+}
+
+.light .kenburn-thumbs .overlay{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background:#000;
+}
+
+/*************************************/
+/*		THUMBNAIL OPTIONS			*/
+/*************************************/
+.thumbbuttons{
+	background:url(../assets/button/navigdots_bgtile.png);
+	height:35px;	
+	 -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	position:absolute;
+	bottom:-33px;
+	z-index:1000;
+	box-shadow: 0px 0px 8px 2pxrgba(0, 0, 0, 0.80);
+    -moz-box-shadow:0px 0px 8px 2px rgba(0, 0, 0, 0.80);
+    -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.80);	
+}
+
+.thumbbuttons .grainme{
+	background:url(../assets/bg/grain.png);
+	height:35px;
+	width:100%;
+}
+
+
+.thumbbuttons .leftarrow{
+	background:url(../assets/button/arrowleft.png) no-Repeat bottom left;
+	width:9px;
+	height:16px;
+	margin-left:9px;	
+	margin-right:9px;
+	margin-top:9px;
+	float:left;
+	cursor:pointer;
+}
+
+
+.thumbbuttons .rightarrow{
+	background:url(../assets/button/arrowright.png) no-Repeat bottom left;
+	width:9px;
+	height:16px;
+	margin-top:9px;	
+	margin-right:9px;
+	margin-left:18px;
+	float:left;
+	cursor:pointer;
+}
+
+
+.thumbbuttons .minithumb{
+	background:url(../assets/button/navigdots.png) no-Repeat bottom left;
+	width:15px;
+	height:15px;
+	margin-top:9px;	
+	margin-left:9px;	
+	float:left;
+	cursor:pointer;
+}
+
+.thumbbuttons .thumbs{
+	float:left;
+}
+
+.thumbbuttons .rightarrow:hover, .thumbbuttons .leftarrow:hover, .thumbbuttons .minithumb:hover, .thumbbuttons .thumbs .selected{
+	background-position:top left;
+}
+
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.layer_container.layer1 { width: 150px !important; }
+	.layer_container.layer0 .cp-left { padding: 15px 7px !important; }
+	.layer_container.layer1 .cp-right { padding: 15px 7px !important; }
+	layer_container.layer4 .cp-left { padding: 15px 7px !important; }
+	.layer_container.layer0 { width: 150px !important; }
+	.layer_container.layer4 { width: 150px !important; }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	
+	}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.layer_container .cp-left { padding-left: 7px; padding-right: 7px; width: 120px !important; }
+	.layer_container .cp-right { padding-left: 7px; padding-right: 7px; width: 120px !important; }
+	.kbpanel-bannercontainer { height: 220px; }
+	.slide_mainmask { height: 265px !important; }
+	}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	.layer_container.layer0 { display: block !important; padding-left: 7px; padding-right: 7px; width: 80px !important; }
+	.layer_container.layer1 { display: block !important; padding-left: 7px; padding-right: 7px; width: 80px !important; }
+	.kenburn_thumb_container { width: 260px !important; left: 10px !important; }
+	.kenburn_thumb_container_bg { width: 260px !important; }
+	#thumbmask { width: 260px !important; }
+	#thumb0 { width: 65px !important;  }
+	#thumb1 { width: 65px !important; left: 65px !important; }
+	#thumb2 { width: 65px !important; left: 130px !important; }
+	#thumb3 { width: 65px !important; left: 195px !important; }
+	.kbpanel-bannercontainer { height: 180px; }
+	.slide_mainmask { height: 190px !important; }
+	section#slide { margin: 0 auto 20px auto; }
+	#carousel-container { padding: 0px !important; }
+	}

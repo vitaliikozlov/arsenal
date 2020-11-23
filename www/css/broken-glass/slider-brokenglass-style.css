@@ -1,0 +1,202 @@
+/* dCodes Framework: (c) TemplateAccess */
+
+.dc_clear {
+	clear: both;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	font-size: 0px;
+	line-height: 0px;
+}
+.rm_container {
+	
+	overflow: hidden;
+	position: relative;
+	height: 420px;
+	font-size: 16px;
+	color: #FFF; padding-left: 30px;
+}
+.rm_container h2 {
+	background: transparent url(../../images/broken-glass/lines.png) repeat top left;
+	padding: 10px 30px;
+	position: absolute;
+	bottom: 100px;
+	right: 0px;
+	color: #000;
+	font-size: 36px !important;
+	text-transform: uppercase;
+	text-shadow: 1px 0px 1px #fff;
+}
+.rm_container ul {
+	width: 1100px;
+}
+.rm_container ul li {
+	float: left;
+	position: relative;
+	overflow: hidden;
+	width: 200px;
+	height: 460px;
+	padding: 0 0 0 30px;
+	margin: 0px 0 0 0;
+	left: -10px;
+
+}
+.rm_container ul li img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	background: #FFF;
+}
+.rm_mask_right, .rm_mask_left {
+	position: absolute;
+	height: 115px;
+	
+	width: 560px;
+	bottom: -30px;
+	left: 0px;
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+.rm_mask_right {
+	left: auto;
+	right: 0px;
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+.rm_corner_right, .rm_corner_left {
+
+	position: absolute;
+	width: 200px;
+	height: 100px;
+	bottom: 0px;
+	left: -65px;
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.rm_corner_right {
+	left: auto;
+	right: -65px;
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.rm_nav a {
+	position: absolute;
+	top: 230px;
+	width: 38px;
+	height: 87px;
+	cursor: pointer;
+	opacity: 0.7;
+}
+.rm_nav a:hover {
+	opacity: 1.0;
+}
+.rm_nav a.rm_next {
+	background: transparent url(../../images/broken-glass/next.png) no-repeat top left;
+	right: 3px;
+}
+.rm_nav a.rm_prev {
+	background: transparent url(../../images/broken-glass/prev.png) no-repeat top left;
+	left: 7px;
+}
+.rm_controls {
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	height: 20px;
+}
+.rm_controls a {
+	cursor: pointer;
+	opacity: 0.7;
+	padding-left: 24px;
+	font-size: 18px;
+	text-transform: uppercase;
+	height: 20px;
+	float: left;
+	line-height: 20px;
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+.rm_controls a:hover {
+	opacity: 1.0;
+}
+.rm_controls a.rm_play { color: #000 !important;	display: none;
+	background: transparent url(../../images/broken-glass/play.png) no-repeat center left;
+}
+.rm_controls a.rm_pause { color: #000 !important;
+	background: transparent url(../../images/broken-glass/pause.png) no-repeat center left;
+}
+#rm_container img { max-width: none !important; }
+
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+
+		
+	}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.rm_container { padding-left: 40px; width: 707px; height: 220px; }
+	.rm_container h2 { padding: 0 15px; line-height: 26px; }
+	.rm_nav a { top: 110px; }
+	.rm_container ul li { width: 140px;  }
+	.rm_mask_right, .rm_mask_left { bottom: -38px; }
+	.rm_container ul li img { max-width: 100% !important; width: 100%; height: 250px; }
+	.rm_nav a.rm_prev { left: 0px; }
+	.rm_nav a.rm_next { right: 0px; }
+	.rm_mask_right, .rm_mask_left { bottom: 0px; }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	.rm_container ul { margin-left: 10px; }
+	#rm_container h2 { font-size: 18px !important; }
+	
+	}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.rm_container { padding-left: 20px; width: 380px; height: 260px; }
+	.rm_container h2 { bottom: 10px; padding: 0 15px; font-size: 24px; line-height: 30px; }
+	
+	.rm_container { left: 0px; margin: 0px; height: 170px; }
+	.rm_controls { left: 0px; }
+	.rm_nav a { top: 70px; }
+	.rm_container ul li { padding-left: 0px; width: 152px; margin-left: 33px;  }
+	.rm_mask_right, .rm_mask_left { bottom: -56px; }
+	.rm_container ul li img { width: 100%; height: auto; }
+	.rm_nav a.rm_prev { background-size: contain; width: 45px; height: 45px; }
+	.rm_nav a.rm_next { right: -5px; background-size: contain; width: 45px; height: 45px; } 
+	.rm_corner_right, .rm_corner_left { width: 155px; }
+
+	}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	.rm_container { width: 298px; height: 238px; }
+	.rm_container h2 { bottom: 8px; padding: 0 15px; font-size: 18px; line-height: 24px; }
+	.rm_nav a.rm_next { right: -30px; }
+	.rm_container { left: 0px; margin: 0px; }
+	.rm_controls { left: 20px; }
+	.rm_nav a { top: 78px; }
+	.rm_nav a.rm_prev { left: 0px; }
+
+	.rm_container ul li { width: 224px; margin-left: 33px; left: 0px; padding: 0px 0 0 20px;  }
+	.rm_mask_right, .rm_mask_left { bottom: -77px; }
+	.rm_corner_right, .rm_corner_left { width: 135px; }
+	.rm_container ul li img { width: 100%; height: auto; }
+	.rm_nav a.rm_prev { background-size: contain; width: 45px; height: 45px; }
+	.rm_nav a.rm_next { right: -10px; background-size: contain; width: 45px; height: 45px; } 
+	.rm_container { padding: 0px; }
+	}
+

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="author" content="dCodes Framework">
+<meta name="description" content="Expansion Portfolio" />
+<title>Expansion Portfolio (Responsive)</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+
+<!-- Image rollover magnify starts -->
+<script type="text/javascript">
+function finished() {
+	// Global preloader
+	$('.global-preloader').animate({
+		opacity: 0,
+		zIndex: 0
+	}, {
+		duration: 500
+	});
+}
+// Imagerollover effects
+$(function() {
+	
+	// OPACITY OF BUTTON SET TO 0%
+	$(".rollover-image").css("opacity","0");
+	 
+	// ON MOUSE OVER
+	$(".rollover-image").hover(function () {
+		 
+		// SET OPACITY TO 40%
+		$(this).stop().animate({
+			opacity: .5
+		}, "slow");
+	},		 
+	// ON MOUSE OUT
+	function () {		 
+		// SET OPACITY BACK TO 50%
+		$(this).stop().animate({
+			opacity: 0
+		}, "slow");
+	});
+});
+</script>
+<style type="text/css" media="screen">
+span.rollover-image {
+	background: url(images/magnify-round.png) center center no-repeat #000;
+	margin: 0;
+	height: 250px;
+	position: absolute;
+	width: 250px;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	-webkit-box-shadow: 0px 0px 6px #000;
+	-moz-box-shadow: 0px 0px 6px #000;
+	box-shadow: 0px 0px 6px #000;
+}
+.global-preloader {
+	background: #000 center center no-repeat;
+	background-image: url('data:image/gif;base64,R0lGODlhHwAfAPUAAAAAAP///xYWFiwsLEJCQlBQUFxcXCIiIkZGRmRkZBoaGiYmJlRUVF5eXk5OTjIyMggICFZWVioqKhgYGMjIyNjY2K6urjo6Oo6OjmxsbKioqAQEBJaWlri4uDg4OAYGBra2tszMzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAHwAfAAAG/0CAcEgUDAgFA4BiwSQexKh0eEAkrldAZbvlOD5TqYKALWu5XIwnPFwwymY0GsRgAxrwuJwbCi8aAHlYZ3sVdwtRCm8JgVgODwoQAAIXGRpojQwKRGSDCRESYRsGHYZlBFR5AJt2a3kHQlZlERN2QxMRcAiTeaG2QxJ5RnAOv1EOcEdwUMZDD3BIcKzNq3BJcJLUABBwStrNBtjf3GUGBdLfCtadWMzUz6cDxN/IZQMCvdTBcAIAsli0jOHSJeSAqmlhNr0awo7RJ19TJORqdAXVEEVZyjyKtE3Bg3oZE2iK8oeiKkFZGiCaggelSTiA2LhxiZLBSjZjBL2siNBOFQ84LxHA+mYEiRJzBO7ZCQIAIfkECQoAAAAsAAAAAB8AHwAABv9AgHBIFAwIBQPAUCAMBMSodHhAJK5XAPaKOEynCsIWqx0nCIrvcMEwZ90JxkINaMATZXfju9jf82YAIQxRCm14Ww4PChAAEAoPDlsAFRUgHkRiZAkREmoSEXiVlRgfQgeBaXRpo6MOQlZbERN0Qx4drRUcAAJmnrVDBrkVDwNjr8BDGxq5Z2MPyUQZuRgFY6rRABe5FgZjjdm8uRTh2d5b4NkQY0zX5QpjTc/lD2NOx+WSW0++2RJmUGJhmZVsQqgtCE6lqpXGjBchmt50+hQKEAEiht5gUcTIESR9GhlgE9IH0BiTkxrMmWIHDkose9SwcQlHDsOIk9ygiVbl5JgMLuV4HUmypMkTOkEAACH5BAkKAAAALAAAAAAfAB8AAAb/QIBwSBQMCAUDwFAgDATEqHR4QCSuVwD2ijhMpwrCFqsdJwiK73DBMGfdCcZCDWjAE2V347vY3/NmdXNECm14Ww4PChAAEAoPDltlDGlDYmQJERJqEhGHWARUgZVqaWZeAFZbERN0QxOeWwgAAmabrkMSZkZjDrhRkVtHYw+/RA9jSGOkxgpjSWOMxkIQY0rT0wbR2LQV3t4UBcvcF9/eFpdYxdgZ5hUYA73YGxruCbVjt78G7hXFqlhY/fLQwR0HIQdGuUrTz5eQdIc0cfIEwByGD0MKvcGSaFGjR8GyeAPhIUofQGNQSgrB4IsdOCqx7FHDBiYcOQshYjKDxliVDpRjunCjdSTJkiZP6AQBACH5BAkKAAAALAAAAAAfAB8AAAb/QIBwSBQMCAUDwFAgDATEqHR4QCSuVwD2ijhMpwrCFqsdJwiK73DBMGfdCcZCDWjAE2V347vY3/NmdXNECm14Ww4PChAAEAoPDltlDGlDYmQJERJqEhGHWARUgZVqaWZeAFZbERN0QxOeWwgAAmabrkMSZkZjDrhRkVtHYw+/RA9jSGOkxgpjSWOMxkIQY0rT0wbR2I3WBcvczltNxNzIW0693MFYT7bTumNQqlisv7BjswAHo64egFdQAbj0RtOXDQY6VAAUakihN1gSLaJ1IYOGChgXXqEUpQ9ASRlDYhT0xQ4cACJDhqDD5mRKjCAYuArjBmVKDP9+VRljMyMHDwcfuBlBooSCBQwJiqkJAgAh+QQJCgAAACwAAAAAHwAfAAAG/0CAcEgUDAgFA8BQIAwExKh0eEAkrlcA9oo4TKcKwharHScIiu9wwTBn3QnGQg1owBNld+O72N/zZnVzRApteFsODwoQABAKDw5bZQxpQ2JkCRESahIRh1gEVIGVamlmXgBWWxETdEMTnlsIAAJmm65DEmZGYw64UZFbR2MPv0QPY0hjpMYKY0ljjMZCEGNK09MG0diN1gXL3M5bTcTcyFtOvdzBWE+207pjUKpYrL+wY7MAB4EerqZjUAG4lKVCBwMbvnT6dCXUkEIFK0jUkOECFEeQJF2hFKUPAIkgQwIaI+hLiJAoR27Zo4YBCJQgVW4cpMYDBpgVZKL59cEBhw+U+QROQ4bBAoUlTZ7QCQIAIfkECQoAAAAsAAAAAB8AHwAABv9AgHBIFAwIBQPAUCAMBMSodHhAJK5XAPaKOEynCsIWqx0nCIrvcMEwZ90JxkINaMATZXfju9jf82Z1c0QKbXhbDg8KEAAQCg8OW2UMaUNiZAkREmoSEYdYBFSBlWppZl4AVlsRE3RDE55bCAACZpuuQxJmRmMOuFGRW0djD79ED2NIY6TGCmNJY4zGQhBjStPTFBXb21DY1VsGFtzbF9gAzlsFGOQVGefIW2LtGhvYwVgDD+0V17+6Y6BwaNfBwy9YY2YBcMAPnStTY1B9YMdNiyZOngCFGuIBxDZAiRY1eoTvE6UoDEIAGrNSUoNBUuzAaYlljxo2M+HIeXiJpRsRNMaq+JSFCpsRJEqYOPH2JQgAIfkECQoAAAAsAAAAAB8AHwAABv9AgHBIFAwIBQPAUCAMBMSodHhAJK5XAPaKOEynCsIWqx0nCIrvcMEwZ90JxkINaMATZXfjywjlzX9jdXNEHiAVFX8ODwoQABAKDw5bZQxpQh8YiIhaERJqEhF4WwRDDpubAJdqaWZeAByoFR0edEMTolsIAA+yFUq2QxJmAgmyGhvBRJNbA5qoGcpED2MEFrIX0kMKYwUUslDaj2PA4soGY47iEOQFY6vS3FtNYw/m1KQDYw7mzFhPZj5JGzYGipUtESYowzVmF4ADgOCBCZTgFQAxZBJ4AiXqT6ltbUZhWdToUSR/Ii1FWbDnDkUyDQhJsQPn5ZU9atjUhCPHVhgTNy/RSKsiqKFFbUaQKGHiJNyXIAAh+QQJCgAAACwAAAAAHwAfAAAG/0CAcEh8JDAWCsBQIAwExKhU+HFwKlgsIMHlIg7TqQeTLW+7XYIiPGSAymY0mrFgA0LwuLzbCC/6eVlnewkADXVECgxcAGUaGRdQEAoPDmhnDGtDBJcVHQYbYRIRhWgEQwd7AB52AGt7YAAIchETrUITpGgIAAJ7ErdDEnsCA3IOwUSWaAOcaA/JQ0amBXKa0QpyBQZyENFCEHIG39HcaN7f4WhM1uTZaE1y0N/TacZoyN/LXU+/0cNyoMxCUytYLjm8AKSS46rVKzmxADhjlCACMFGkBiU4NUQRxS4OHijwNqnSJS6ZovzRyJAQo0NhGrgs5bIPmwWLCLHsQsfhxBWTe9QkOzCwC8sv5Ho127akyRM7QQAAOwAAAAAAAAAAAA==');
+	opacity: 0.7;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	display: block;
+}
+</style>
+<!-- Image rollover magnify end -->
+
+</head>
+<body onload="finished()">
+<div class="global-preloader"></div>
+<div class="container">
+  <div class="taheader">>> <a href="javascript:history.go(-1)" title="Go Back"><span>Go Back</span></a> <span class="right_ab"> &nbsp; </span>
+    <div class="clr"></div>
+  </div>
+  
+  <!-- uncomment to add heading title --> 
+  <!--
+			<header class="clearfix">
+				
+			<h1>Expansion Portfolio<span>(Responsive)</span></h1>
+			</header>
+			-->
+  
+  <div class="main">
+    <ul id="og-grid" class="og-grid">
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Colin R. Davis" data-description="The road to success and the road to failure are almost exactly the same."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Thomas Jefferson" data-description="I find that the harder I work, the more luck I seem to have."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Steve Jobs" data-description="The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Ralph Waldo Emerson" data-description="Every artist was first an amateur."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Albert Einstein" data-description="Try not to become a man of success. Rather become a man of value."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="The Buddha" data-description="It is better to conquer yourself than to win a thousand battles."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Malcolm Forbes" data-description="The purpose of education is to replace an empty mind with an open one."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Confucius" data-description="Everything has its beauty, but not everyone sees it."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="George Bernard Shaw" data-description="Progress is impossible without change, and those who cannot change their minds cannot change anything."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Robert A. Heinlein" data-description="Don't handicap your children by making their lives easy."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Albert Einstein" data-description="Our death is not an end if we can live on in our children and the younger generation. For they are us, our bodies are only wilted leaves on the tree of life."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Wu Ting-Fang" data-description="Education is like a double-edged sword. It may be turned to dangerous uses if it is not properly handled."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Plato" data-description="Ignorance, the root and the stem of every evil."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Abraham Lincoln" data-description="I destroy my enemies when I make them my friends."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Albert Einstein" data-description="Peace cannot be kept by force; it can only be achieved by understanding."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Benjamin Franklin" data-description="Never leave that till tomorrow which you can do today."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Henry Ford" data-description="Whether you think you can or think you can't, you're right."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Martin Luther King, Jr." data-description="We must learn to live together as brothers or perish together as fools."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Ralph Waldo Emerson" data-description="For every minute you are angry you lose sixty seconds of happiness."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Jacob M. Braude" data-description="Consider how hard it is to change yourself and you'll understand what little chance you have in trying to change others."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Charles Darwin" data-description="It is not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Alec Bourne" data-description="It is possible to store the mind with a million facts and still be entirely uneducated."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Lily Tomlin" data-description="The trouble with the rat race is that even if you win, you're still a rat."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Lou Holtz" data-description="Never tell your problems to anyone...20% don't care and the other 80% are glad you have them."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Randall G Leighton" data-description="Work like you don't need the money, love like you've never been hurt and dance like no one is watching."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Benjamin Franklin" data-description="A penny saved is a penny earned"><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Lao Tzu" data-description="Give a man a fish and you feed him for a day. Teach a man how to fish and you feed him for a lifetime."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Benjamin Franklin" data-description="God heals, and the doctor takes the fees."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Robert Collier" data-description="Success is the sum of small efforts, repeated day-in and day-out."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Napolean Hill" data-description="The starting point of all achievement is desire."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Anonymous" data-description="To live a creative life, we must lose our fear of being wrong."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Confucius" data-description="Study the past if you would define the future."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Unknown" data-description="You can't direct the wind, but you can adjust your sails."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Anonymous" data-description="Do not be fooled. Success is not the key to happiness. Happiness is the key to success."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Herman Hesse" data-description="Some of us think holding on makes us strong; but sometimes it is letting go."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Bill Gates" data-description="Success is a lousy teacher. It seduces smart people into thinking they can't lose."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Ray Kroc" data-description="Luck is a dividend of sweat. The more you sweat, the luckier you get."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Chinese Proverb" data-description="The best time to plant a tree was 20 years ago.  The second best time is now."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/999999/ffffff/pic.jpg" data-title="Leo Tolstoy" data-description="Everyone thinks of changing the world, but no one thinks of changing himself."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/999999/ffffff/pic.jpg" alt="Image" /> </a> </li>
+      <li> <a href="http://www.bing.com" data-largesrc="http://cdn.pimg.co/p/800x600/666666/ffffff/pic.jpg" data-title="Buddha" data-description="You, as much as anyone in the universe, deserve your love and respect."><span class="rollover-image"></span> <img src="http://cdn.pimg.co/p/250x250/666666/ffffff/pic.jpg" alt="Image" /> </a> </li>
+    </ul>
+    <p>&copy; All images and materials are copyright protected.</p>
+  </div>
+</div>
+<!-- /container --> 
+
+<script src="js/script.js"></script> 
+<script>
+			$(function() {
+				Grid.init();
+			});
+		</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Acordion Slider</title>
+        <link rel="stylesheet" type="text/css" href="css/acordionSlider.css" />
+        <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/froogaloop.min.js"></script>  
+        <script type="text/javascript" src="js/jquery.transform-0.9.3.min.js" ></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="js/jquery.acordionSlider.js"></script>
+		<script type="text/javascript">
+			
+			// SETTINGS
+			var as_settings = {
+				/* visibleItems: less of equal to total items in acordion  */
+				visibleItems:5,
+				/* slideshowOn; true, false */
+				slideshowOn: false,
+				/* useGlobalDelay; true, false (use same timer delay for all slides, if false you NEED to set individual delays for all slides) */
+				useGlobalDelay: true,
+				/* slideshowDelay; slideshow delay, in miliseconds */
+				slideshowDelay: 3000,
+				/* randomPlay; true, false (play slides in normal or random order or to be more accurate, if true - mixes slide order on the beginning to simulate random) */
+				randomPlay: false,
+				/* includeVideoInSlideshow; autoplay video if exist in slide and on video finish continue with next slide (true/false) */
+				includeVideoInSlideshow: false,
+				/* openOnRollover; true, false (open slides on rollover or click) */
+				openOnRollover: false,
+				/* useScroll; true, false */
+				useScroll: true,
+				/* scrollDraggerOverColor; scroll dragger color on mouse over */
+				scrollDraggerOverColor: '#658',
+				/* useControls; true/false */
+				useControls: true,
+				/* openSlideNum; open slide on begining, enter -1 for none, 0 = first, 1 = second, 2 = third... etc. */
+				openSlideNum: 0,
+				/* transitionTime: transition time for slide in miliseconds */
+				transitionTime: 1000,
+				/* transitionEase: transition ease for slide, (some eases may possibly not work correctly), check eases here: http://gsgd.co.uk/sandbox/jquery/easing/ */
+				transitionEase: 'easeOutQuint'
+			};
+			
+			jQuery(window).load(function() {
+				jQuery.noConflict();
+				jQuery.accordionSlider('#sliderWrapper', as_settings);
+				as_settings = null;
+				
+				//after div holder (#gmap_canvas) for google map is ready in the dom, otherwise we get an error in ie coming from google maps.
+			    //google.maps.event.addDomListener(window, 'load', initialize);
+			    initializeGmap();
+			});
+			
+			/*
+			https://developers.google.com/maps/documentation/javascript/reference
+			google map example 
+			*/
+			
+		    var gmap;
+		    function initializeGmap() {
+				var myOptions = {
+				  zoom: 8,
+				  center: new google.maps.LatLng(48.856614, 2.3522219),
+				  mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				gmap = new google.maps.Map(document.getElementById('gmap_canvas'),
+					myOptions);
+		    }
+			
+        </script>
+	
+  <link href="ui_totop/css/ui.totop.css" rel="stylesheet">
+<script src="ui_totop/js/jquery.ui.totop.js" charset="utf-8"></script>
+<link href="preloader/css/preloader.css" rel="stylesheet">
+<script src="preloader/js/jquery.preloader.js" charset="utf-8"></script>
+</head>
+      <body>  
+     
+         <div id="sliderWrapper">
+             <div class="sliderCointainer">
+                 <div class="sliderHolder">
+                    
+                       <!-- List your slides in here -->
+                    
+                       <div class='slideDiv' data-width='500' data-content='' data-link='http://www.google.com' data-target='_blank' data-delay='3000'>
+                         <img class='stack_img' src='data/images/01.jpg' width='500' height='333' alt=''/>
+                         <p data-title='title' class="-90,bl,10,10" data-background-color="rgba(155,55,55, 0.6)" data-color="#ffffff">Image title number one</p>
+                           <p data-title='caption' class="50,50" data-background-color="rgba(155,12,65, 0.6)" data-color="#ffffff">Component supports</p>
+                           <p data-title='caption' class="50,150" data-background-color="rgba(32,222,98, 0.6)" data-color="#ffffff">Images, Vimeo, Youtube</p>
+                           <p data-title='caption' class="50,250" data-background-color="rgba(123,45,166, 0.6)" data-color="#ffffff"><a style="text-decoration:none" href="http://codecanyon.net/user/Tean" target="_blank">Or any HTML inline content you place</a></p> 
+                       </div>
+                          
+ <div class='slideDiv' data-width='500' data-content='' data-link='' data-delay='5000'>
+                           <div id="gmap_canvas"></div> 
+                           <p data-title='title' class="-90,bl,10,10" data-background-color="rgba(123,45,166, 0.6)" data-color="#ffffff">Google maps</p>
+                           <p data-title='caption' class="50,250" data-background-color="rgba(123,45,166, 0.6)" data-color="#ffffff">Google maps example</p>
+                       </div>	
+                       
+                       <div class='slideDiv' data-width='500' data-content='youtube' data-link='zGrG-Xw3kM4' data-delay='3000'>
+                      	   <img class='stack_img' src='data/images/02.jpg' width='500' height='333' alt=''/>
+                           <p data-title='title' class="-90,bl,10,10" data-background-color="rgba(155,55,55, 0.6)" data-color="#ffffff">Aliquam ac nulla one</p>
+                           <p data-title='caption' class="50,50" data-background-color="rgba(123,45,166, 0.6)" data-color="#ffffff">This is Youtube</p>
+                           <p data-title='caption' class="50,250" data-background-color="rgba(32,222,98, 0.6)" data-color="#ffffff">Click anywhere to view the video</p> 
+                       </div>
+                         
+                       <div class='slideDiv' data-width='500' data-content='vimeo' data-link='35386989' data-delay='3000'>
+                           <img class='stack_img' src='data/images/03.jpg' width='500' height='333' alt=''/>
+                           <p data-title='title' class="-90,bl,10,10" data-background-color="rgba(34,14,224, 0.6)" data-color="#ffffff">Nullam fermentum zero</p>
+                           <p data-title='caption' class="50,50" data-background-color="rgba(155,12,65, 0.6)" data-color="#ffffff">This is Vimeo</p>
+                           <p data-title='caption' class="50,250" data-background-color="rgba(123,45,166, 0.6)" data-color="#ffffff">Click to play</p>
+                       </div>
+                       
+                       <div class='slideDiv' data-width='500' data-content='image' data-link='' data-target='' data-delay='3000' >
+                           <img class='stack_img' src='data/images/04.jpg' width='500' height='333' alt=''/>
+                           <p data-title='title' class="-90,bl,10,10" data-background-color="rgba(4,4,4, 0.6)" data-color="#ffffff">Mauris orci ligula</p>
+                           <p data-title='caption' class="50,50" data-background-color="rgba(123,45,166, 0.6)" data-color="#ffffff">Optional scroll and controls</p>
+                           <p data-title='caption' class="50,250" data-background-color="rgba(155,12,65, 0.6)" data-color="#ffffff">And multiple customization options</p>
+                       </div>
+                       
+                       <div class='slideDiv' data-width='500' data-content='' data-link='' data-target='' data-delay='3000'>
+                       	   <img class='stack_img' src='data/images/05.jpg' width='500' height='333' alt=''/>
+                           <p data-title='title' class="-90,bl,10,10" data-background-color="rgba(34,14,224, 0.6)" data-color="#ffffff">Image title number one</p>
+                           <p data-title='caption' class="50,50" data-background-color="rgba(32,222,98, 0.6)" data-color="#ffffff">Component supports</p>
+                           <p data-title='caption' class="50,150" data-background-color="rgba(155,12,65, 0.6)" data-color="#ffffff">Images, Vimeo, Youtube</p>
+                           <p data-title='caption' class="50,250" data-background-color="rgba(4,4,4, 0.6)" data-color="#ffffff"><a style="text-decoration:none" href="http://codecanyon.net/user/Tean" target="_blank">Or any HTML inline content you place</a></p> 
+                       </div>
+                         
+                       <div class='slideDiv' data-width='500' data-content='vimeo' data-link='35386989' data-delay='3000'>
+                           <img class='stack_img' src='data/images/06.jpg' width='500' height='333' alt=''/>
+                           <p data-title='title' class="-90,bl,10,10" data-background-color="rgba(4,4,4, 0.6)" data-color="#ffffff">Nullam fermentum zero</p>
+                           <p data-title='caption' class="50,50" data-background-color="rgba(223,245,22, 0.6)" data-color="#ffffff">This is Vimeo</p>
+                           <p data-title='caption' class="50,250" data-background-color="rgba(123,45,166, 0.6)" data-color="#ffffff">Click to play</p>
+                       </div>
+                       
+                       <div class='slideDiv' data-width='500' data-content='' data-link='' data-target='' data-delay='3000'>
+                       	   <img class='stack_img' src='data/images/07.jpg' width='500' height='333' alt=''/>
+                           <p data-title='title' class="-90,bl,10,10" data-background-color="rgba(4,4,4, 0.6)" data-color="#ffffff">Lorem ipsum dolor</p>
+                           <p data-title='caption' class="50,50" data-background-color="rgba(32,222,98, 0.6)" data-color="#ffffff">Inline HTML content supported</p>
+                           <p data-title='caption' class="50,250" data-background-color="rgba(155,12,65, 0.6)" data-color="#ffffff">Optional titles and captions</p>
+                       </div>
+                       
+                       <div class='slideDiv' data-width='500' data-content='youtube' data-link='zGrG-Xw3kM4' data-delay='3000'>
+                      	   <img class='stack_img' src='data/images/08.jpg' width='500' height='333' alt=''/>
+                           <p data-title='title' class="-90,bl,10,10" data-background-color="rgba(155,55,55, 0.6)" data-color="#ffffff">Aliquam ac nulla one</p>
+                           <p data-title='caption' class="50,50" data-background-color="rgba(123,45,166, 0.6)" data-color="#ffffff">This is Youtube</p>
+                           <p data-title='caption' class="50,250" data-background-color="rgba(32,222,98, 0.6)" data-color="#ffffff">Click anywhere to view the video</p> 
+                       </div>
+                       
+              </div>
+          </div>
+          
+          <!-- acordion controls -->
+          <div class="controls">
+              <div class="controls_prev"><img src='data/icons/controls_prev.gif' width='9' height='13' alt='controls_prev'/></div>
+              <div class="controls_toggle"><img src='data/icons/controls_play.gif' width='9' height='13' alt='controls_toggle'/></div>
+              <div class="controls_next"><img src='data/icons/controls_next.gif' width='9' height='13' alt='controls_next'/></div>
+          </div>
+          
+          <!-- acordion scroll -->
+          <div class="scroll">
+              <div class="scrollTrack"></div>
+              <div class="scrollBar"></div>
+          </div> 
+          <div class="fontMeasure">a</div>
+          
+          <!-- preloader 
+          <div class="mediaPreloader"></div>-->
+          
+        </div>  
+        
+        
+      </body>
+</html>

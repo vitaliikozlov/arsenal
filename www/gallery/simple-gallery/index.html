@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="dCodes Framework">
+<meta name="description" content="Simple Gallery" />
+<title>Simple Gallery (Responsive)</title>
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link href="css/skeleton.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+
+
+<!-- simple gallery JS files -->
+		<link rel="stylesheet" href="css/page-defaults.css" type="text/css" />
+		<link rel="stylesheet" href="css/simplegallery.css" type="text/css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.simplegallery.js"></script>
+		<script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+        <script type="text/javascript" src="js/jquery.touchSwipe.js"></script>
+<!-- simple gallery JS files -->
+
+
+		<!-- We only want the thunbnails to display when javascript is disabled -->
+		<script type="text/javascript">
+			document.write('<style>.noscript { display: none; }</style>');
+
+		</script>
+
+<!-- PrettyPhoto Starts -->
+<link rel="stylesheet" type="text/css" href="prettyPhoto/css/prettyPhoto.css" />
+<script type="text/javascript" src="prettyPhoto/js/jquery.prettyPhoto.js"></script>
+<!-- PrettyPhoto Ends -->
+
+
+	</head>
+	<body>
+		<br />
+    <div class="container">
+		<div id="page">
+
+<!-- start of simplegallery container -->
+			<div id="simplegallery-container">
+				<h1>Simple Gallery</h1>
+				<a href="javascript:history.go(-1)" title="Go Back">>> Go Back</a><br /><br />
+
+				<!-- Start Advanced Gallery Html Containers -->
+                <div class="six columns alpha omega">
+					<div id="thumbs" class="navigation">
+					<ul class="thumbs noscript">
+      <!-- sample local image -->
+      <!--
+						<li>
+							<a class="thumb" name="leaf" href="images/large-image-500x500px.jpg" title="Image Caption (optional)">
+								<img src="images/thumbs-thumbnail-image-75x75px.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="images/fullsize-image.jpg" target="_blank">Full Size</a>
+								</div>
+								<div class="image-title">Title #0</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+       -->
+
+						<li>
+							<!-- Image 500x500px -->
+							<a class="thumb" name="leaf" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+							<!-- Thumbnail 75x75px -->
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<!-- Full size image -->
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery1]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Image Caption</div>
+								<div class="image-desc">Add your own text here</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" name="drop" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<!-- Full size image -->
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery2]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Image Caption</div>
+								<div class="image-desc">Add your own text here</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" name="bigleaf" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery3]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #2</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" name="lizard" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery4]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #3</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery5]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #4</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery6]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #5</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery7]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #6</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery8]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #7</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery9]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #8</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery10]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #9</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery11]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #10</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery12]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #11</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #12</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #13</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #14</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #15</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #16</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #17</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #18</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #19</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #20</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #21</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #22</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+						<li>
+							<a class="thumb" href="http://cdn.pimg.co/p/500x500/999999/ffffff/pic.jpg" title="Image Caption (optional)">
+								<img src="http://cdn.pimg.co/p/75x75/999999/ffffff/pic.jpg" title="Image Caption (optional)" />
+							</a>
+							<div class="caption">
+								<div class="download">
+									<a href="http://cdn.pimg.co/p/1280x720/999999/ffffff/pic.jpg" rel="prettyPhoto[gallery13]" title="Description of photo goes here">Full Size</a>
+								</div>
+								<div class="image-title">Title #22</div>
+								<div class="image-desc">Description</div>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+                </div>
+
+               <div class="ten columns alpha omega">
+					<div id="gallery" class="simplegallery-content">
+					<div id="simplegallery-controls" class="simplegallery-controls"></div>
+					<div class="slideshow-container">
+						<div id="loading" class="loader"></div>
+						<div id="slideshow" class="slideshow"></div>
+					</div>
+					<div id="caption" class="caption-container"></div>
+				</div>
+                </div>
+
+				<div style="clear: both;"></div>
+			</div>
+<!-- end of simplegallery container -->
+
+		</div>
+   </div>
+
+<!-- simple gallery javascript -->
+		<script type="text/javascript">
+
+			jQuery(document).ready(function($) {
+				// We only want these styles applied when javascript is enabled
+				$('div.navigation').css({'width' : '300px', 'float' : 'left'});
+				$('div.simplegallery-content').css('display', 'block');
+
+				// Initially set opacity on thumbs and add
+				// additional styling for hover effect on thumbs
+				var onMouseOutOpacity = 0.67;
+				$('#thumbs ul.thumbs li').opacityrollover({
+					mouseOutOpacity:   onMouseOutOpacity,
+					mouseOverOpacity:  1.0,
+					fadeSpeed:         'fast',
+					exemptionSelector: '.selected'
+				});
+
+				$.prettyPhotoLoader = function () {
+					$("a[rel^='prettyPhoto']").prettyPhoto({
+							animation_speed:'normal',
+							theme:'dark_square',
+							slideshow:8000,
+							autoplay_slideshow: false,
+							social_tools: false,
+							show_title: false,
+							allow_resize: true
+						});
+				}
+
+				// Initialize Advanced Galleriffic Gallery
+				var gallery = $('#thumbs').galleriffic({
+					delay:                     2500,
+					numThumbs:                 15,
+					preloadAhead:              10,
+					enableTopPager:            true,
+					enableBottomPager:         true,
+					maxPagesToShow:            7,
+					imageContainerSel:         '#slideshow',
+					controlsContainerSel:      '#simplegallery-controls',
+					captionContainerSel:       '#caption',
+					loadingContainerSel:       '#loading',
+					renderSSControls:          true,
+					renderNavControls:         true,
+					playLinkText:              'Play',
+					pauseLinkText:             'Pause',
+					prevLinkText:              '<<',
+					nextLinkText:              '>>',
+					nextPageLinkText:          'Next &rsaquo;',
+					prevPageLinkText:          '&lsaquo; Prev',
+					enableHistory:             false,
+					autoStart:                 false,
+					syncTransitions:           true,
+					defaultTransitionDuration: 900,
+					onSlideChange:             function(prevIndex, nextIndex) {
+						// 'this' refers to the gallery, which is an extension of $('#thumbs')
+						this.find('ul.thumbs').children()
+							.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+							.eq(nextIndex).fadeTo('fast', 1.0);
+					},
+					onPageTransitionOut:       function(callback) {
+						this.fadeTo('fast', 0.0, callback);
+					},
+					onPageTransitionIn:        function() {
+						this.fadeTo('fast', 1.0);
+					}
+				});
+				$('#advance-link').click(function(e) {
+                    alert('OK');
+                });
+				$.prettyPhotoLoader();
+				$(".download a[rel^='prettyPhoto']").live('click', function () {
+					var $path = $(this).attr('href');
+					var $title = $(this).attr('title');
+					$.prettyPhoto.open($path,$title,$title);
+					return false;
+				});
+
+			});
+
+
+		</script>
+        <style> .advance-link{cursor:move;}</style>
+<!-- simple gallery javascript -->
+
+
+<br /><br />
+All images and materials are copyright protected.
+<br /><br />
+
+
+	</body>
+</html>

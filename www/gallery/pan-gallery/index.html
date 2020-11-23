@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="author" content="dCodes Framework">
+        <meta name="description" content="Pan Gallery" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pan Gallery (Responsive)</title>
+        <link rel="stylesheet" type="text/css" href="css/panGallery.css" />
+        <!--[if lte IE 8 ]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+        <link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" media="all" />
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.js"></script>
+        <script type="text/javascript">jQuery.noConflict();</script>
+        <script type="text/javascript" src="js/jquery.address-1.5.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cj-swipe.js"></script>
+        <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+        <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+        <script type="text/javascript" src="js/jquery.apPlaylistManager.min.js"></script>
+        <script type="text/javascript" src="js/jquery.panGallery.min.js"></script>
+        <script type="text/javascript">
+		
+			function panGalleryReady(){
+				//function called when component is ready to receive public method calls
+				//console.log('panGalleryReady');
+			}
+			
+			// SETTINGS
+			var pg_settings = {
+				/* componentFixedSize: true/false. Responsive = false, fixed = true */
+				componentFixedSize: false,
+				<!-- slideshowDelay: in seconds -->
+				slideshowDelay: 4,
+				<!-- slideshowOn: true, false -->
+				slideshowOn:false,
+				
+				<!-- DEEPLINKING SETTINGS -->
+				<!-- useDeeplink: true/false - creates direct urls for each image for easier sharing. Each image *must have* unique filenames or images will fail to load. -->
+				useDeeplink:false,
+				<!-- startUrl: deeplink start url, enter which photo category to show on startup, enter category data-address/picture name (NO EXTENSION!). Leave empty for none like this: startUrl:'' -> no category loaded, start with menu. -->
+				startUrl: 'fashion_one/01',
+				
+				<!-- NO DEEPLINKING SETTINGS -->
+				<!-- activeCategory: active category to start with (counting starts from zero, 0=first category, 1=second category... etc) -->
+				activeCategory:0,
+				
+				/*randomPlay: image random play, true/false */
+				randomPlay:false,
+				<!-- thumbScale: thumb rollover scale (1 = no scale, original size). Enter number 1 or above. -->
+				thumbScale: 1.5,
+				<!-- autoOpenDescription: true/false (auto open description if exist when image is loaded, default false on mobile) -->
+				autoOpenDescription:true,
+				<!-- animatePan: true/false (animate mouse pan) -->
+				animatePan:true,
+				<!-- imageStartScale: original/scaled. When image loads, if its original size is bigger than component size, set this to 'scaled' and it will be scaled down (proportionally) to component size. Otherwise if 'original', image size will be in its full size, default 'scaled' on mobile. -->
+				imageStartScale:'scaled',
+				
+				<!-- defaultGallerySide: bottom/right/autoselect (default thumbnail position) -->
+				defaultGallerySide:'autoselect',
+				<!-- flipGallerySides: true/false (flip thumbnail position) -->
+				flipGallerySides:true
+				
+			};
+			
+			jQuery(document).ready(function() {
+				//init component
+				jQuery.panGallery("#componentWrapper", pg_settings);
+				pg_settings = null;
+			});
+
+        </script>
+        </head>
+        <body>
+<div id="componentWrapper"> 
+          
+          <!-- image pan holder  -->
+          <div class="panHolder"></div>
+          
+          <!-- image preloader (above image, below menu) -->
+          <div class="imagePreloader"></div>
+          
+          <!-- thumb scroll holder -->
+          <div class="thumbWrapper">
+    <div class="thumbHolder"> 
+              
+              <!-- 
+                    category attributtes (for menu):
+                    REQUIRED
+                    data-address -> think of this as 'category name', used for swfaddress (indexable images), 
+                                SWFADDRESS RULES:
+                                No spaces between words, so use either cammelCase or under_score.
+                                Any spaces left will be stripped, and all will be converted to lowercase. 
+                                Only normal characters allowed: a-z, 0-9.
+                    data-menuThumbPath -> category menu thumb source
+                    data-thumbWidth -> category thumb width 
+                    data-thumbHeight -> category thumb height
+                    OPTIONAL
+                    data-title -> category menu title
+                    -->
+              
+              <div class="category" data-address="beauty_one" data-menuThumbPath="http://cdn.pimg.co/p/200x300/ffffff/999999/pic.jpg" data-thumbWidth="80" data-thumbHeight="53" data-title="Category: Beauty" > 
+        
+        <!-- 
+                        playlist attributtes (for images):
+                        REQUIRED
+                        data-imagePath -> main image source (large image)
+                        data-thumbPath -> small image source (thumbnail)
+                        OPTIONAL
+                        data-description -> image description
+                        data-link -> image link
+                        data-target -> image target for link above('_blank' - open in new window, '_parent' - open in same window), _blank by default
+                        (to link an image add this attributtes into 'li': data-link='http://www.google.com/' data-target='_blank')
+                        -->
+        
+        <ul>
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg" data-description="TA Pan Gallery is a simple yet powerful image gallery completely optimized for MOBILE. It includes DEEPLINKING with jquery address, adding ability to link to ANY single image within the gallery. It supports image TOUCH pan on mobile devices, and mouse pan for desktop computers. Thumbnails automatically choose appropriate side (bottom or right), depending on screen resolution, thus leaving more space for the image next to it. The whole galley is RESPONSIVE, including menu and optional description for each image. Touch SWIPE is supported, as well as the optional link for each image."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. Nunc neque libero." />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque.. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra.."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg" data-description="Proin elit diam, condimentum sit amet. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg" data-description="Aenean egestas. Donec vel sapien."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg" />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies.." />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg" data-description="Proin elit diam, condimentum sit amet. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg" data-description="Aenean egestas. Donec vel sapien."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg" data-description="Mauris eu tortor sed turpis." />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/ffffff/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/ffffff/999999/pic.jpg" data-description="Aenean egestas.."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/999999/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/999999/pic.jpg"  />
+                </ul>
+      </div>
+              <div class="category" data-address="wedding_two" data-menuThumbPath="http://cdn.pimg.co/p/200x300/cccccc/ffffff/pic.jpg" data-thumbWidth="80" data-thumbHeight="53" data-title="Category: Weddings" >
+        <ul>
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg" data-description=""  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies." />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/cccccc/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/cccccc/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien."  />
+                </ul>
+      </div>
+              <div class="category" data-address="business_three" data-menuThumbPath="http://cdn.pimg.co/p/200x300/999999/ffffff/pic.jpg" data-thumbWidth="80" data-thumbHeight="53" data-title="Category: Business" >
+        <ul>
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero."  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt.  "/>
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. Nunc neque libero, fringilla tempor, pulvinar quis, cursus ut, dui. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description=""  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                </ul>
+      </div>
+              <div class="category" data-address="music_four" data-menuThumbPath="http://cdn.pimg.co/p/200x300/666666/ffffff/pic.jpg" data-thumbWidth="80" data-thumbHeight="53" data-title="Category: Music" >
+        <ul>
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. Nunc neque libero, fringilla tempor, pulvinar quis, cursus ut, dui. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/999999/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/999999/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt. " />
+                </ul>
+      </div>
+              <div class="category" data-address="science_five" data-menuThumbPath="http://cdn.pimg.co/p/200x300/333333/ffffff/pic.jpg" data-thumbWidth="80" data-thumbHeight="53" data-title="Category: Science" >
+        <ul>
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt.  " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. Nunc neque libero, fringilla tempor, pulvinar quis, cursus ut, dui.  " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt.  " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. Nunc neque libero, fringilla tempor, pulvinar quis, cursus ut, dui. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt.  " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. Nunc neque libero, fringilla tempor, pulvinar quis, cursus ut, dui. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt.  " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. Nunc neque libero, fringilla tempor, pulvinar quis, cursus ut, dui. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/333333/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/333333/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                </ul>
+      </div>
+              <div class="category" data-address="landmarks_six" data-menuThumbPath="http://cdn.pimg.co/p/200x300/000000/333333/pic.jpg" data-thumbWidth="80" data-thumbHeight="53" data-title="Category: Landmarks">
+        <ul>
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/000000/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/000000/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/000000/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/000000/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt. In quis enim.  " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/000000/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/000000/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. Vivamus elementum scelerisque lectus. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/000000/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/000000/ffffff/pic.jpg" data-description="Mauris eu tortor sed turpis tempor ultricies. Nunc neque libero, fringilla tempor, pulvinar quis, cursus ut, dui. " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Morbi blandit, nulla non rhoncus dapibus, metus tellus posuere justo, et condimentum leo ante cursus libero. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/000000/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/000000/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Proin elit diam, condimentum sit amet, rutrum id, eleifend nec, neque. Aenean at neque et ante volutpat tincidunt.  " />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/000000/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/000000/ffffff/pic.jpg"  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/666666/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/666666/ffffff/pic.jpg" data-description="Aenean egestas. Donec vel sapien ultrices lorem laoreet viverra. Curabitur molestie gravida nisi. "  />
+                  <li data-imagePath="http://cdn.pimg.co/p/1600x900/000000/ffffff/pic.jpg" data-thumbPath="http://cdn.pimg.co/p/140x93/000000/ffffff/pic.jpg"  />
+                </ul>
+      </div>
+            </div>
+  </div>
+          
+          <!-- thumbs left -->
+          <div class="thumb_backward"></div>
+          
+          <!-- thumbs right -->
+          <div class="thumb_forward"></div>
+          
+          <!-- backward -->
+          <div class="image_backward"><img src="data/icons/image_backward.png" alt="Previous" title="Previous" width="40" height="40" /></div>
+          
+          <!-- forward -->
+          <div class="image_forward"><img src="data/icons/image_forward.png" alt="Next" title="Next" width="40" height="40" /></div>
+          
+          <!-- toggle_size -->
+          <div class="image_sizeToggle"><img src="data/icons/image_toggle_plus.png" alt="zoom/fit to width" title="zoom/fit to width" width="40" height="40" /></div>
+          
+          <!-- holder for the info (description). -->
+          <div class="info_wrapper"> 
+    <!-- info_bg - transparent background for stopping mouse events going below on image while scrolling info. -->
+    <div class="info_bg"></div>
+    <div class="info_toggle"><img src="data/icons/info_toggle.png" alt="open/close info" title="open/close info" width="40" height="40" /></div>
+    <div class="info_holderMasker">
+              <div class="info_holder"></div>
+            </div>
+  </div>
+          
+          <!-- menu toggle and slideshow toggle button -->
+          <div class="galleryControls"> 
+    <!-- menu toggle -->
+    <div class="menu_toggle"><img src="data/icons/menu_toggle.png" alt="" width="40" height="40" title="Change Album/Category" /></div>
+    <!-- slideshow toggle -->
+    <div class="slideshow_toggle"><img src="data/icons/slideshow_play.png" alt="" width="40" height="40" title="Play/Pause Slidershow" /></div>
+  </div>
+          
+          <!-- category menu -->
+          <div class="menuWrapper">
+    <div class="menuHolder" > 
+              <!-- 
+                    add or remove this:
+                    <div class="menuRowMasker">
+                        <div class="menuRowHolder"></div>
+                    </div> 
+                    to increase/decrease the number of visible menu items.
+                    -->
+              
+              <div class="menuRowMasker">
+        <div class="menuRowHolder"></div>
+      </div>
+              <div class="menuRowMasker">
+        <div class="menuRowHolder"></div>
+      </div>
+              <div class="menuRowMasker">
+        <div class="menuRowHolder"></div>
+      </div>
+            </div>
+    
+    <!-- menu backward -->
+    <div class="menu_backward"><img src="data/icons/menu_backward.png" alt="Previous" title="Previous" width="40" height="40" /></div>
+    
+    <!-- menu forward -->
+    <div class="menu_forward"><img src="data/icons/menu_forward.png" alt="Next" title="Next" width="40" height="40" /></div>
+    
+    <!-- menu close -->
+    <div class="menu_close"><img src="data/icons/close.png" alt="Close" title="Close" width="40" height="40" /></div>
+  </div>
+        </div>
+
+<!-- public function calls -->
+<div id='publicFunctions'>
+          <p>PUBLIC API</p>
+          <br/>
+          <ul>
+    <!-- Toggle slideshow (pass true (play), false (stop) as parameter, or none for simple toggle) -->
+    <li><a href='#' onClick="jQuery.panGallery.toggleSlideshow(); return false;">Toggle slideshow</a></li>
+    
+    <!-- Set global slideshow delay, in miliseconds -->
+    <li><a href='#' onClick="jQuery.panGallery.setSlideshowDelay(2000); return false;">Set slideshow delay</a></li>
+    
+    <!-- Play next media -->
+    <li><a href='#' onClick="jQuery.panGallery.nextMedia(); return false;">Play next media</a></li>
+    
+    <!-- Play previous media -->
+    <li><a href='#' onClick="jQuery.panGallery.previousMedia(); return false;">Play previous media</a></li>
+    
+    <!-- Open media, pass number (counting starts from 0), or media name as string without extension (for deeplink). -->
+    <li><a href='#' onClick="jQuery.panGallery.openMedia(8); return false;">Open media number 9</a></li>
+    <li><a href='#' onClick="jQuery.panGallery.openMedia('10'); return false;">Open media name '10'</a></li>
+    
+    <!-- Open new category (counting starts from 0), or category name as string (for deeplink).
+                This will open first image in category. -->
+    <li><a href='#' onClick="jQuery.panGallery.openCategory(2); return false;">Open category number 2</a></li>
+    <li><a href='#' onClick="jQuery.panGallery.openCategory('fashion_five'); return false;">Open category number 5</a></li>
+  </ul>
+        </div>
+</body>
+</html>
